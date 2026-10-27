@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#5960e8">
+  <meta name="theme-color" content="#173c32">
   <meta name="description" content="Scout is a memory-enabled shopping assistant built with Gemini and LangGraph. Compare sample headphone offers and inspect every step.">
   <title>Scout — Your shopping assistant</title>
   <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/typography.css">
   <link rel="stylesheet" href="/static/styles.css">
   <script src="/static/app.js" defer></script>
 </head>
@@ -32,25 +33,19 @@
     <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
     <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></symbol>
   </svg>
-  <div class="app-shell">
-    <aside class="sidebar">
-      <a class="brand" href="/" aria-label="Scout home"><span class="brand-mark"><svg><use href="#i-spark"/></svg></span><span>scout<span class="brand-period">.</span></span></a>
-      <div class="workspace-label">YOUR SHOPPING WORKSPACE</div>
-      <nav aria-label="Main navigation">
-        <button class="nav-item active" data-view="shop"><svg><use href="#i-chat"/></svg>Shopping assistant<span class="nav-dot"></span></button>
-        <button class="nav-item" data-view="catalog"><svg><use href="#i-grid"/></svg>Product catalog<span class="nav-count">6</span></button>
-        <button class="nav-item" data-view="memory"><svg><use href="#i-memory"/></svg>Memory<span id="memory-count" class="nav-count">0</span></button>
-        <button class="nav-item" data-view="architecture"><svg><use href="#i-flow"/></svg>Architecture</button>
-      </nav>
-      <div class="sidebar-project"><span class="mini-label">BUILT TO BE UNDERSTOOD</span><h3>One agent.<br>Every step visible.</h3><p>Explore how Scout plans, compares, and remembers.</p><button class="text-button" data-view="architecture">See the workflow <svg><use href="#i-arrow"/></svg></button></div>
-      <div class="sidebar-bottom"><span class="project-pill"><span></span>Agentic AI · Project 1</span><div class="profile"><span class="avatar">BL</span><div><strong>My workspace</strong><span>shopper-001</span></div><button class="icon-button" id="settings-button" aria-label="Connection settings"><svg><use href="#i-settings"/></svg></button></div></div>
-    </aside>
-    <div class="main-shell">
-      <header class="topbar"><div class="breadcrumb">Workspace <svg><use href="#i-chevron"/></svg><strong id="page-name">Shopping assistant</strong></div><div class="topbar-actions"><span class="data-badge"><svg><use href="#i-box"/></svg>Sample CSV</span><label class="engine-switch"><span class="connection-dot" id="connection-dot"></span><select id="engine-select" aria-label="Assistant engine"><option value="gemini">Gemini</option><option value="sample">Sample engine · no LLM</option></select></label><button class="icon-button" id="top-settings" aria-label="Gemini connection settings"><svg><use href="#i-settings"/></svg></button></div></header>
-      <main id="content" tabindex="-1"></main>
-      <footer class="app-footer"><span>Thoughtful choices, with you in control.</span><span>Sample products · Simulated purchases · Memory lasts until server restart</span></footer>
-    </div>
-  </div>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <button class="brand" data-view="shop" aria-label="Scout home"><svg class="brand-mark"><use href="#i-spark"/></svg><span>scout<span class="brand-period">.</span></span></button>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-item active" data-view="shop">Shopping</button>
+      <button class="nav-item" data-view="catalog">Catalog</button>
+      <button class="nav-item" data-view="memory">Memory <span id="memory-count" class="nav-count">0</span></button>
+      <button class="nav-item" data-view="architecture">Architecture</button>
+    </nav>
+    <div class="header-actions"><label class="engine-switch"><span class="connection-dot" id="connection-dot"></span><span id="engine-label">Gemini</span><svg><use href="#i-chevron"/></svg><select id="engine-select" aria-label="Assistant engine"><option value="gemini">Gemini</option><option value="sample">Sample engine · no LLM</option></select></label><button class="icon-button" id="top-settings" aria-label="Connection settings"><svg><use href="#i-settings"/></svg></button><button class="avatar" id="profile-button" aria-label="Workspace profile">BL</button></div>
+  </header>
+  <main id="content" tabindex="-1"><div class="loading-card"><span class="spinner"></span><p>Getting your workspace ready…</p></div></main>
+  <footer class="app-footer"><span class="footer-brand">scout. <span>Good finds. Clear minds.</span></span><span>Project 1 · Sample CSV · Simulated purchases</span><button class="subtle-link" id="footer-architecture">Every step, in the open <svg><use href="#i-arrow"/></svg></button></footer>
   <dialog id="modal"><div id="modal-content"></div></dialog>
   <div id="toast" role="status" aria-live="polite"></div>
 </body>

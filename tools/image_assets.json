@@ -1,0 +1,48 @@
+{
+  "generator": "Built-in image_gen",
+  "purpose": "Scout concept-matched frontend assets",
+  "assets": [
+    {
+      "name": "aura-one",
+      "file": "static/images/aura-one.webp",
+      "transparent_background": true,
+      "prompt": "Use case: product-mockup. Asset for a real website implementation. Image 1 is a VISUAL STYLE AND PRODUCT IDENTITY REFERENCE only, not an edit target. Generate ONLY the requested isolated product photograph. Do not generate a UI, webpage, cards, labels, text, brand marks, price tags, pedestals, furniture, plants, or a background. Actual transparent alpha background, clean accurate product silhouette, entire product visible with generous even padding. Premium photorealistic studio product photography, warm soft natural highlights, tactile matte surfaces, meticulous hardware detail, front three-quarter angle, consistent camera and lighting across this product series. Product occupies about 80% of the canvas. No cast shadow outside the product. Subject: the matte charcoal black over-ear headphones called Aura One at the top-left of the reference. Match that rounded sculptural padded headband, oval cushioned earcups, subtle side hinge, and dark graphite finish. A single pair, slightly turned to the right, upright, clean high-end consumer hardware cutout. Do not draw lettering on the headphones."
+    },
+    {
+      "name": "form-studio",
+      "file": "static/images/form-studio.webp",
+      "transparent_background": true,
+      "prompt": "Use case: product-mockup. Asset for a real website implementation. Image 1 is a VISUAL STYLE AND PRODUCT IDENTITY REFERENCE only, not an edit target. Generate ONLY the requested isolated product photograph. Do not generate a UI, webpage, cards, labels, text, brand marks, price tags, pedestals, furniture, plants, or a background. Actual transparent alpha background, clean accurate product silhouette, entire product visible with generous even padding. Premium photorealistic studio product photography, warm soft natural highlights, tactile matte surfaces, meticulous hardware detail, front three-quarter angle, consistent camera and lighting across this product series. Product occupies about 80% of the canvas. No cast shadow outside the product. Subject: the warm ivory over-ear headphones called Form Studio at the top-middle of the reference. Match the elegant continuous curved headband, rounded ivory earcup shells and cream cushions. A single pair, slightly turned to the right, upright, matching the camera angle of Aura One. No visible logo or lettering."
+    },
+    {
+      "name": "echo-air",
+      "file": "static/images/echo-air.webp",
+      "transparent_background": true,
+      "prompt": "Use case: product-mockup. Asset for a real website implementation. Image 1 is a VISUAL STYLE AND PRODUCT IDENTITY REFERENCE only, not an edit target. Generate ONLY the requested isolated product photograph. Do not generate a UI, webpage, cards, labels, text, brand marks, price tags, pedestals, furniture, plants, or a background. Actual transparent alpha background, clean accurate product silhouette, entire product visible with generous even padding. Premium photorealistic studio product photography, warm soft natural highlights, tactile matte surfaces, meticulous hardware detail, front three-quarter angle, consistent camera and lighting across this product series. Product occupies about 80% of the canvas. No cast shadow outside the product. Subject: the sage green wireless earbuds called Echo Air at the top-right of the reference. An open rounded sage charging case with two matching compact stemless earbuds resting in or immediately above their fitted sockets. Entire lid and case visible. Premium matte green finish, realistic hinge and charging contacts, no branding, no lettering. Clean three-quarter front view. Isolate the complete earbuds-and-case group on transparent alpha."
+    },
+    {
+      "name": "pulse-lite",
+      "file": "static/images/pulse-lite.webp",
+      "transparent_background": true,
+      "prompt": "Use case: product-mockup. Asset for a real website implementation. Image 1 is a VISUAL STYLE AND PRODUCT IDENTITY REFERENCE only, not an edit target. Generate ONLY the requested isolated product photograph. Do not generate a UI, webpage, cards, labels, text, brand marks, price tags, pedestals, furniture, plants, or a background. Actual transparent alpha background, clean accurate product silhouette, entire product visible with generous even padding. Premium photorealistic studio product photography, warm soft natural highlights, tactile matte surfaces, meticulous hardware detail, front three-quarter angle, consistent camera and lighting across this product series. Product occupies about 80% of the canvas. No cast shadow outside the product. Subject: the muted dusty blue compact on-ear headphones called Pulse Lite at the bottom-left of the reference. Smaller circular on-ear cushions rather than over-ear, slender curved blue headband, soft blue ear pads, simple stylish hardware. A single complete pair, upright and slightly turned right. No branding or lettering."
+    },
+    {
+      "name": "aura-pro",
+      "file": "static/images/aura-pro.webp",
+      "transparent_background": true,
+      "prompt": "Use case: product-mockup. Asset for a real website implementation. Image 1 is a VISUAL STYLE AND PRODUCT IDENTITY REFERENCE only, not an edit target. Generate ONLY the requested isolated product photograph. Do not generate a UI, webpage, cards, labels, text, brand marks, price tags, pedestals, furniture, plants, or a background. Actual transparent alpha background, clean accurate product silhouette, entire product visible with generous even padding. Premium photorealistic studio product photography, warm soft natural highlights, tactile matte surfaces, meticulous hardware detail, front three-quarter angle, consistent camera and lighting across this product series. Product occupies about 80% of the canvas. No cast shadow outside the product. Subject: the premium matte graphite black over-ear headphones called Aura Pro at the bottom-middle of the reference. Distinct from Aura One: a more sculptural broad headband, larger deep oval cushions, refined smooth earcup shells, elegant sturdy yokes and hinge detailing. One pair upright, front three-quarter angle slightly turned right. No branding, no text."
+    },
+    {
+      "name": "form-open",
+      "file": "static/images/form-open.webp",
+      "transparent_background": true,
+      "prompt": "Use case: product-mockup. Asset for a real website implementation. Image 1 is a VISUAL STYLE AND PRODUCT IDENTITY REFERENCE only, not an edit target. Generate ONLY the requested isolated product photograph. Do not generate a UI, webpage, cards, labels, text, brand marks, price tags, pedestals, furniture, plants, or a background. Actual transparent alpha background, clean accurate product silhouette, entire product visible with generous even padding. Premium photorealistic studio product photography, warm soft natural highlights, tactile matte surfaces, meticulous hardware detail, front three-quarter angle, consistent camera and lighting across this product series. Product occupies about 80% of the canvas. No cast shadow outside the product. Subject: the warm sand-beige over-ear headphones called Form Open at the bottom-right of the reference. Oat-colored padded curved headband, soft tan cushioned earcups, light sand round-oval shells and simple elegant yokes. One pair upright, front three-quarter angle slightly turned right, full product visible. No branding, no text."
+    },
+    {
+      "name": "hero-editorial",
+      "file": "static/images/hero-editorial.webp",
+      "transparent_background": false,
+      "prompt": "Use case: product-mockup. Image 1 is a style and product identity reference for the photo area ONLY. Generate a standalone editorial product photograph to serve as the right-side hero background of this Scout website. NO website interface, NO text, NO logo, NO labels, NO buttons, NO wave ribbons. The subject is the reference's premium matte graphite black Aura One over-ear headphones, floating just above a broad pale sage textured cylindrical stone pedestal. Show accurate realistic headband, soft cushions and refined hinges. Warm ivory #F6F4EF studio environment with gentle warm natural sunlight, faint out-of-focus greenery at the very far right edge only, tactile limestone and matte product surfaces. Wide composition; product dominates center-right with the left third almost empty softly lit ivory for a seamless transition to the website's background. The pedestal enters from the lower edge; headphones and full headband are completely visible. Sophisticated premium consumer product photography matching the reference hero, no marketing graphics. Very clean, not busy, not glossy CGI."
+    }
+  ]
+}

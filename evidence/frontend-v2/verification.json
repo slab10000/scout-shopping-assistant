@@ -1,0 +1,126 @@
+{
+  "verified_at_utc": "2026-10-27T04:56:49.586875+00:00",
+  "browser": "Chromium through Playwright CLI",
+  "engine": "sample (explicitly selected; no LLM calls during redesign verification)",
+  "simulated_user": "redesign-ui-20261027",
+  "original_default_user_memory": "not modified by browser verification",
+  "backend_regression": {
+    "command": "../.venv/bin/python project_tests.py",
+    "passed": 21,
+    "failed": 0
+  },
+  "browser_scenarios": [
+    {
+      "name": "catalog search",
+      "result": "Aura filter shows two models; unmatched text shows empty state"
+    },
+    {
+      "name": "condition filter",
+      "result": "New-only Aura One starts at $119.00; all-conditions starts at $106.00"
+    },
+    {
+      "name": "offer dialog",
+      "result": "Retailer rows show condition, item, shipping, total and stock; unknown shipping remains Unknown"
+    },
+    {
+      "name": "two approved memories",
+      "result": "Separate approval interrupts save over-ear and new-condition preferences"
+    },
+    {
+      "name": "fresh shopping thread",
+      "result": "Both active preferences retrieved and applied; two eligible model cards"
+    },
+    {
+      "name": "correction",
+      "result": "Approved condition=any replaces condition=new; history shows three records, one superseded"
+    },
+    {
+      "name": "rejected correction",
+      "result": "Two active preferences remain: over-ear and new or refurbished"
+    },
+    {
+      "name": "later retrieval",
+      "result": "Fresh thread applies form_factor=over-ear and corrected condition=any"
+    },
+    {
+      "name": "purchase rejection",
+      "result": "CANCELLED; cancel_purchase executed; confirm_purchase not executed"
+    },
+    {
+      "name": "purchase approval",
+      "result": "SIMULATED_CONFIRMED; confirm_purchase executed; cancel_purchase not executed"
+    },
+    {
+      "name": "missing budget",
+      "result": "Clarification textbox interrupts before search; budget response resumes to purchase approval"
+    },
+    {
+      "name": "no matches",
+      "result": "Under-$30 new ANC request stops with no suitable offer and no confirmation button"
+    },
+    {
+      "name": "architecture",
+      "result": "All 20 real nodes render; pending approval is orange; END stays not executed while pending; selected node auto-follows new interrupt"
+    },
+    {
+      "name": "state inspector",
+      "result": "Actual checkpoint JSON includes WAITING_APPROVAL and saved next node"
+    },
+    {
+      "name": "exports",
+      "result": "Actual run JSON and exact Mermaid downloads saved alongside this report"
+    },
+    {
+      "name": "settings",
+      "result": "Password input is empty; original Gemini connection preserved; no connection update submitted"
+    },
+    {
+      "name": "assets",
+      "result": "All seven local images load; all six local font faces load; requests successful or cache-validated"
+    },
+    {
+      "name": "reduced motion",
+      "result": "Emulation disables the soundwave animation; all screenshots captured with reduced motion after transitions"
+    },
+    {
+      "name": "browser console",
+      "result": "0 errors, 0 warnings"
+    },
+    {
+      "name": "browser storage",
+      "result": "No localStorage entries created"
+    }
+  ],
+  "responsive": {
+    "viewports": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "pages": [
+      "shopping home",
+      "catalog",
+      "memory",
+      "architecture"
+    ],
+    "result": "No page-level horizontal overflow at any of the 16 combinations; shopping results and retailer modal also fit 390px. Architecture retains intentional internal horizontal scrolling."
+  },
+  "screenshots": [
+    "scout-v2-architecture-desktop.png",
+    "scout-v2-architecture-mobile.png",
+    "scout-v2-catalog-desktop.png",
+    "scout-v2-catalog-mobile.png",
+    "scout-v2-home-desktop.png",
+    "scout-v2-home-mobile.png",
+    "scout-v2-memory-desktop.png",
+    "scout-v2-memory-mobile.png",
+    "scout-v2-offer-dialog-desktop.png",
+    "scout-v2-offer-dialog-mobile.png",
+    "scout-v2-results-desktop.png",
+    "scout-v2-results-mobile.png",
+    "scout-v2-settings-desktop.png"
+  ],
+  "new_backend_dependencies": [],
+  "limitations": "View state resets on refresh; memory and Gemini connection clear on Python process restart, as before. Live Gemini scenarios captured before the frontend redesign remain under evidence/gemini."
+}

@@ -4,7 +4,7 @@ Scout is a Project 1 prototype with one Gemini-powered LangGraph agent, a sample
 
 All product names, retailer offers, prices, stock information, and purchase confirmations are fictional samples or simulations. Product lookup reads `headphones.csv`; there is no internet search or real checkout.
 
-![Scout shopping assistant frontend](evidence/browser/scout-initial.png)
+![Scout shopping assistant frontend](evidence/frontend-v2/scout-v2-home-desktop.png)
 
 ## Get the project
 
@@ -67,7 +67,7 @@ Start a new shopping thread with:
 Find the cheapest wireless headphones under $150 with noise cancellation.
 ```
 
-Both approved memories are retrieved and applied. With **Use my preferences** unchecked, the same request has different eligible offers. The browser uses the simulated identity `shopper-001`. The API and CLI also accept explicit simulated user IDs.
+Both approved memories are retrieved and applied. With **Use my preferences** unchecked, the same request has different eligible offers. The browser uses the simulated identity `shopper-001`. For an isolated browser demonstration, open `http://127.0.0.1:8000/?user=demo-name`; this selects a separate memory namespace and is not authentication. The API and CLI also accept explicit simulated user IDs.
 
 Propose and approve this correction:
 
@@ -78,6 +78,16 @@ From now on, refurbished products are acceptable.
 The new condition record supersedes the old one. **Show history** displays the old value, source thread, approval timestamp, and replacement link. The next shopping thread retrieves the active replacement. Rejecting the correction retains the old value. Repeating an identical approved preference does not duplicate the active record.
 
 `STORE` means eligible for approval, not already written. `TEMPORARY` input, such as “Refurbished is acceptable for this purchase,” is not stored as a general preference. Sensitive, third-party, and unsupported candidates return `HUMAN_REVIEW`, which ends without a write and asks for a supported safe preference. This small prototype supports bounded fit, condition, noise-cancellation, battery, and ranking preferences rather than arbitrary autobiographical memory.
+
+## Frontend design
+
+The responsive webapp implements the approved Scout concepts: warm ivory, deep green, orange actions, editorial serif headings, and horizontal navigation. Shopping includes a photographic hero, animated SVG soundwaves, a live reasoning trail, price comparisons, and explicit approval controls. Catalog has searchable offer cards and retailer comparison dialogs. Memory shows readable preferences, approval provenance, correction history, and the exact proposal before saving. Architecture renders every real graph node and edge as interactive SVG, with execution highlights, a node inspector, diagram enlargement, state inspection, and Mermaid export.
+
+All seven illustrative images were generated with the built-in image generation tool. Six transparent product cutouts and one editorial hero are served locally as WebP from `static/images/`; their prompts are recorded in `tools/image_assets.json`. Product images illustrate fictional catalog entries and are not manufacturer photographs. The conceptual screen images are not embedded as application screens.
+
+DM Sans and Instrument Serif are served from `static/fonts/`, with their SIL Open Font License texts included. There are no runtime font or image downloads, and no added JavaScript framework or backend dependency. Animations respect reduced-motion preferences. The mobile Architecture diagram scrolls within its own frame to keep node labels readable.
+
+`evidence/frontend-v2/verification.json` records browser verification with the explicitly selected sample engine and an isolated user namespace. The redesign retains the existing Gemini connection, Python implementation, CSV information source, and approval boundaries. Browser-only view state still resets on refresh.
 
 ## Architecture and lab continuity
 
