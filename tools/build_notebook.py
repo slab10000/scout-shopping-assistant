@@ -37,7 +37,7 @@ md("## Required scenarios\n\nThe harness supplies explicit mock-human approval o
 code("""results, checks = demonstrate(service, engine='sample', user_id=USER_ID)
 assert all('FAIL' not in line for line in checks)
 """)
-md("## Inspect the paused state\n\nA separate state object and thread ID exist for each request. At purchase approval, no confirmation has occurred and the next node is `approve_purchase`.")
+md("## Inspect the paused state and comparison\n\nA separate state object and thread ID exist for each request. In Gemini mode, compare_offers calls the model with the request, applied preferences, search results, and validated shortlist to produce comparison bullets. Recommend receives that comparison and the request/preferences, selects one eligible offer, and writes a paragraph explaining why it wins. The sample engine below uses local rules with the same output structure. At purchase approval, no confirmation has occurred and the next node is `approve_purchase`.")
 code("""paused = results['later_using_two_memories']
 print('Thread:', paused['thread_id'])
 print('Waiting node:', paused['next'])
@@ -45,6 +45,11 @@ print('Confirmed before approval:', paused['confirmed'])
 print('Retrieved keys:', [m['key'] for m in paused['selected_memories']])
 print('Effective constraints:', paused['effective_constraints'])
 print('Rejected outcome:', results['purchase_rejected']['status'])
+for offer in paused['comparison']['analysis']['offers']:
+    print('Compared offer:', offer['offer_id'])
+    for bullet in offer['bullets']:
+        print(' -', bullet)
+print('Why this product:', paused['recommendation']['explanation'])
 """)
 md("## Memory use and correction\n\nBoth records are formed in earlier threads. A correction supersedes the condition preference after approval while preserving the original provenance. A purchase-specific exception is not a new general preference.")
 code("""print('Without memory:', results['normal_paused']['recommendation']['offer_id'])

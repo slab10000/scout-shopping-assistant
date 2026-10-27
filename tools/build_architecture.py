@@ -55,7 +55,7 @@ def source_records(source, graph_nodes):
     start = next(n for n in edges if isinstance(n.value.args[0], ast.Name) and n.value.args[0].id == "START")
     end = next(n for n in builder.body if isinstance(n, ast.For)
                and any(isinstance(c, ast.Name) and c.id == "END" for c in ast.walk(n)))
-    brain_methods = {"understand": "understand", "plan_search": "plan",
+    brain_methods = {"understand": "understand", "plan_search": "plan", "compare_offers": "compare",
                      "recommend": "recommend", "form_memory": "form_memory"}
     details = {}
     for key in graph_nodes:

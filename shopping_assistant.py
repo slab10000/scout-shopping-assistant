@@ -70,9 +70,23 @@ class SearchStrategy(Schema):
     steps: list[str] = Field(min_length=2, max_length=5)
 
 
+ComparisonPoint = Annotated[str, Field(min_length=1, max_length=450)]
+
+
+class ComparedOffer(Schema):
+    offer_id: str = Field(min_length=1, max_length=80)
+    bullets: list[ComparisonPoint] = Field(min_length=2, max_length=4)
+
+
+class ComparisonAnalysis(Schema):
+    offers: list[ComparedOffer] = Field(min_length=1, max_length=5)
+    takeaways: list[ComparisonPoint] = Field(min_length=1, max_length=4)
+
+
 class Recommendation(Schema):
     offer_id: str
     summary: str = Field(max_length=700)
+    explanation: str = Field(min_length=1, max_length=1800)
     reasons: list[str] = Field(max_length=4)
     tradeoffs: list[str] = Field(max_length=3)
 
@@ -176,12 +190,33 @@ class GeminiBrain:
         return SearchPlan(**strategy, filters=Constraints.model_validate(constraints),
             sort_by=constraints.get("priority") or "balanced", limit=3).model_dump()
 
-    def recommend(self, candidates, constraints):
+    def compare(self, request, preferences, offers, constraints, candidates):
+        return self.call(ComparisonAnalysis,
+            "Compare the eligible_shortlist against the user's request and approved preferences. "
+            "Return exactly one entry for every shortlisted offer_id, with two to four concise "
+            "bullet points explaining fit, relative strengths, and tradeoffs against the other options. "
+            "Include one to four overall comparison takeaways. search_results contains the real CSV "
+            "lookup output, but only eligible_shortlist IDs may appear in your comparison. Python has "
+            "already checked budget, stock, condition, features, and known delivered costs. "
+            "Current effective_constraints override remembered preferences. Use only supplied product "
+            "facts; do not infer comfort, sound quality, reviews, or real availability. Do not repeat "
+            "numeric prices: the UI displays the CSV totals. This node compares; it does not choose "
+            "the final product or approve a purchase.",
+            {"request": request, "preferences": preferences, "search_results": offers,
+             "effective_constraints": constraints, "eligible_shortlist": candidates})
+
+    def recommend(self, request, preferences, comparison, constraints):
         return self.call(Recommendation,
-            "Choose an offer_id from candidates, normally the first-ranked offer. Explain the fit and "
-            "tradeoffs in plain language. Do not repeat numeric prices: the UI builds those from CSV. "
-            "No claims about real reviews, comfort testing, guarantees, or current internet availability.",
-            {"candidates": candidates, "constraints": constraints})
+            "Use the preceding comparison, the user's request, approved preferences, and the candidate "
+            "facts to choose one final offer_id from candidates. Respect the effective constraints and "
+            "ranking priority; current requirements override remembered preferences. Write a brief "
+            "summary and an explanation consisting of one readable paragraph explaining why this "
+            "product wins over the named alternatives, including the main tradeoff. Use the comparison "
+            "as evidence and check it against candidate facts. Also provide concise reasons and tradeoffs. "
+            "Do not repeat numeric prices: the UI builds those from CSV. No claims about real reviews, "
+            "comfort testing, guarantees, current internet availability, or user approval.",
+            {"request": request, "preferences": preferences, "comparison": comparison["analysis"],
+             "candidates": comparison["shortlist"], "effective_constraints": constraints})
 
     def form_memory(self, statement):
         return self.call(MemoryProposal,
@@ -249,10 +284,33 @@ class SampleBrain:
                    "Group equivalent offers and rank the best delivered totals."],
             filters=Constraints(**constraints), sort_by=constraints.get("priority") or "balanced", limit=3).model_dump()
 
-    def recommend(self, candidates, constraints):
+    def compare(self, request, preferences, offers, constraints, candidates):
+        lowest = min(Decimal(o["total_price"]) for o in candidates)
+        return ComparisonAnalysis(offers=[ComparedOffer(offer_id=o["offer_id"], bullets=[
+            "Lowest known delivered cost in this shortlist." if Decimal(o["total_price"]) == lowest
+                else "Costs more than the lowest-price option in this shortlist.",
+            f"{o['battery_hours']} hours of listed battery life; {o['form_factor']} fit and {o['condition']} condition.",
+            "Meets the active requirements, with stock and shipping confirmed in the sample CSV.",
+        ]) for o in candidates], takeaways=[
+            "All compared offers satisfy the active requirements and have known delivered totals.",
+            f"The shortlist follows the {constraints.get('priority') or 'balanced'} ranking policy; these are sample-rule comparisons.",
+        ]).model_dump()
+
+    def recommend(self, request, preferences, comparison, constraints):
+        candidates = comparison["shortlist"]
         top = candidates[0]
+        alternatives = ", ".join(dict.fromkeys(o["product_name"] for o in candidates[1:]))
+        advantage = {"price": "the lowest known delivered cost", "battery": "the longest listed battery life",
+            "noise_cancelling": "the leading position under the noise-cancellation ranking"}.get(
+                constraints.get("priority"), "the highest score under the transparent balanced policy")
+        explanation = (f"{top['product_name']} is the sample engine's final choice because it has {advantage} "
+            "while meeting the active requirements. ")
+        explanation += (f"Compared with {alternatives}, it ranks first under the selected policy. " if alternatives
+                        else "It is the only product and condition combination in the validated shortlist. ")
+        explanation += "The comparison confirms known shipping and stock; real-world sound quality and tax are outside this sample catalog."
         return {"offer_id": top["offer_id"],
             "summary": f"{top['product_name']} is the strongest match under the selected comparison rules.",
+            "explanation": explanation,
             "reasons": ["Meets the active constraints.", "Has a known item-and-shipping total."],
             "tradeoffs": ["Sample catalog only; tax and real availability are not included."]}
 
@@ -360,6 +418,14 @@ def compare_offers(offers, plan):
     shortlist = sorted(cheapest.values(), key=order)[:p.limit]
     return {"eligible": sorted(eligible, key=order), "shortlist": shortlist,
             "excluded": excluded, "uncertain": uncertain}
+
+
+def validate_comparison(analysis, candidates):
+    analysis = ComparisonAnalysis.model_validate(analysis).model_dump()
+    ids = [o["offer_id"] for o in analysis["offers"]]
+    if len(ids) != len(set(ids)) or set(ids) != {o["offer_id"] for o in candidates}:
+        raise AssistantError("The comparison did not cover exactly the validated shortlist. No action was prepared.")
+    return analysis
 
 
 # %% Explicit LangGraph state and observable node events
@@ -480,11 +546,21 @@ def build_graph(brain_for, store=None, catalog_path=ROOT / "headphones.csv"):
 
     def compare(s):
         comparison = compare_offers(s["offers"], s["plan"])
-        return {"comparison": comparison, **event("compare_offers", f"{len(comparison['eligible'])} eligible, {len(comparison['excluded'])} excluded, {len(comparison['uncertain'])} uncertain", "code")}
+        kind = "code"
+        if comparison["shortlist"]:
+            preferences = [m for m in s.get("selected_memories", []) if m["applied"]]
+            analysis = brain_for(s["engine"]).compare(s["request"], preferences, s["offers"],
+                s["effective_constraints"], comparison["shortlist"])
+            comparison["analysis"] = validate_comparison(analysis, comparison["shortlist"])
+            kind = "llm" if s["engine"] == "gemini" else "sample_rules"
+        return {"comparison": comparison, **event("compare_offers", f"{len(comparison['eligible'])} eligible, {len(comparison['excluded'])} excluded, {len(comparison['uncertain'])} uncertain; "
+                + (f"compared {len(comparison['shortlist'])} options with bullet points" if comparison["shortlist"] else "no eligible comparison"), kind)}
 
     def recommend(s):
         candidates = s["comparison"]["shortlist"]
-        r = Recommendation.model_validate(brain_for(s["engine"]).recommend(candidates, s["effective_constraints"])).model_dump()
+        preferences = [m for m in s.get("selected_memories", []) if m["applied"]]
+        r = Recommendation.model_validate(brain_for(s["engine"]).recommend(s["request"], preferences,
+            s["comparison"], s["effective_constraints"])).model_dump()
         offer = next((o for o in candidates if o["offer_id"] == r["offer_id"]), None)
         if offer is None:
             raise AssistantError("The model recommended an offer outside the validated shortlist. No action was prepared.")

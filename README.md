@@ -46,7 +46,9 @@ Try:
 Find new over-ear headphones under $150 with noise cancellation. Find the cheapest offer.
 ```
 
-Scout validates extracted constraints, retrieves relevant preferences, writes a search strategy, binds the validated constraints into a structured plan, reads the CSV, compares known delivered totals, and prepares a recommendation. Open the search-plan panel to inspect the actual steps and the exclusions panel to see rejected or uncertain offers.
+Scout validates extracted constraints, retrieves relevant preferences, writes a search strategy, binds the validated constraints into a structured plan, and reads the CSV. Python checks eligibility and known delivered totals. The `compare_offers` node then calls Gemini with the original request (including any clarification), applied approved preferences, CSV search results, effective constraints, and validated shortlist. Gemini returns two to four comparison bullets per shortlisted offer and overall takeaways. Python rejects invented, duplicate, or missing offer IDs. With no eligible offers, the graph stops without a comparison or recommendation call.
+
+The separate `recommend` node sends the request, preferences, comparison output, and shortlisted offer facts to Gemini. It chooses one eligible offer and writes a paragraph explaining why it wins over the alternatives and what tradeoff remains. The Shopping page shows the bullet-point comparison, product cards, and **Why Scout chose this one** paragraph before the approval controls. Prices are displayed from the CSV; model prose never changes eligibility or approves an action. The explicitly labeled sample engine produces the same output structure using local rules.
 
 The graph pauses at `approve_purchase`. **Confirm simulation** resumes with `True`; **Reject purchase** resumes with `False`. Only the approved branch reaches the separate simulation node. There is no external order or payment. Missing budgets trigger a clarification interrupt before a tool search. No-match requests stop without increasing the budget.
 
@@ -84,6 +86,8 @@ The new condition record supersedes the old one. **Show history** displays the o
 The catalog contains 36 fictional models and 110 offers across the same three sample retailers. The latest expansion adds 30 independently illustrated models and 90 offers while preserving the original 20 rows. All three form factors, six brands, five colors, ANC and standard audio, varied battery life, new and refurbished conditions, stock exclusions, and unknown shipping are represented. The practice engine recognizes full model names and product IDs directly from the CSV. Gemini extracts the requested model from the request. Gemini writes search steps; Python binds the exact validated filters, ranking, and result limit, so planning cannot introduce extra requirements for unfamiliar models. The frontend counts and suggested product budgets are derived from current offers.
 
 Earlier Gemini and frontend-v2 evidence is preserved as a record of the original catalog. `evidence/catalog-expansion/` captures verification of the current catalog, including a live Gemini request for Orbit Longplay and the updated sample scenarios. The exact prompts for all 30 new images are collected in `tools/catalog_image_prompts.json`.
+
+`evidence/llm-comparison/` captures the current comparison-to-recommendation workflow with live Gemini, including both structured model inputs and outputs. The run verifies that the comparison receives all 110 search results and two applied preferences, and that the final recommendation receives the actual comparison output. Its regression capture contains 31 passing checks, including context handoff, comparison coverage, invalid offer IDs, provider errors, and no-match behavior. The notebook prints the comparison bullets and final explanation using the explicitly labeled sample engine.
 
 ## Frontend design
 

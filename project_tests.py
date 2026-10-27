@@ -16,7 +16,7 @@ import textwrap
 from fastapi.testclient import TestClient
 from langgraph.types import Command
 
-from shopping_assistant import (AssistantError, Constraints, GeminiBrain, SampleBrain, SearchPlan, SearchStrategy,
+from shopping_assistant import (AssistantError, ComparisonAnalysis, Constraints, GeminiBrain, Recommendation, SampleBrain, SearchPlan, SearchStrategy,
     ShoppingService, build_graph, compare_offers, namespace, read_catalog, records, validate_memory)
 from webapp import create_app
 
@@ -231,8 +231,8 @@ class ProjectTests(unittest.TestCase):
 
     def test_hallucinated_offer_and_changed_plan_are_blocked(self):
         class BadRecommendation(SampleBrain):
-            def recommend(self, candidates, constraints):
-                return {"offer_id": "INVENTED", "summary": "Bad output", "reasons": [], "tradeoffs": []}
+            def recommend(self, request, preferences, comparison, constraints):
+                return {"offer_id": "INVENTED", "summary": "Bad output", "explanation": "Invalid choice.", "reasons": [], "tradeoffs": []}
         self.s.sample = BadRecommendation()
         r = self.ask()
         self.assertEqual(r["status"], "ERROR")
@@ -246,6 +246,109 @@ class ProjectTests(unittest.TestCase):
         r = self.ask()
         self.assertEqual(r["status"], "ERROR")
         self.assertNotIn("search_catalog", [e["node"] for e in r["audit_log"]])
+
+    def test_comparison_and_recommendation_receive_request_preferences_and_prior_output(self):
+        class RecordingBrain(SampleBrain):
+            def compare(self, request, preferences, offers, constraints, candidates):
+                self.comparison_input = deepcopy((request, preferences, offers, constraints, candidates))
+                self.analysis = super().compare(request, preferences, offers, constraints, candidates)
+                return self.analysis
+
+            def recommend(self, request, preferences, comparison, constraints):
+                self.recommendation_input = deepcopy((request, preferences, comparison, constraints))
+                return super().recommend(request, preferences, comparison, constraints)
+
+        self.remember("I generally prefer over-ear headphones.")
+        self.remember("I generally buy new products only.")
+        brain = RecordingBrain()
+        self.s.sample = brain
+        request = "Find the cheapest headphones under $150 with noise cancellation."
+        r = self.ask(request)
+        received_request, preferences, offers, constraints, candidates = brain.comparison_input
+        self.assertEqual(received_request, request)
+        self.assertEqual({m["key"] for m in preferences}, {"form_factor", "condition"})
+        self.assertTrue(all(m["applied"] for m in preferences))
+        self.assertEqual(offers, r["offers"])
+        self.assertEqual(len(offers), 110)
+        self.assertEqual(constraints, r["effective_constraints"])
+        self.assertEqual({o["offer_id"] for o in candidates}, {o["offer_id"] for o in r["comparison"]["analysis"]["offers"]})
+        self.assertEqual(brain.recommendation_input[0], request)
+        self.assertEqual(brain.recommendation_input[1], preferences)
+        self.assertEqual(brain.recommendation_input[2]["analysis"], brain.analysis)
+        self.assertTrue(r["recommendation"]["explanation"])
+
+    def test_live_comparison_and_recommendation_use_separate_structured_calls(self):
+        class CaptureBrain(GeminiBrain):
+            def __init__(self):
+                self.calls = []
+
+            def call(self, schema, instruction, payload):
+                self.calls.append((schema, deepcopy(payload)))
+                if schema is ComparisonAnalysis:
+                    return SampleBrain().compare(payload["request"], payload["preferences"],
+                        payload["search_results"], payload["effective_constraints"], payload["eligible_shortlist"])
+                comparison = {"shortlist": payload["candidates"], "analysis": payload["comparison"]}
+                return SampleBrain().recommend(payload["request"], payload["preferences"], comparison,
+                    payload["effective_constraints"])
+
+        r = self.ask()
+        brain = CaptureBrain()
+        preferences = [{"key": "condition", "value": "new", "applied": True}]
+        analysis = brain.compare(r["request"], preferences, r["offers"], r["effective_constraints"], r["comparison"]["shortlist"])
+        comparison = {**r["comparison"], "analysis": analysis}
+        recommendation = brain.recommend(r["request"], preferences, comparison, r["effective_constraints"])
+        self.assertEqual([schema for schema, _ in brain.calls], [ComparisonAnalysis, Recommendation])
+        self.assertEqual(brain.calls[0][1]["search_results"], r["offers"])
+        self.assertEqual(brain.calls[1][1]["comparison"], analysis)
+        self.assertEqual(brain.calls[1][1]["request"], r["request"])
+        self.assertEqual(brain.calls[1][1]["preferences"], preferences)
+        self.assertTrue(recommendation["explanation"])
+
+    def test_invented_duplicate_or_missing_comparison_ids_stop_before_recommendation(self):
+        for mutation in ["invented", "duplicate", "missing"]:
+            class BadComparison(SampleBrain):
+                def compare(self, *args):
+                    result = super().compare(*args)
+                    if mutation == "invented":
+                        result["offers"][0]["offer_id"] = "INVENTED"
+                    elif mutation == "duplicate":
+                        result["offers"][-1] = deepcopy(result["offers"][0])
+                    else:
+                        result["offers"].pop()
+                    return result
+
+            with self.subTest(mutation=mutation):
+                self.s.sample = BadComparison()
+                r = self.ask()
+                self.assertEqual(r["status"], "ERROR")
+                self.assertIsNone(r["pending"])
+                self.assertNotIn("proposed_action", r)
+                self.assertNotIn("recommend", [e["node"] for e in r["audit_log"]])
+
+    def test_no_matches_skips_model_comparison_and_recommendation(self):
+        class NoModelComparison(SampleBrain):
+            def compare(self, *args):
+                raise AssertionError("No eligible offers must not trigger model comparison")
+
+            def recommend(self, *args):
+                raise AssertionError("No eligible offers must not trigger recommendation")
+
+        self.s.sample = NoModelComparison()
+        r = self.ask("Find headphones under $1.")
+        self.assertEqual(r["status"], "NO_MATCHES")
+        self.assertNotIn("analysis", r["comparison"])
+
+    def test_comparison_provider_error_does_not_fall_back_or_prepare_action(self):
+        class FailedComparison(SampleBrain):
+            def compare(self, *args):
+                raise AssistantError("Comparison provider unavailable.")
+
+        self.s.sample = FailedComparison()
+        r = self.ask()
+        self.assertEqual(r["status"], "ERROR")
+        self.assertEqual(r["error"], "Comparison provider unavailable.")
+        self.assertIsNone(r["pending"])
+        self.assertNotIn("proposed_action", r)
 
     def test_actual_graph_contains_branches_and_public_state_has_no_key(self):
         graph = self.s.architecture()

@@ -1,0 +1,40 @@
+{
+  "regression_checks": 31,
+  "live_gemini_verified": true,
+  "separate_comparison_and_recommendation_calls": true,
+  "comparison_payload": [
+    "request",
+    "preferences",
+    "search_results",
+    "effective_constraints",
+    "eligible_shortlist"
+  ],
+  "recommendation_payload": [
+    "request",
+    "preferences",
+    "comparison",
+    "candidates",
+    "effective_constraints"
+  ],
+  "search_results_sent": 110,
+  "applied_preferences_sent": 2,
+  "exact_comparison_handoff_verified": true,
+  "live_ui_comparison_cards": 3,
+  "live_ui_bullets": 9,
+  "final_paragraph_matches_model_response": true,
+  "approval_preserved": true,
+  "responsive_widths_without_page_overflow": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "untrusted_model_text_rendered_as_text": true,
+  "comparison_visible_during_recommendation_loading": true,
+  "architecture_source_refreshed": true,
+  "original_native_diagram_preserved": true,
+  "browser_errors": 0,
+  "browser_warnings": 0,
+  "sample_engine_remains_explicit": true,
+  "running_app": "http://127.0.0.1:8000/"
+}
