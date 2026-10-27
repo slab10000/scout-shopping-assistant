@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1130 735" role="img" aria-label="Scout actual LangGraph architecture">
+<rect width="1130" height="735" fill="#fcfbff"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="m0 0 10 5-10 5" fill="#b7a9cb"/></marker></defs>
+<text x="36" y="32" font-family="Arial,sans-serif" font-size="13" fill="#8a6eaa">SHOPPING WORKFLOW</text>
+<text x="36" y="574" font-family="Arial,sans-serif" font-size="13" fill="#8a6eaa">MEMORY FORMATION WITH SEPARATE CONSENT</text>
+<path d="M184,98.5 H195" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M523,638.5 H536 V586 H722 V638.5 H735" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M523,638.5 H555" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M449.0,392 V426.0 H449.0 V460" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M375,363.5 H343" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M555,233.5 H449.0 V127" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M989.0,392 V426.0 H989.0 V460" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M915,363.5 H902 V311 H716 V363.5 H703" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M343,638.5 H375" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M343,638.5 H356 V586 H722 V638.5 H735" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M269.0,127 V155 H175 V638.5 H195" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M343,98.5 H375" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M883,98.5 H915" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M555,363.5 H523" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M629.0,127 V166.0 H629.0 V205" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M629.0,127 V166.0 H809.0 V205" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M703,98.5 H735" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M629.0,127 V166.0 H449.0 V205" fill="none" stroke="#b7a9cb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M989.0,127 V231.0 H989.0 V335" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M523,98.5 H555" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M523,488.5 H1090 V580 H989.0 V610" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M343,363.5 H1090 V580 H989.0 V610" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M883,638.5 H915" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M883,233.5 H1090 V580 H989.0 V610" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M1063,488.5 H1090 V580 H989.0 V610" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M703,638.5 H716 V586 H902 V638.5 H915" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<path d="M523,233.5 H1090 V580 H989.0 V610" fill="none" stroke="#b7a9cb" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="36" y="70" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="46" y="93" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">START</text>
+<text x="46" y="112" fill="#9c89aa" font-family="monospace" font-size="8.8">__start__</text>
+<rect x="195" y="70" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="205" y="93" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Start a thread</text>
+<text x="205" y="112" fill="#9c89aa" font-family="monospace" font-size="8.8">intake</text>
+<rect x="375" y="70" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="385" y="93" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Understand request</text>
+<text x="385" y="112" fill="#9c89aa" font-family="monospace" font-size="8.8">understand</text>
+<rect x="555" y="70" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="565" y="93" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Retrieve memory</text>
+<text x="565" y="112" fill="#9c89aa" font-family="monospace" font-size="8.8">retrieve_memory</text>
+<rect x="555" y="205" width="148" height="57" rx="9" fill="#fff7e8" stroke="#d6bd85"/>
+<text x="565" y="228" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Clarify budget</text>
+<text x="565" y="247" fill="#9c89aa" font-family="monospace" font-size="8.8">clarify</text>
+<rect x="735" y="70" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="745" y="93" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Plan the search</text>
+<text x="745" y="112" fill="#9c89aa" font-family="monospace" font-size="8.8">plan_search</text>
+<rect x="915" y="70" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="925" y="93" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Search the CSV</text>
+<text x="925" y="112" fill="#9c89aa" font-family="monospace" font-size="8.8">search_catalog</text>
+<rect x="915" y="335" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="925" y="358" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Compare offers</text>
+<text x="925" y="377" fill="#9c89aa" font-family="monospace" font-size="8.8">compare_offers</text>
+<rect x="555" y="335" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="565" y="358" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Recommend</text>
+<text x="565" y="377" fill="#9c89aa" font-family="monospace" font-size="8.8">recommend</text>
+<rect x="375" y="335" width="148" height="57" rx="9" fill="#fff7e8" stroke="#d6bd85"/>
+<text x="385" y="358" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Human approval</text>
+<text x="385" y="377" fill="#9c89aa" font-family="monospace" font-size="8.8">approve_purchase</text>
+<rect x="195" y="335" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="205" y="358" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Confirm simulation</text>
+<text x="205" y="377" fill="#9c89aa" font-family="monospace" font-size="8.8">confirm_purchase</text>
+<rect x="375" y="460" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="385" y="483" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Cancel purchase</text>
+<text x="385" y="502" fill="#9c89aa" font-family="monospace" font-size="8.8">cancel_purchase</text>
+<rect x="915" y="460" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="925" y="483" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">No suitable offers</text>
+<text x="925" y="502" fill="#9c89aa" font-family="monospace" font-size="8.8">no_matches</text>
+<rect x="375" y="205" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="385" y="228" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Outside catalog</text>
+<text x="385" y="247" fill="#9c89aa" font-family="monospace" font-size="8.8">unsupported</text>
+<rect x="735" y="205" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="745" y="228" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Need information</text>
+<text x="745" y="247" fill="#9c89aa" font-family="monospace" font-size="8.8">insufficient</text>
+<rect x="195" y="610" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="205" y="633" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Form a memory</text>
+<text x="205" y="652" fill="#9c89aa" font-family="monospace" font-size="8.8">form_memory</text>
+<rect x="375" y="610" width="148" height="57" rx="9" fill="#fff7e8" stroke="#d6bd85"/>
+<text x="385" y="633" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Approve memory</text>
+<text x="385" y="652" fill="#9c89aa" font-family="monospace" font-size="8.8">approve_memory</text>
+<rect x="555" y="610" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="565" y="633" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Save preference</text>
+<text x="565" y="652" fill="#9c89aa" font-family="monospace" font-size="8.8">save_memory</text>
+<rect x="735" y="610" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="745" y="633" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">Finish without write</text>
+<text x="745" y="652" fill="#9c89aa" font-family="monospace" font-size="8.8">finish_memory</text>
+<rect x="915" y="610" width="148" height="57" rx="9" fill="#ffffff" stroke="#d3c3e7"/>
+<text x="925" y="633" fill="#695077" font-family="Arial,sans-serif" font-size="11.5">END</text>
+<text x="925" y="652" fill="#9c89aa" font-family="monospace" font-size="8.8">__end__</text>
+<text x="36" y="718" font-family="Arial,sans-serif" font-size="11" fill="#8c789e">Actual app.get_graph() nodes and edges. Dotted edges are conditional. Gold nodes pause for human input.</text></svg>

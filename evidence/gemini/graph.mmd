@@ -1,0 +1,56 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	intake(intake)
+	understand(understand)
+	retrieve_memory(retrieve_memory)
+	clarify(clarify)
+	plan_search(plan_search)
+	search_catalog(search_catalog)
+	compare_offers(compare_offers)
+	recommend(recommend)
+	approve_purchase(approve_purchase)
+	confirm_purchase(confirm_purchase)
+	cancel_purchase(cancel_purchase)
+	no_matches(no_matches)
+	unsupported(unsupported)
+	insufficient(insufficient)
+	form_memory(form_memory)
+	approve_memory(approve_memory)
+	save_memory(save_memory)
+	finish_memory(finish_memory)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> intake;
+	approve_memory -. &nbsp;False&nbsp; .-> finish_memory;
+	approve_memory -. &nbsp;True&nbsp; .-> save_memory;
+	approve_purchase -. &nbsp;False&nbsp; .-> cancel_purchase;
+	approve_purchase -. &nbsp;True&nbsp; .-> confirm_purchase;
+	clarify --> understand;
+	compare_offers -.-> no_matches;
+	compare_offers -.-> recommend;
+	form_memory -. &nbsp;True&nbsp; .-> approve_memory;
+	form_memory -. &nbsp;False&nbsp; .-> finish_memory;
+	intake -. &nbsp;remember&nbsp; .-> form_memory;
+	intake -. &nbsp;shop&nbsp; .-> understand;
+	plan_search --> search_catalog;
+	recommend --> approve_purchase;
+	retrieve_memory -.-> clarify;
+	retrieve_memory -.-> insufficient;
+	retrieve_memory -.-> plan_search;
+	retrieve_memory -.-> unsupported;
+	search_catalog --> compare_offers;
+	understand --> retrieve_memory;
+	cancel_purchase --> __end__;
+	confirm_purchase --> __end__;
+	finish_memory --> __end__;
+	insufficient --> __end__;
+	no_matches --> __end__;
+	save_memory --> __end__;
+	unsupported --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

@@ -1,0 +1,189 @@
+{
+  "mermaid": "---\nconfig:\n  flowchart:\n    curve: linear\n---\ngraph TD;\n\t__start__([<p>__start__</p>]):::first\n\tintake(intake)\n\tunderstand(understand)\n\tretrieve_memory(retrieve_memory)\n\tclarify(clarify)\n\tplan_search(plan_search)\n\tsearch_catalog(search_catalog)\n\tcompare_offers(compare_offers)\n\trecommend(recommend)\n\tapprove_purchase(approve_purchase)\n\tconfirm_purchase(confirm_purchase)\n\tcancel_purchase(cancel_purchase)\n\tno_matches(no_matches)\n\tunsupported(unsupported)\n\tinsufficient(insufficient)\n\tform_memory(form_memory)\n\tapprove_memory(approve_memory)\n\tsave_memory(save_memory)\n\tfinish_memory(finish_memory)\n\t__end__([<p>__end__</p>]):::last\n\t__start__ --> intake;\n\tapprove_memory -. &nbsp;False&nbsp; .-> finish_memory;\n\tapprove_memory -. &nbsp;True&nbsp; .-> save_memory;\n\tapprove_purchase -. &nbsp;False&nbsp; .-> cancel_purchase;\n\tapprove_purchase -. &nbsp;True&nbsp; .-> confirm_purchase;\n\tclarify --> understand;\n\tcompare_offers -.-> no_matches;\n\tcompare_offers -.-> recommend;\n\tform_memory -. &nbsp;True&nbsp; .-> approve_memory;\n\tform_memory -. &nbsp;False&nbsp; .-> finish_memory;\n\tintake -. &nbsp;remember&nbsp; .-> form_memory;\n\tintake -. &nbsp;shop&nbsp; .-> understand;\n\tplan_search --> search_catalog;\n\trecommend --> approve_purchase;\n\tretrieve_memory -.-> clarify;\n\tretrieve_memory -.-> insufficient;\n\tretrieve_memory -.-> plan_search;\n\tretrieve_memory -.-> unsupported;\n\tsearch_catalog --> compare_offers;\n\tunderstand --> retrieve_memory;\n\tcancel_purchase --> __end__;\n\tconfirm_purchase --> __end__;\n\tfinish_memory --> __end__;\n\tinsufficient --> __end__;\n\tno_matches --> __end__;\n\tsave_memory --> __end__;\n\tunsupported --> __end__;\n\tclassDef default fill:#f2f0ff,line-height:1.2\n\tclassDef first fill-opacity:0\n\tclassDef last fill:#bfb6fc\n",
+  "nodes": [
+    "__start__",
+    "intake",
+    "understand",
+    "retrieve_memory",
+    "clarify",
+    "plan_search",
+    "search_catalog",
+    "compare_offers",
+    "recommend",
+    "approve_purchase",
+    "confirm_purchase",
+    "cancel_purchase",
+    "no_matches",
+    "unsupported",
+    "insufficient",
+    "form_memory",
+    "approve_memory",
+    "save_memory",
+    "finish_memory",
+    "__end__"
+  ],
+  "edges": [
+    {
+      "source": "__start__",
+      "target": "intake",
+      "conditional": false,
+      "label": ""
+    },
+    {
+      "source": "approve_memory",
+      "target": "finish_memory",
+      "conditional": true,
+      "label": "False"
+    },
+    {
+      "source": "approve_memory",
+      "target": "save_memory",
+      "conditional": true,
+      "label": "True"
+    },
+    {
+      "source": "approve_purchase",
+      "target": "cancel_purchase",
+      "conditional": true,
+      "label": "False"
+    },
+    {
+      "source": "approve_purchase",
+      "target": "confirm_purchase",
+      "conditional": true,
+      "label": "True"
+    },
+    {
+      "source": "clarify",
+      "target": "understand",
+      "conditional": false,
+      "label": ""
+    },
+    {
+      "source": "compare_offers",
+      "target": "no_matches",
+      "conditional": true,
+      "label": ""
+    },
+    {
+      "source": "compare_offers",
+      "target": "recommend",
+      "conditional": true,
+      "label": ""
+    },
+    {
+      "source": "form_memory",
+      "target": "approve_memory",
+      "conditional": true,
+      "label": "True"
+    },
+    {
+      "source": "form_memory",
+      "target": "finish_memory",
+      "conditional": true,
+      "label": "False"
+    },
+    {
+      "source": "intake",
+      "target": "form_memory",
+      "conditional": true,
+      "label": "remember"
+    },
+    {
+      "source": "intake",
+      "target": "understand",
+      "conditional": true,
+      "label": "shop"
+    },
+    {
+      "source": "plan_search",
+      "target": "search_catalog",
+      "conditional": false,
+      "label": ""
+    },
+    {
+      "source": "recommend",
+      "target": "approve_purchase",
+      "conditional": false,
+      "label": ""
+    },
+    {
+      "source": "retrieve_memory",
+      "target": "clarify",
+      "conditional": true,
+      "label": ""
+    },
+    {
+      "source": "retrieve_memory",
+      "target": "insufficient",
+      "conditional": true,
+      "label": ""
+    },
+    {
+      "source": "retrieve_memory",
+      "target": "plan_search",
+      "conditional": true,
+      "label": ""
+    },
+    {
+      "source": "retrieve_memory",
+      "target": "unsupported",
+      "conditional": true,
+      "label": ""
+    },
+    {
+      "source": "search_catalog",
+      "target": "compare_offers",
+      "conditional": false,
+      "label": ""
+    },
+    {
+      "source": "understand",
+      "target": "retrieve_memory",
+      "conditional": false,
+      "label": ""
+    },
+    {
+      "source": "cancel_purchase",
+      "target": "__end__",
+      "conditional": false,
+      "label": ""
+    },
+    {
+      "source": "confirm_purchase",
+      "target": "__end__",
+      "conditional": false,
+      "label": ""
+    },
+    {
+      "source": "finish_memory",
+      "target": "__end__",
+      "conditional": false,
+      "label": ""
+    },
+    {
+      "source": "insufficient",
+      "target": "__end__",
+      "conditional": false,
+      "label": ""
+    },
+    {
+      "source": "no_matches",
+      "target": "__end__",
+      "conditional": false,
+      "label": ""
+    },
+    {
+      "source": "save_memory",
+      "target": "__end__",
+      "conditional": false,
+      "label": ""
+    },
+    {
+      "source": "unsupported",
+      "target": "__end__",
+      "conditional": false,
+      "label": ""
+    }
+  ]
+}

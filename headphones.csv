@@ -1,0 +1,21 @@
+offer_id,product_id,brand,product_name,model,retailer,price,shipping_cost,currency,condition,in_stock,form_factor,noise_cancelling,battery_hours,color
+O001,AURA-ONE-BLK,Aura,Aura One,One,Soundhouse,119.00,0.00,USD,new,true,over-ear,true,40,graphite
+O002,AURA-ONE-BLK,Aura,Aura One,One,Audio Avenue,109.00,14.99,USD,new,true,over-ear,true,40,graphite
+O003,AURA-ONE-BLK,Aura,Aura One,One,Wave Market,99.00,7.00,USD,refurbished,true,over-ear,true,40,graphite
+O004,AURA-ONE-BLK,Aura,Aura One,One,Wave Market,112.00,,USD,new,true,over-ear,true,40,graphite
+O005,FORM-STUDIO-WHT,Form,Form Studio,Studio,Soundhouse,139.00,0.00,USD,new,true,over-ear,true,50,ivory
+O006,FORM-STUDIO-WHT,Form,Form Studio,Studio,Audio Avenue,129.00,5.99,USD,new,true,over-ear,true,50,ivory
+O007,FORM-STUDIO-WHT,Form,Form Studio,Studio,Wave Market,119.00,0.00,USD,new,false,over-ear,true,50,ivory
+O008,FORM-STUDIO-WHT,Form,Form Studio,Studio,Wave Market,104.00,0.00,USD,refurbished,true,over-ear,true,50,ivory
+O009,ECHO-AIR-GRN,Echo,Echo Air,Air,Soundhouse,79.00,0.00,USD,new,true,in-ear,true,28,sage
+O010,ECHO-AIR-GRN,Echo,Echo Air,Air,Audio Avenue,69.00,9.99,USD,new,true,in-ear,true,28,sage
+O011,ECHO-AIR-GRN,Echo,Echo Air,Air,Wave Market,64.00,0.00,USD,refurbished,true,in-ear,true,28,sage
+O012,PULSE-LITE-BLU,Pulse,Pulse Lite,Lite,Soundhouse,59.00,0.00,USD,new,true,on-ear,false,35,blue
+O013,PULSE-LITE-BLU,Pulse,Pulse Lite,Lite,Audio Avenue,49.00,12.99,USD,new,true,on-ear,false,35,blue
+O014,PULSE-LITE-BLU,Pulse,Pulse Lite,Lite,Wave Market,54.00,0.00,USD,new,true,on-ear,false,35,blue
+O015,AURA-PRO-BLK,Aura,Aura Pro,Pro,Soundhouse,199.00,0.00,USD,new,true,over-ear,true,60,graphite
+O016,AURA-PRO-BLK,Aura,Aura Pro,Pro,Audio Avenue,179.00,8.99,USD,new,true,over-ear,true,60,graphite
+O017,AURA-PRO-BLK,Aura,Aura Pro,Pro,Wave Market,149.00,0.00,USD,refurbished,true,over-ear,true,60,graphite
+O018,FORM-OPEN-SND,Form,Form Open,Open,Soundhouse,89.00,0.00,USD,new,true,over-ear,false,55,sand
+O019,FORM-OPEN-SND,Form,Form Open,Open,Audio Avenue,84.00,3.99,USD,new,true,over-ear,false,55,sand
+O020,FORM-OPEN-SND,Form,Form Open,Open,Wave Market,79.00,0.00,USD,new,false,over-ear,false,55,sand

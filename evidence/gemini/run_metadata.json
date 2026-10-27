@@ -1,0 +1,6 @@
+{
+  "engine": "gemini",
+  "user_id": "demo-723913c138",
+  "model": "gemini-3.1-flash-lite",
+  "continued_from_saved_states": true
+}

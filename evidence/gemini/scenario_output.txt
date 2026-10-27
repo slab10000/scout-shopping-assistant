@@ -1,0 +1,16 @@
+PASS normal_paused: expected=WAITING_APPROVAL; actual=WAITING_APPROVAL; thread=14fd07b7; engine=Gemini
+PASS normal_approved: expected=SIMULATED_CONFIRMED; actual=SIMULATED_CONFIRMED; thread=14fd07b7; engine=Gemini
+PASS memory_fit_paused: expected=MEMORY_PROPOSED; actual=MEMORY_PROPOSED; thread=6849f044; engine=Gemini
+PASS memory_fit_saved: expected=MEMORY_SAVED; actual=MEMORY_SAVED; thread=6849f044; engine=Gemini
+PASS memory_condition_paused: expected=MEMORY_PROPOSED; actual=MEMORY_PROPOSED; thread=c02953e5; engine=Gemini
+PASS memory_condition_saved: expected=MEMORY_SAVED; actual=MEMORY_SAVED; thread=c02953e5; engine=Gemini
+PASS later_using_two_memories: expected=WAITING_APPROVAL; actual=WAITING_APPROVAL; thread=fe8912bb; engine=Gemini
+PASS purchase_rejected: expected=CANCELLED; actual=CANCELLED; thread=fe8912bb; engine=Gemini
+PASS correction_paused: expected=MEMORY_PROPOSED; actual=MEMORY_PROPOSED; thread=df33bd6d; engine=Gemini
+PASS correction_saved: expected=MEMORY_SAVED; actual=MEMORY_SAVED; thread=df33bd6d; engine=Gemini
+PASS later_after_correction: expected=WAITING_APPROVAL; actual=WAITING_APPROVAL; thread=f90e1724; engine=Gemini
+PASS temporary_not_saved: expected=NOT_STORED; actual=NOT_STORED; thread=3f39b7f4; engine=Gemini
+PASS memory_rejection_paused: expected=MEMORY_PROPOSED; actual=MEMORY_PROPOSED; thread=34b319a2; engine=Gemini
+PASS memory_rejected: expected=MEMORY_REJECTED; actual=MEMORY_REJECTED; thread=34b319a2; engine=Gemini
+PASS no_matching_offer: expected=NO_MATCHES; actual=NO_MATCHES; thread=1e3dce39; engine=Gemini
+PASS memory comparison: without=O011; with=O001; corrected condition=any

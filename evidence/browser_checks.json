@@ -1,0 +1,29 @@
+{
+  "engine": "Sample engine (no LLM)",
+  "desktop_viewport": [
+    1440,
+    1050
+  ],
+  "mobile_viewport": [
+    390,
+    844
+  ],
+  "checks": {
+    "purchase_approval_visible": true,
+    "purchase_rejection_cancels": true,
+    "purchase_confirmation_reaches_confirm_node": true,
+    "two_memory_records_approved": true,
+    "fresh_thread_applies_both_preferences": true,
+    "correction_preserves_superseded_history": true,
+    "architecture_has_20_actual_nodes": true,
+    "executed_branch_highlighted": true,
+    "catalog_search_Aura_returns_two_products": true,
+    "retailer_offer_modal_opens": true,
+    "mobile_page_width_matches_390_pixel_viewport": true
+  },
+  "console": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "method": "Playwright CLI interactions and assertions against the running Python webapp. Screenshots show the selected engine."
+}
