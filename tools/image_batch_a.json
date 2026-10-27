@@ -1,0 +1,176 @@
+{
+  "generator": "Built-in image_gen",
+  "batch": "A",
+  "products": [
+    {
+      "product_id": "AURA-ARC-BLK",
+      "name": "Aura Arc",
+      "file": "static/images/aura-arc.webp",
+      "original_path": "/Users/blasmorenolaguna/Documents/TODO/University/Agentic AI/project 1/design_concepts/catalog-expansion-assets/aura-arc.png",
+      "generated_source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-6afb-7043-b41a-c0908aa22c01/exec-178cbe8d-f839-48cf-b35b-8ca96417a47c.png",
+      "prompt": "Use case: product-mockup. Asset type: one transparent product photograph for the Scout shopping catalogue. Input Image 1 is a STYLE REFERENCE ONLY, not an edit target. Generate a new, distinct fictional product. Scene/backdrop: actual transparent alpha background, no background color or scenery. Style: premium photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware. Composition: front three-quarter view, entire subject centered and fully visible, about 80% of a square canvas with even generous padding. No logos, labels, words, text, watermark, pedestal, floor, furniture, hands, packaging, or cast shadow outside the object. Clean accurate silhouette and alpha edges. Subject: matte charcoal over-ear headphones with a slender curved metal headband, oval plush earcups, and brushed dark aluminum yokes. Color: graphite. Product identity for tracking only, do not print: Aura Arc. Show exactly one pair of headphones, in the open wearing position.",
+      "transparent_background": true,
+      "visually_inspected": true,
+      "alpha_status": {
+        "has_alpha": true,
+        "min": 0,
+        "max": 255,
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "AURA-TRAVEL-SND",
+      "name": "Aura Travel",
+      "file": "static/images/aura-travel.webp",
+      "original_path": "/Users/blasmorenolaguna/Documents/TODO/University/Agentic AI/project 1/design_concepts/catalog-expansion-assets/aura-travel.png",
+      "generated_source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-6afb-7043-b41a-c0908aa22c01/exec-07c9b9a9-236a-4714-ac68-6b0cbe72fa5e.png",
+      "prompt": "Use case: product-mockup. Asset type: one transparent product photograph for the Scout shopping catalogue. Input Image 1 is a STYLE REFERENCE ONLY, not an edit target. Generate a new, distinct fictional product. Scene/backdrop: actual transparent alpha background, no background color or scenery. Style: premium photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware. Composition: front three-quarter view, entire subject centered and fully visible, about 80% of a square canvas with even generous padding. No logos, labels, words, text, watermark, pedestal, floor, furniture, hands, packaging, or cast shadow outside the object. Clean accurate silhouette and alpha edges. Subject: sand beige travel over-ear headphones with inward-folding rounded earcups, generous soft cushions, and compact articulated hinges; shown open for wear. Color: sand. Product identity for tracking only, do not print: Aura Travel. Show exactly one pair of headphones, in the open wearing position.",
+      "transparent_background": true,
+      "visually_inspected": true,
+      "alpha_status": {
+        "has_alpha": true,
+        "min": 0,
+        "max": 255,
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "AURA-COMPACT-BLU",
+      "name": "Aura Compact",
+      "file": "static/images/aura-compact.webp",
+      "original_path": "/Users/blasmorenolaguna/Documents/TODO/University/Agentic AI/project 1/design_concepts/catalog-expansion-assets/aura-compact.png",
+      "generated_source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-6afb-7043-b41a-c0908aa22c01/exec-ba6918eb-955c-4326-adf1-a0387e67011e.png",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: dusty navy blue compact on-ear headphones with small circular ear cushions and a thin padded headband. IMPORTANT physical fit: ON-EAR headphones, with SMALL CIRCULAR pads resting on the ears, NOT large oval over-ear cups. Minimal narrow padded headband and compact ROUND earcup shells. Show one headphone set open for wearing.",
+      "transparent_background": true,
+      "visually_inspected": true,
+      "alpha_status": {
+        "has_alpha": true,
+        "min": 0,
+        "max": 255,
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "AURA-MAX-WHT",
+      "name": "Aura Max",
+      "file": "static/images/aura-max.webp",
+      "original_path": "/Users/blasmorenolaguna/Documents/TODO/University/Agentic AI/project 1/design_concepts/catalog-expansion-assets/aura-max.png",
+      "generated_source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-6afb-7043-b41a-c0908aa22c01/exec-b01961cc-5bc2-42c8-af79-82b0ff4e95a4.png",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: premium ivory over-ear headphones with broad oval aluminum earcup shells, thick cushions, and a softly padded wide headband. Composition: precisely ONE headphone set open for wearing. Distinct physical design as described; not a generic repeated headphone shape.",
+      "transparent_background": true,
+      "visually_inspected": true,
+      "alpha_status": {
+        "has_alpha": true,
+        "min": 0,
+        "max": 255,
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "AURA-BEAM-GRN",
+      "name": "Aura Beam",
+      "file": "static/images/aura-beam.webp",
+      "original_path": "/Users/blasmorenolaguna/Documents/TODO/University/Agentic AI/project 1/design_concepts/catalog-expansion-assets/aura-beam.png",
+      "generated_source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-6afb-7043-b41a-c0908aa22c01/exec-fa632c0a-80db-4013-abe2-23a9fd0beb19.png",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: sage green stemless wireless in-ear earbuds with silicone tips and a matching open oval charging case, both earbuds clearly visible. Composition: precisely TWO small individual earbuds with their matching OPEN charging case. No headband or large headphones.",
+      "transparent_background": true,
+      "visually_inspected": true,
+      "alpha_status": {
+        "has_alpha": true,
+        "min": 0,
+        "max": 255,
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "FORM-FOCUS-BLK",
+      "name": "Form Focus",
+      "file": "static/images/form-focus.webp",
+      "original_path": "/Users/blasmorenolaguna/Documents/TODO/University/Agentic AI/project 1/design_concepts/catalog-expansion-assets/form-focus.png",
+      "generated_source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-6afb-7043-b41a-c0908aa22c01/exec-2f2558df-880d-4c1e-a8e4-cd9024401b52.png",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: graphite over-ear headphones with clean flat oval cup faces, a sculptural arch headband, and deep acoustic cushions. Composition: precisely ONE headphone set open for wearing. Distinct physical design as described; not a generic repeated headphone shape.",
+      "transparent_background": true,
+      "visually_inspected": true,
+      "alpha_status": {
+        "has_alpha": true,
+        "min": 0,
+        "max": 255,
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "FORM-LOFT-WHT",
+      "name": "Form Loft",
+      "file": "static/images/form-loft.webp",
+      "original_path": "/Users/blasmorenolaguna/Documents/TODO/University/Agentic AI/project 1/design_concepts/catalog-expansion-assets/form-loft.png",
+      "generated_source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-6afb-7043-b41a-c0908aa22c01/exec-2d72702f-cfc8-4905-b0dc-3277d6410bd3.png",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: warm ivory over-ear headphones with softly rounded earcups, textile-textured headband padding, and slim silver hinge arms. Composition: exactly one headphone set, open for wearing; entire subject fully visible.",
+      "transparent_background": true,
+      "visually_inspected": true,
+      "alpha_status": {
+        "has_alpha": true,
+        "min": 0,
+        "max": 255,
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "FORM-FOLD-SND",
+      "name": "Form Fold",
+      "file": "static/images/form-fold.webp",
+      "original_path": "/Users/blasmorenolaguna/Documents/TODO/University/Agentic AI/project 1/design_concepts/catalog-expansion-assets/form-fold.png",
+      "generated_source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-6afb-7043-b41a-c0908aa22c01/exec-8b4aa75f-019b-40e2-b018-5b4c704c2006.png",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: sand tan portable on-ear headphones with small round padded earcups and clearly articulated folding hinges, displayed open for wear. IMPORTANT: small circular ON-EAR pads that rest on the ear, NOT large oval over-ear cups. Slim lightweight folding construction, circular cup diameter significantly smaller than headband width.",
+      "transparent_background": true,
+      "visually_inspected": true,
+      "alpha_status": {
+        "has_alpha": true,
+        "min": 0,
+        "max": 255,
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "FORM-CALM-GRN",
+      "name": "Form Calm",
+      "file": "static/images/form-calm.webp",
+      "original_path": "/Users/blasmorenolaguna/Documents/TODO/University/Agentic AI/project 1/design_concepts/catalog-expansion-assets/form-calm.png",
+      "generated_source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-6afb-7043-b41a-c0908aa22c01/exec-cc7d9447-aeef-4d91-a2d6-ce3982189b51.png",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: muted sage green over-ear headphones with capsule-shaped smooth earcups, a broad cushioned arch, and a serene minimalist silhouette. Composition: exactly one headphone set, open for wearing; entire subject fully visible.",
+      "transparent_background": true,
+      "visually_inspected": true,
+      "alpha_status": {
+        "has_alpha": true,
+        "min": 0,
+        "max": 255,
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "FORM-BUDS-WHT",
+      "name": "Form Buds",
+      "file": "static/images/form-buds.webp",
+      "original_path": "/Users/blasmorenolaguna/Documents/TODO/University/Agentic AI/project 1/design_concepts/catalog-expansion-assets/form-buds.png",
+      "generated_source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-6afb-7043-b41a-c0908aa22c01/exec-d212a94b-94d7-483f-b956-254a6e3110ad.png",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: ivory short-stem in-ear wireless earbuds with silicone tips beside an open rounded rectangular ivory charging case. Composition: exactly two small ivory earbuds with short stems and silicone tips, with the matching OPEN rounded rectangular charging case. Earbuds sit outside and beside the case, all three objects fully visible.",
+      "transparent_background": true,
+      "visually_inspected": true,
+      "alpha_status": {
+        "has_alpha": true,
+        "min": 0,
+        "max": 255,
+        "width": 1254,
+        "height": 1254
+      }
+    }
+  ]
+}

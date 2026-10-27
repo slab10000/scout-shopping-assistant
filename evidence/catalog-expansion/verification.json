@@ -1,0 +1,64 @@
+{
+  "verified_at_utc": "2026-10-27T05:19:35.306809+00:00",
+  "catalog": {
+    "added_models": 30,
+    "models": 36,
+    "offers": 110,
+    "retailers": 3,
+    "brands": 6,
+    "original_20_offers_unchanged": true
+  },
+  "images": {
+    "added": 30,
+    "product_images": 36,
+    "hero_images": 1,
+    "all_new_images_unique": true,
+    "all_new_images_transparent": true,
+    "generation": "Built-in image_gen through three parallel agents",
+    "prompts": "tools/catalog_image_prompts.json"
+  },
+  "regression": {
+    "passed": 24,
+    "failed": 0,
+    "new_models_checked_by_name_and_id": 30,
+    "plan_filter_binding": "validated budget, product, condition and nullable features retained exactly"
+  },
+  "browser": {
+    "cards": 36,
+    "loaded_images": 36,
+    "distinct_image_urls": 36,
+    "aura_search_results": 7,
+    "orbit_search_results": 5,
+    "empty_search": "verified",
+    "retailer_rows_per_added_model": 3,
+    "sample_product_link": "Aura Max automatically prefills $250; exact model recommended",
+    "mobile_catalog_dimensions": {
+      "client": 390,
+      "scroll": 390
+    },
+    "mobile_results_dimensions": {
+      "client": 390,
+      "scroll": 390
+    },
+    "console_errors": 0,
+    "console_warnings": 0
+  },
+  "live_gemini": {
+    "model": "gemini-3.1-flash-lite",
+    "request": "Compare Orbit Longplay offers under $300. Find the cheapest new offer.",
+    "product": "Orbit Longplay",
+    "offer_id": "O103",
+    "delivered_price": "223.99",
+    "status": "WAITING_APPROVAL",
+    "no_confirmation_before_approval": true,
+    "subsequent_browser_decision": "rejected; purchase cancelled with no order",
+    "plan_repair": "Pre-fix live checks refused two changed plans. The model now provides only a search strategy; Python binds the exact validated filters. The same request then passed."
+  },
+  "notebook": {
+    "executed_code_cells": 7
+  },
+  "report": {
+    "pages": 2
+  },
+  "scope": "One Python LangGraph assistant, CSV-only product data, same project dependencies; no live retailer lookup or real purchase."
+}

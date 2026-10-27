@@ -22,7 +22,44 @@ function toast(message) {
   clearTimeout(toast.timer); toast.timer = setTimeout(()=>el.classList.remove('show'),4200);
 }
 
-const productImages = {'AURA-ONE-BLK':'aura-one','FORM-STUDIO-WHT':'form-studio','ECHO-AIR-GRN':'echo-air','PULSE-LITE-BLU':'pulse-lite','AURA-PRO-BLK':'aura-pro','FORM-OPEN-SND':'form-open'};
+const productImages = {
+  "AURA-ONE-BLK": "aura-one",
+  "FORM-STUDIO-WHT": "form-studio",
+  "ECHO-AIR-GRN": "echo-air",
+  "PULSE-LITE-BLU": "pulse-lite",
+  "AURA-PRO-BLK": "aura-pro",
+  "FORM-OPEN-SND": "form-open",
+  "AURA-ARC-BLK": "aura-arc",
+  "AURA-TRAVEL-SND": "aura-travel",
+  "AURA-COMPACT-BLU": "aura-compact",
+  "AURA-MAX-WHT": "aura-max",
+  "AURA-BEAM-GRN": "aura-beam",
+  "FORM-FOCUS-BLK": "form-focus",
+  "FORM-LOFT-WHT": "form-loft",
+  "FORM-FOLD-SND": "form-fold",
+  "FORM-CALM-GRN": "form-calm",
+  "FORM-BUDS-WHT": "form-buds",
+  "ECHO-MINI-GRN": "echo-mini",
+  "ECHO-PLUS-BLK": "echo-plus",
+  "ECHO-SPORT-BLU": "echo-sport",
+  "ECHO-FLOW-SND": "echo-flow",
+  "ECHO-NIGHT-BLK": "echo-night",
+  "PULSE-GO-BLU": "pulse-go",
+  "PULSE-MOVE-GRN": "pulse-move",
+  "PULSE-FOCUS-BLK": "pulse-focus",
+  "PULSE-CLOUD-WHT": "pulse-cloud",
+  "PULSE-SPRINT-BLK": "pulse-sprint",
+  "VALE-STUDIO-SND": "vale-studio",
+  "VALE-AIR-WHT": "vale-air",
+  "VALE-POCKET-GRN": "vale-pocket",
+  "VALE-COMMUTE-BLK": "vale-commute",
+  "VALE-DRIFT-BLU": "vale-drift",
+  "ORBIT-CORE-BLK": "orbit-core",
+  "ORBIT-MINI-WHT": "orbit-mini",
+  "ORBIT-LONGPLAY-SND": "orbit-longplay",
+  "ORBIT-FLEX-BLU": "orbit-flex",
+  "ORBIT-QUIET-GRN": "orbit-quiet"
+};
 function art(p) { return `<img class="product-art" src="/static/images/${productImages[p.product_id]||'aura-one'}.webp" alt="${esc(p.product_name||'Black wireless headphones')} — illustrative product image" loading="lazy" width="1024" height="1024">`; }
 
 function groupedCatalog(filtered=true) {
@@ -74,10 +111,10 @@ function runResult(run){
   return html+`<div class="run-meta"><span>${esc(run.engine_label)} · Thread ${esc(run.thread_id?.slice(0,8))}</span><button class="subtle-link" data-export>${icon('download')}Export run</button></div>`;
 }
 function shopView(){
- if(!state.run&&!state.busy)return `<section class="home-hero"><div class="hero-copy"><div class="page-eyebrow"><span class="tiny-star">✳</span> LESS SCROLLING. MORE LISTENING.</div><h1>Find your kind<br> of <em>sound.</em></h1><p class="hero-description">Tell us what matters. Scout brings the options,<br class="desktop-break"> the comparisons, and a little clarity.</p>${composer(true)}</div><div class="hero-visual"><img class="hero-photo" src="/static/images/hero-editorial.webp" width="1536" height="1024" alt="Black headphones above a softly lit sage stone pedestal">${soundwave()}<div class="hero-caption"><span></span> A thoughtful way to find your next favorite.</div></div></section><section class="starting-points"><div class="section-heading"><div><span class="mini-label">A LITTLE INSPIRATION</span><h2>A few good starting points.</h2></div><button class="text-button" data-view="catalog">Explore the catalog ${icon('arrow')}</button></div><div class="home-products">${groupedCatalog(false).slice(0,3).map(o=>productCard(o,{group:true})).join('')}</div><div class="home-trust"><span>${icon('grid')}6 products · 20 sample offers</span><span>${icon('memory')}Preferences with your permission</span><span>${icon('flow')}Every step, in the open</span></div></section>`;
+ if(!state.run&&!state.busy)return `<section class="home-hero"><div class="hero-copy"><div class="page-eyebrow"><span class="tiny-star">✳</span> LESS SCROLLING. MORE LISTENING.</div><h1>Find your kind<br> of <em>sound.</em></h1><p class="hero-description">Tell us what matters. Scout brings the options,<br class="desktop-break"> the comparisons, and a little clarity.</p>${composer(true)}</div><div class="hero-visual"><img class="hero-photo" src="/static/images/hero-editorial.webp" width="1536" height="1024" alt="Black headphones above a softly lit sage stone pedestal">${soundwave()}<div class="hero-caption"><span></span> A thoughtful way to find your next favorite.</div></div></section><section class="starting-points"><div class="section-heading"><div><span class="mini-label">A LITTLE INSPIRATION</span><h2>A few good starting points.</h2></div><button class="text-button" data-view="catalog">Explore the catalog ${icon('arrow')}</button></div><div class="home-products">${groupedCatalog(false).slice(0,3).map(o=>productCard(o,{group:true})).join('')}</div><div class="home-trust"><span>${icon('grid')}${state.meta.products??groupedCatalog(false).length} products · ${state.meta.catalog_offers??state.offers.length} sample offers</span><span>${icon('memory')}Preferences with your permission</span><span>${icon('flow')}Every step, in the open</span></div></section>`;
  return `<div class="page-heading"><div><div class="page-eyebrow">LESS GUESSWORK. MORE GOOD CHOICES.</div><h1>A clearer <em>choice.</em></h1><p>All the details that matter, brought together.</p></div><button class="secondary-button" id="new-search" ${state.busy?'disabled':''}>${icon('plus')}New thread</button></div><div class="workbench"><section class="shop-main">${state.run?runResult(state.run):'<div class="loading-card"><span class="spinner"></span><div><h3>A little thinking goes a long way.</h3><p>Starting the LangGraph workflow…</p></div></div>'}${composer()}</section>${inspector()}</div>`;
 }
-function catalogView(){return `<div class="page-heading"><div><div class="page-eyebrow">FIND YOUR NEXT FAVORITE</div><h1>Meet the <em>contenders.</em></h1><p>A considered selection. Every offer, ready to compare.</p></div><div class="catalog-stats"><strong>${state.meta.products||6}<span>products</span></strong><strong>${state.meta.catalog_offers||20}<span>sample offers</span></strong><strong>${state.meta.retailers||3}<span>retailers</span></strong></div></div><div class="toolbar"><label class="search-field">${icon('search')}<input id="catalog-search" placeholder="Find a product or retailer…" aria-label="Search catalog" value="${esc(state.search)}"></label><div class="filters"><select id="condition-filter" aria-label="Product condition"><option value="all">All conditions</option><option value="new" ${state.condition==='new'?'selected':''}>New only</option><option value="refurbished" ${state.condition==='refurbished'?'selected':''}>Refurbished only</option></select><select id="stock-filter" aria-label="Stock availability"><option value="all">All availability</option><option value="available" ${state.stock==='available'?'selected':''}>In stock only</option></select></div><span class="source-label">${icon('box')}headphones.csv</span></div><div class="catalog-grid" id="catalog-grid">${catalogGrid()}</div><div class="feature-note">${icon('info')}Sample products, illustrative images, and fictional prices. “From” includes known shipping on available offers, before tax.</div>`;}
+function catalogView(){return `<div class="page-heading"><div><div class="page-eyebrow">FIND YOUR NEXT FAVORITE</div><h1>Meet the <em>contenders.</em></h1><p>A considered selection. Every offer, ready to compare.</p></div><div class="catalog-stats"><strong>${state.meta.products??groupedCatalog(false).length}<span>products</span></strong><strong>${state.meta.catalog_offers??state.offers.length}<span>sample offers</span></strong><strong>${state.meta.retailers||3}<span>retailers</span></strong></div></div><div class="toolbar"><label class="search-field">${icon('search')}<input id="catalog-search" placeholder="Find a product or retailer…" aria-label="Search catalog" value="${esc(state.search)}"></label><div class="filters"><select id="condition-filter" aria-label="Product condition"><option value="all">All conditions</option><option value="new" ${state.condition==='new'?'selected':''}>New only</option><option value="refurbished" ${state.condition==='refurbished'?'selected':''}>Refurbished only</option></select><select id="stock-filter" aria-label="Stock availability"><option value="all">All availability</option><option value="available" ${state.stock==='available'?'selected':''}>In stock only</option></select></div><span class="source-label">${icon('box')}headphones.csv</span></div><div class="catalog-grid" id="catalog-grid">${catalogGrid()}</div><div class="feature-note">${icon('info')}Sample products, illustrative images, and fictional prices. “From” includes known shipping on available offers, before tax.</div>`;}
 function catalogGrid(){const p=groupedCatalog();return p.length?p.map(o=>productCard(o,{group:true})).join(''):'<div class="empty-results">No products match these filters. Try another search.</div>';}
 function memoryHeadline(m){
  const v=String(m.value);
@@ -105,7 +142,7 @@ const nodeInfo = {
   understand:['02','Understand request','Gemini extracts typed constraints from explicit request text. A sample engine uses labeled rules.'],
   retrieve_memory:['03','Retrieve memory','Read this user’s active records. Rank by relevance, importance, and recency. Current explicit constraints take precedence.'],
   clarify:['?','Clarify budget','interrupt() pauses for the missing budget. Command(resume=…) supplies the answer to the same thread.'],
-  plan_search:['04','Plan the search','Gemini produces a structured search plan. Python validates that it preserves every effective constraint.'],
+  plan_search:['04','Plan the search','Gemini writes the search strategy. Python binds the exact validated filters, ranking, and result limit.'],
   search_catalog:['05','Search the CSV','The Python tool reads headphones.csv and executes model matching from the validated plan.'],
   compare_offers:['06','Compare offers','Python filters stock and hard constraints, calculates decimal item-and-shipping totals, and ranks equivalent offers.'],
   recommend:['07','Recommend','Gemini chooses an ID from the validated shortlist and explains its fit. Unknown IDs cannot prepare an action.'],
@@ -232,8 +269,10 @@ function openSettings() {
 function productDetails(id) {
   const offers=state.offers.filter(o=>o.product_id===id);if(!offers.length)return;
   const p=offers[0];
+  const knownTotals=offers.filter(o=>o.in_stock&&o.total_price!=null).map(o=>Number(o.total_price));
+  const suggestedBudget=knownTotals.length?Math.ceil(Math.max(...knownTotals)/50)*50:150;
   openModal(`<div class="modal-header"><h2>Compare retailer offers</h2><button class="icon-button" data-close aria-label="Close product details">${icon('close')}</button></div><div class="modal-product">${art(p)}<div><div class="product-brand">${esc(p.brand)} · ${esc(p.form_factor)}</div><h3>${esc(p.product_name)}</h3><p>${p.noise_cancelling?'Noise cancelling':'Standard audio'} · ${p.battery_hours}h battery · ${esc(p.color)}</p><span class="pill purple">Fictional product · Sample prices</span></div></div><div class="table-wrap"><table class="offer-table"><thead><tr><th>Retailer</th><th>Condition</th><th>Item</th><th>Shipping</th><th>Total</th><th>Stock</th></tr></thead><tbody>${offers.map(o=>`<tr><td>${esc(o.retailer)}</td><td>${esc(o.condition)}</td><td>${money(o.price)}</td><td>${o.shipping_cost==='0.00'?'Free':money(o.shipping_cost)}</td><td><strong>${money(o.total_price)}</strong></td><td><span class="pill ${o.in_stock?'green':'gray'}">${o.in_stock?'In stock':'Unavailable'}</span></td></tr>`).join('')}</tbody></table></div><p class="offer-footnote">Exact model ${esc(p.product_id)}. Totals exclude tax. Unknown shipping is not counted as free.</p><button class="primary-button" id="ask-product">Ask Scout about this product ${icon('arrow')}</button>`);
-  $('#ask-product').addEventListener('click',()=>{$('#modal').close();state.prompt=`Compare ${p.product_name} offers under $${p.product_name==='Aura Pro'?'200':'150'}. Find the best delivered price.`;state.run=null;navigate('shop');$('#prompt').focus();});
+  $('#ask-product').addEventListener('click',()=>{$('#modal').close();state.prompt=`Compare ${p.product_name} offers under $${suggestedBudget}. Find the best delivered price.`;state.run=null;navigate('shop');$('#prompt').focus();});
 }
 
 function bind() {

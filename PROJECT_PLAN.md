@@ -12,7 +12,7 @@ Use `InMemorySaver` for per-thread execution state and `InMemoryStore` for appro
 
 ## Catalog design
 
-Use approximately 15 to 20 offers across three simulated retailers, with several offers for the same model. Include useful comparison cases: a low item price with high shipping, an out-of-stock offer, a refurbished offer, an offer with unknown shipping, and models that differ in fit or noise cancellation.
+Use 110 offers for 36 fictional headphone models across three simulated retailers. The expanded catalog preserves the original 20 offers and adds 30 models with three offers each. Include useful comparison cases: a low item price with high shipping, an out-of-stock offer, a refurbished offer, an offer with unknown shipping, and models that differ in fit or noise cancellation.
 
 | Field | Purpose |
 | --- | --- |

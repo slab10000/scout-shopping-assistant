@@ -1,0 +1,208 @@
+{
+  "generator": "Built-in image_gen",
+  "assets": [
+    {
+      "product_id": "ECHO-MINI-GRN",
+      "name": "Echo Mini",
+      "file": "static/images/echo-mini.webp",
+      "original": "../design_concepts/catalog-expansion-assets/echo-mini.png",
+      "source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-817f-7e62-bded-661e09b5381d/exec-06631d7b-c694-4797-832f-faa32788e4a2.png",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: actual transparent alpha background, no scenery or floor. Subject: tiny sage green bean-shaped stemless in-ear earbuds with silicone tips and a very compact open pebble charging case. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly two earbuds and their matching open charging case together, all fully visible. Color: sage. Constraints: no text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product; do not create a sprite sheet, UI or multiple product variants.",
+      "generator": "Built-in image_gen",
+      "transparent_background": true,
+      "inspection": "Visually reviewed: correct sage color and in-ear form factor; two earbuds and an open matching case; no text. Minor edge speckles are only visible at full image resolution.",
+      "alpha": {
+        "hasAlpha": true,
+        "min": 0,
+        "max": 255
+      },
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "ECHO-PLUS-BLK",
+      "name": "Echo Plus",
+      "file": "static/images/echo-plus.webp",
+      "original": "../design_concepts/catalog-expansion-assets/echo-plus.png",
+      "source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-817f-7e62-bded-661e09b5381d/exec-189e3053-4836-4b90-bbdc-0fed6a02855c.png",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: actual transparent alpha background, no scenery or floor. Subject: premium charcoal in-ear earbuds with broad oval touch surfaces and a dark open charging case with subtle gunmetal trim. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly two earbuds and their matching open charging case together, all fully visible. Color: graphite. Constraints: no text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product; do not create a sprite sheet, UI or multiple product variants.",
+      "generator": "Built-in image_gen",
+      "transparent_background": true,
+      "inspection": "Visually reviewed: correct graphite color and in-ear form factor; two earbuds and an open matching case; no text. Minor edge speckles are only visible at full image resolution.",
+      "alpha": {
+        "hasAlpha": true,
+        "min": 0,
+        "max": 255
+      },
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "ECHO-SPORT-BLU",
+      "name": "Echo Sport",
+      "file": "static/images/echo-sport.webp",
+      "original": "../design_concepts/catalog-expansion-assets/echo-sport.png",
+      "source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-817f-7e62-bded-661e09b5381d/exec-d14e5a60-c0e5-4a6b-aa79-7dd00ba57562.png",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: actual transparent alpha background, no scenery or floor. Subject: dusty blue sports in-ear earbuds with small stabilizing silicone wings, shown with a matching open compact charging case. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly two earbuds and their matching open charging case together, all fully visible. Color: blue. Constraints: no text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product; do not create a sprite sheet, UI or multiple product variants.",
+      "generator": "Built-in image_gen",
+      "transparent_background": true,
+      "inspection": "Visually reviewed: correct blue color and in-ear form factor; two earbuds and an open matching case; no text. Minor edge speckles are only visible at full image resolution.",
+      "alpha": {
+        "hasAlpha": true,
+        "min": 0,
+        "max": 255
+      },
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "ECHO-FLOW-SND",
+      "name": "Echo Flow",
+      "file": "static/images/echo-flow.webp",
+      "original": "../design_concepts/catalog-expansion-assets/echo-flow.png",
+      "source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-817f-7e62-bded-661e09b5381d/exec-d25ae760-05ce-420b-ad9a-0002456fe687.png",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: actual transparent alpha background, no scenery or floor. Subject: sand-colored wireless in-ear earbuds with slim short stems, soft silicone tips, and an open softly rounded charging case. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly two earbuds and their matching open charging case together, all fully visible. Color: sand. Constraints: no text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product; do not create a sprite sheet, UI or multiple product variants.",
+      "generator": "Built-in image_gen",
+      "transparent_background": true,
+      "inspection": "Visually reviewed: correct sand color and in-ear form factor; two earbuds and an open matching case; no text. Minor edge speckles are only visible at full image resolution.",
+      "alpha": {
+        "hasAlpha": true,
+        "min": 0,
+        "max": 255
+      },
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "ECHO-NIGHT-BLK",
+      "name": "Echo Night",
+      "file": "static/images/echo-night.webp",
+      "original": "../design_concepts/catalog-expansion-assets/echo-night.png",
+      "source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-817f-7e62-bded-661e09b5381d/exec-3f0ee463-934e-4e08-ad2d-b150563059ed.png",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: actual transparent alpha background, no scenery or floor. Subject: matte black over-ear headphones with subtle ridged outer earcup rims, soft oval cushions, and a smooth low-profile padded headband. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly one pair of headphones, entire headband and both earcups fully visible. Color: graphite. Constraints: no text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product; do not create a sprite sheet, UI or multiple product variants.",
+      "generator": "Built-in image_gen",
+      "transparent_background": true,
+      "inspection": "Visually reviewed: correct graphite color and over-ear form factor; one pair with full headband and both earcups; no text. Minor edge speckles are only visible at full image resolution.",
+      "alpha": {
+        "hasAlpha": true,
+        "min": 0,
+        "max": 255
+      },
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "PULSE-GO-BLU",
+      "name": "Pulse Go",
+      "file": "static/images/pulse-go.webp",
+      "original": "../design_concepts/catalog-expansion-assets/pulse-go.png",
+      "source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-817f-7e62-bded-661e09b5381d/exec-0d38d1a5-aa90-4475-9716-7b93c632e16c.png",
+      "prompt": "Use case: background-extraction. Edit target: the attached product photograph. Remove all stray colored and white edge residue, matte halos, speckles, and any disconnected pixels outside the exact physical product silhouette. Keep the product itself, its color, materials, hardware, arrangement, framing, perspective, detail, and lighting unchanged. Preserve the real transparent alpha background. All space around the product and all holes/gaps must be perfectly transparent with crisp natural antialiased edges. Do not add text, shadows, floor, objects, branding, backdrop, or change the device.",
+      "initial_prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: actual transparent alpha background, no scenery or floor. Subject: simple affordable dusty blue on-ear headphones with small circular ear pads and a light slim plastic headband. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly one pair of headphones, entire headband and both earcups fully visible. Color: blue. Constraints: no text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product; do not create a sprite sheet, UI or multiple product variants.",
+      "initial_source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-817f-7e62-bded-661e09b5381d/exec-8e4d821e-368e-4d5d-9f9d-a515e07e3d57.png",
+      "refinement": "Built-in image edit to reduce stray edge residue",
+      "generator": "Built-in image_gen",
+      "transparent_background": true,
+      "inspection": "Visually reviewed: correct blue color and on-ear form factor; one pair with full headband and both earcups; no text. Minor edge speckles are only visible at full image resolution.",
+      "alpha": {
+        "hasAlpha": true,
+        "min": 0,
+        "max": 255
+      },
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "PULSE-MOVE-GRN",
+      "name": "Pulse Move",
+      "file": "static/images/pulse-move.webp",
+      "original": "../design_concepts/catalog-expansion-assets/pulse-move.png",
+      "source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-817f-7e62-bded-661e09b5381d/exec-4968ef6b-2ade-4f34-93e6-e0db6a682aa0.png",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: genuinely transparent alpha background. Subject: lightweight sage green over-ear headphones with softly faceted oval earcups, simple hinge arms, and fabric-covered headband padding. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly one pair of headphones, entire headband and both earcups fully visible. Color: sage. Constraints: clean accurate product silhouette with pristine transparent edges, no colored halos, stray pixels, matte residue, edge speckles, white cutout remnants, text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product. Do not create a sprite sheet, UI or multiple variants.",
+      "generator": "Built-in image_gen",
+      "transparent_background": true,
+      "inspection": "Visually reviewed: correct sage color and over-ear form factor; one pair with full headband and both earcups; no text. Minor edge speckles are only visible at full image resolution.",
+      "alpha": {
+        "hasAlpha": true,
+        "min": 0,
+        "max": 255
+      },
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "PULSE-FOCUS-BLK",
+      "name": "Pulse Focus",
+      "file": "static/images/pulse-focus.webp",
+      "original": "../design_concepts/catalog-expansion-assets/pulse-focus.png",
+      "source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-817f-7e62-bded-661e09b5381d/exec-c0a6e23b-4710-48d7-b2e1-a4607ee5a945.png",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: genuinely transparent alpha background. Subject: charcoal black over-ear headphones with rounded oval cups, a single tactile control button on the outer rim, and a compact padded arch. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly one pair of headphones, entire headband and both earcups fully visible. Color: graphite. Constraints: clean accurate product silhouette with pristine transparent edges, no colored halos, stray pixels, matte residue, edge speckles, white cutout remnants, text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product. Do not create a sprite sheet, UI or multiple variants.",
+      "generator": "Built-in image_gen",
+      "transparent_background": true,
+      "inspection": "Visually reviewed: correct graphite color and over-ear form factor; one pair with full headband and both earcups; no text. Minor edge speckles are only visible at full image resolution.",
+      "alpha": {
+        "hasAlpha": true,
+        "min": 0,
+        "max": 255
+      },
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "PULSE-CLOUD-WHT",
+      "name": "Pulse Cloud",
+      "file": "static/images/pulse-cloud.webp",
+      "original": "../design_concepts/catalog-expansion-assets/pulse-cloud.png",
+      "source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-817f-7e62-bded-661e09b5381d/exec-e24b535a-b2b2-4cb9-b504-c48f117c5e3c.png",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: genuinely transparent alpha background. Subject: soft ivory over-ear headphones with unusually plush deep rounded cushions, smooth pale earcup faces, and a thick cloudlike padded headband. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly one pair of headphones, entire headband and both earcups fully visible. Color: ivory. Constraints: clean accurate product silhouette with pristine transparent edges, no colored halos, stray pixels, matte residue, edge speckles, white cutout remnants, text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product. Do not create a sprite sheet, UI or multiple variants.",
+      "generator": "Built-in image_gen",
+      "transparent_background": true,
+      "inspection": "Visually reviewed: correct ivory color and over-ear form factor; one pair with full headband and both earcups; no text. Minor edge speckles are only visible at full image resolution.",
+      "alpha": {
+        "hasAlpha": true,
+        "min": 0,
+        "max": 255
+      },
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      }
+    },
+    {
+      "product_id": "PULSE-SPRINT-BLK",
+      "name": "Pulse Sprint",
+      "file": "static/images/pulse-sprint.webp",
+      "original": "../design_concepts/catalog-expansion-assets/pulse-sprint.png",
+      "source": "/Users/blasmorenolaguna/.codex/generated_images/01a17bc1-817f-7e62-bded-661e09b5381d/exec-73ef1d24-e8bb-4688-b7ab-eb6b988bcbdf.png",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: genuinely transparent alpha background. Subject: compact black wireless in-ear earbuds with silicone stabilizer fins and a matching open low rectangular charging case. Photorealistic studio photography, warm soft natural highlights, tactile matte materials. Front three-quarter angle, square canvas, full subject centered with generous padding. Show exactly two earbuds with silicone tips and their matching open charging case, all fully visible. Pristine accurate transparent edges without halos, speckles or matte residue. No text, logos, labels, watermark, background scenery, floor, pedestal or cast shadows outside objects.",
+      "generator": "Built-in image_gen",
+      "transparent_background": true,
+      "inspection": "Visually reviewed: correct graphite color and in-ear form factor; two earbuds and an open matching case; no text. Minor edge speckles are only visible at full image resolution.",
+      "alpha": {
+        "hasAlpha": true,
+        "min": 0,
+        "max": 255
+      },
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      }
+    }
+  ]
+}

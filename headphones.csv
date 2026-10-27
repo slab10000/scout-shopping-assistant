@@ -19,3 +19,93 @@ O017,AURA-PRO-BLK,Aura,Aura Pro,Pro,Wave Market,149.00,0.00,USD,refurbished,true
 O018,FORM-OPEN-SND,Form,Form Open,Open,Soundhouse,89.00,0.00,USD,new,true,over-ear,false,55,sand
 O019,FORM-OPEN-SND,Form,Form Open,Open,Audio Avenue,84.00,3.99,USD,new,true,over-ear,false,55,sand
 O020,FORM-OPEN-SND,Form,Form Open,Open,Wave Market,79.00,0.00,USD,new,false,over-ear,false,55,sand
+O021,AURA-ARC-BLK,Aura,Aura Arc,Arc,Soundhouse,159.00,0.00,USD,new,true,over-ear,true,48,graphite
+O022,AURA-ARC-BLK,Aura,Aura Arc,Arc,Audio Avenue,144.00,9.99,USD,new,true,over-ear,true,48,graphite
+O023,AURA-ARC-BLK,Aura,Aura Arc,Arc,Wave Market,134.00,,USD,new,false,over-ear,true,48,graphite
+O024,AURA-TRAVEL-SND,Aura,Aura Travel,Travel,Soundhouse,169.00,0.00,USD,new,true,over-ear,true,65,sand
+O025,AURA-TRAVEL-SND,Aura,Aura Travel,Travel,Audio Avenue,157.00,14.99,USD,new,true,over-ear,true,65,sand
+O026,AURA-TRAVEL-SND,Aura,Aura Travel,Travel,Wave Market,144.00,6.99,USD,refurbished,true,over-ear,true,65,sand
+O027,AURA-COMPACT-BLU,Aura,Aura Compact,Compact,Soundhouse,89.00,0.00,USD,new,true,on-ear,true,32,blue
+O028,AURA-COMPACT-BLU,Aura,Aura Compact,Compact,Audio Avenue,77.00,14.99,USD,new,true,on-ear,true,32,blue
+O029,AURA-COMPACT-BLU,Aura,Aura Compact,Compact,Wave Market,64.00,6.99,USD,refurbished,true,on-ear,true,32,blue
+O030,AURA-MAX-WHT,Aura,Aura Max,Max,Soundhouse,249.00,0.00,USD,new,true,over-ear,true,80,ivory
+O031,AURA-MAX-WHT,Aura,Aura Max,Max,Audio Avenue,234.00,9.99,USD,new,true,over-ear,true,80,ivory
+O032,AURA-MAX-WHT,Aura,Aura Max,Max,Wave Market,224.00,6.99,USD,refurbished,true,over-ear,true,80,ivory
+O033,AURA-BEAM-GRN,Aura,Aura Beam,Beam,Soundhouse,89.00,0.00,USD,new,true,in-ear,true,30,sage
+O034,AURA-BEAM-GRN,Aura,Aura Beam,Beam,Audio Avenue,77.00,14.99,USD,new,true,in-ear,true,30,sage
+O035,AURA-BEAM-GRN,Aura,Aura Beam,Beam,Wave Market,64.00,,USD,refurbished,true,in-ear,true,30,sage
+O036,FORM-FOCUS-BLK,Form,Form Focus,Focus,Soundhouse,129.00,0.00,USD,new,true,over-ear,true,60,graphite
+O037,FORM-FOCUS-BLK,Form,Form Focus,Focus,Audio Avenue,117.00,14.99,USD,new,true,over-ear,true,60,graphite
+O038,FORM-FOCUS-BLK,Form,Form Focus,Focus,Wave Market,104.00,6.99,USD,new,true,over-ear,true,60,graphite
+O039,FORM-LOFT-WHT,Form,Form Loft,Loft,Soundhouse,119.00,0.00,USD,new,true,over-ear,true,45,ivory
+O040,FORM-LOFT-WHT,Form,Form Loft,Loft,Audio Avenue,104.00,9.99,USD,new,true,over-ear,true,45,ivory
+O041,FORM-LOFT-WHT,Form,Form Loft,Loft,Wave Market,94.00,6.99,USD,refurbished,true,over-ear,true,45,ivory
+O042,FORM-FOLD-SND,Form,Form Fold,Fold,Soundhouse,74.00,0.00,USD,new,true,on-ear,false,40,sand
+O043,FORM-FOLD-SND,Form,Form Fold,Fold,Audio Avenue,62.00,14.99,USD,new,true,on-ear,false,40,sand
+O044,FORM-FOLD-SND,Form,Form Fold,Fold,Wave Market,49.00,6.99,USD,refurbished,false,on-ear,false,40,sand
+O045,FORM-CALM-GRN,Form,Form Calm,Calm,Soundhouse,149.00,0.00,USD,new,true,over-ear,true,55,sage
+O046,FORM-CALM-GRN,Form,Form Calm,Calm,Audio Avenue,137.00,14.99,USD,new,true,over-ear,true,55,sage
+O047,FORM-CALM-GRN,Form,Form Calm,Calm,Wave Market,124.00,,USD,refurbished,true,over-ear,true,55,sage
+O048,FORM-BUDS-WHT,Form,Form Buds,Buds,Soundhouse,69.00,0.00,USD,new,true,in-ear,true,26,ivory
+O049,FORM-BUDS-WHT,Form,Form Buds,Buds,Audio Avenue,54.00,9.99,USD,new,true,in-ear,true,26,ivory
+O050,FORM-BUDS-WHT,Form,Form Buds,Buds,Wave Market,44.00,6.99,USD,refurbished,true,in-ear,true,26,ivory
+O051,ECHO-MINI-GRN,Echo,Echo Mini,Mini,Soundhouse,39.00,0.00,USD,new,true,in-ear,false,22,sage
+O052,ECHO-MINI-GRN,Echo,Echo Mini,Mini,Audio Avenue,27.00,14.99,USD,new,true,in-ear,false,22,sage
+O053,ECHO-MINI-GRN,Echo,Echo Mini,Mini,Wave Market,19.00,6.99,USD,new,true,in-ear,false,22,sage
+O054,ECHO-PLUS-BLK,Echo,Echo Plus,Plus,Soundhouse,99.00,0.00,USD,new,true,in-ear,true,36,graphite
+O055,ECHO-PLUS-BLK,Echo,Echo Plus,Plus,Audio Avenue,87.00,14.99,USD,new,true,in-ear,true,36,graphite
+O056,ECHO-PLUS-BLK,Echo,Echo Plus,Plus,Wave Market,74.00,6.99,USD,refurbished,true,in-ear,true,36,graphite
+O057,ECHO-SPORT-BLU,Echo,Echo Sport,Sport,Soundhouse,79.00,0.00,USD,new,true,in-ear,true,32,blue
+O058,ECHO-SPORT-BLU,Echo,Echo Sport,Sport,Audio Avenue,64.00,9.99,USD,new,true,in-ear,true,32,blue
+O059,ECHO-SPORT-BLU,Echo,Echo Sport,Sport,Wave Market,54.00,,USD,refurbished,true,in-ear,true,32,blue
+O060,ECHO-FLOW-SND,Echo,Echo Flow,Flow,Soundhouse,49.00,0.00,USD,new,true,in-ear,false,30,sand
+O061,ECHO-FLOW-SND,Echo,Echo Flow,Flow,Audio Avenue,37.00,14.99,USD,new,true,in-ear,false,30,sand
+O062,ECHO-FLOW-SND,Echo,Echo Flow,Flow,Wave Market,24.00,6.99,USD,refurbished,true,in-ear,false,30,sand
+O063,ECHO-NIGHT-BLK,Echo,Echo Night,Night,Soundhouse,139.00,0.00,USD,new,true,over-ear,true,52,graphite
+O064,ECHO-NIGHT-BLK,Echo,Echo Night,Night,Audio Avenue,127.00,14.99,USD,new,true,over-ear,true,52,graphite
+O065,ECHO-NIGHT-BLK,Echo,Echo Night,Night,Wave Market,114.00,6.99,USD,refurbished,false,over-ear,true,52,graphite
+O066,PULSE-GO-BLU,Pulse,Pulse Go,Go,Soundhouse,39.00,0.00,USD,new,true,on-ear,false,28,blue
+O067,PULSE-GO-BLU,Pulse,Pulse Go,Go,Audio Avenue,24.00,9.99,USD,new,true,on-ear,false,28,blue
+O068,PULSE-GO-BLU,Pulse,Pulse Go,Go,Wave Market,19.00,6.99,USD,new,true,on-ear,false,28,blue
+O069,PULSE-MOVE-GRN,Pulse,Pulse Move,Move,Soundhouse,69.00,0.00,USD,new,true,over-ear,false,45,sage
+O070,PULSE-MOVE-GRN,Pulse,Pulse Move,Move,Audio Avenue,57.00,14.99,USD,new,true,over-ear,false,45,sage
+O071,PULSE-MOVE-GRN,Pulse,Pulse Move,Move,Wave Market,44.00,,USD,refurbished,true,over-ear,false,45,sage
+O072,PULSE-FOCUS-BLK,Pulse,Pulse Focus,Focus,Soundhouse,99.00,0.00,USD,new,true,over-ear,true,42,graphite
+O073,PULSE-FOCUS-BLK,Pulse,Pulse Focus,Focus,Audio Avenue,87.00,14.99,USD,new,true,over-ear,true,42,graphite
+O074,PULSE-FOCUS-BLK,Pulse,Pulse Focus,Focus,Wave Market,74.00,6.99,USD,refurbished,true,over-ear,true,42,graphite
+O075,PULSE-CLOUD-WHT,Pulse,Pulse Cloud,Cloud,Soundhouse,159.00,0.00,USD,new,true,over-ear,true,70,ivory
+O076,PULSE-CLOUD-WHT,Pulse,Pulse Cloud,Cloud,Audio Avenue,144.00,9.99,USD,new,true,over-ear,true,70,ivory
+O077,PULSE-CLOUD-WHT,Pulse,Pulse Cloud,Cloud,Wave Market,134.00,6.99,USD,refurbished,true,over-ear,true,70,ivory
+O078,PULSE-SPRINT-BLK,Pulse,Pulse Sprint,Sprint,Soundhouse,59.00,0.00,USD,new,true,in-ear,false,24,graphite
+O079,PULSE-SPRINT-BLK,Pulse,Pulse Sprint,Sprint,Audio Avenue,47.00,14.99,USD,new,true,in-ear,false,24,graphite
+O080,PULSE-SPRINT-BLK,Pulse,Pulse Sprint,Sprint,Wave Market,34.00,6.99,USD,refurbished,true,in-ear,false,24,graphite
+O081,VALE-STUDIO-SND,Vale,Vale Studio,Studio,Soundhouse,179.00,0.00,USD,new,true,over-ear,true,60,sand
+O082,VALE-STUDIO-SND,Vale,Vale Studio,Studio,Audio Avenue,167.00,14.99,USD,new,true,over-ear,true,60,sand
+O083,VALE-STUDIO-SND,Vale,Vale Studio,Studio,Wave Market,154.00,,USD,new,true,over-ear,true,60,sand
+O084,VALE-AIR-WHT,Vale,Vale Air,Air,Soundhouse,109.00,0.00,USD,new,true,over-ear,false,48,ivory
+O085,VALE-AIR-WHT,Vale,Vale Air,Air,Audio Avenue,94.00,9.99,USD,new,true,over-ear,false,48,ivory
+O086,VALE-AIR-WHT,Vale,Vale Air,Air,Wave Market,84.00,6.99,USD,refurbished,false,over-ear,false,48,ivory
+O087,VALE-POCKET-GRN,Vale,Vale Pocket,Pocket,Soundhouse,79.00,0.00,USD,new,true,in-ear,true,34,sage
+O088,VALE-POCKET-GRN,Vale,Vale Pocket,Pocket,Audio Avenue,67.00,14.99,USD,new,true,in-ear,true,34,sage
+O089,VALE-POCKET-GRN,Vale,Vale Pocket,Pocket,Wave Market,54.00,6.99,USD,refurbished,true,in-ear,true,34,sage
+O090,VALE-COMMUTE-BLK,Vale,Vale Commute,Commute,Soundhouse,109.00,0.00,USD,new,true,on-ear,true,38,graphite
+O091,VALE-COMMUTE-BLK,Vale,Vale Commute,Commute,Audio Avenue,97.00,14.99,USD,new,true,on-ear,true,38,graphite
+O092,VALE-COMMUTE-BLK,Vale,Vale Commute,Commute,Wave Market,84.00,6.99,USD,refurbished,true,on-ear,true,38,graphite
+O093,VALE-DRIFT-BLU,Vale,Vale Drift,Drift,Soundhouse,129.00,0.00,USD,new,true,over-ear,true,54,blue
+O094,VALE-DRIFT-BLU,Vale,Vale Drift,Drift,Audio Avenue,114.00,9.99,USD,new,true,over-ear,true,54,blue
+O095,VALE-DRIFT-BLU,Vale,Vale Drift,Drift,Wave Market,104.00,,USD,refurbished,true,over-ear,true,54,blue
+O096,ORBIT-CORE-BLK,Orbit,Orbit Core,Core,Soundhouse,119.00,0.00,USD,new,true,over-ear,true,50,graphite
+O097,ORBIT-CORE-BLK,Orbit,Orbit Core,Core,Audio Avenue,107.00,14.99,USD,new,true,over-ear,true,50,graphite
+O098,ORBIT-CORE-BLK,Orbit,Orbit Core,Core,Wave Market,94.00,6.99,USD,new,true,over-ear,true,50,graphite
+O099,ORBIT-MINI-WHT,Orbit,Orbit Mini,Mini,Soundhouse,44.00,0.00,USD,new,true,in-ear,false,24,ivory
+O100,ORBIT-MINI-WHT,Orbit,Orbit Mini,Mini,Audio Avenue,32.00,14.99,USD,new,true,in-ear,false,24,ivory
+O101,ORBIT-MINI-WHT,Orbit,Orbit Mini,Mini,Wave Market,19.00,6.99,USD,refurbished,true,in-ear,false,24,ivory
+O102,ORBIT-LONGPLAY-SND,Orbit,Orbit Longplay,Longplay,Soundhouse,229.00,0.00,USD,new,true,over-ear,true,90,sand
+O103,ORBIT-LONGPLAY-SND,Orbit,Orbit Longplay,Longplay,Audio Avenue,214.00,9.99,USD,new,true,over-ear,true,90,sand
+O104,ORBIT-LONGPLAY-SND,Orbit,Orbit Longplay,Longplay,Wave Market,204.00,6.99,USD,refurbished,true,over-ear,true,90,sand
+O105,ORBIT-FLEX-BLU,Orbit,Orbit Flex,Flex,Soundhouse,64.00,0.00,USD,new,true,on-ear,false,36,blue
+O106,ORBIT-FLEX-BLU,Orbit,Orbit Flex,Flex,Audio Avenue,52.00,14.99,USD,new,true,on-ear,false,36,blue
+O107,ORBIT-FLEX-BLU,Orbit,Orbit Flex,Flex,Wave Market,39.00,,USD,refurbished,false,on-ear,false,36,blue
+O108,ORBIT-QUIET-GRN,Orbit,Orbit Quiet,Quiet,Soundhouse,129.00,0.00,USD,new,true,in-ear,true,40,sage
+O109,ORBIT-QUIET-GRN,Orbit,Orbit Quiet,Quiet,Audio Avenue,117.00,14.99,USD,new,true,in-ear,true,40,sage
+O110,ORBIT-QUIET-GRN,Orbit,Orbit Quiet,Quiet,Wave Market,104.00,6.99,USD,refurbished,true,in-ear,true,40,sage

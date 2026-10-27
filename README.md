@@ -4,7 +4,7 @@ Scout is a Project 1 prototype with one Gemini-powered LangGraph agent, a sample
 
 All product names, retailer offers, prices, stock information, and purchase confirmations are fictional samples or simulations. Product lookup reads `headphones.csv`; there is no internet search or real checkout.
 
-![Scout shopping assistant frontend](evidence/frontend-v2/scout-v2-home-desktop.png)
+![Scout shopping assistant frontend](evidence/catalog-expansion/catalog-expansion-home.png)
 
 ## Get the project
 
@@ -46,7 +46,7 @@ Try:
 Find new over-ear headphones under $150 with noise cancellation. Find the cheapest offer.
 ```
 
-Scout validates extracted constraints, retrieves relevant preferences, creates a structured search plan, reads the CSV, compares known delivered totals, and prepares a recommendation. Open the search-plan panel to inspect the actual steps and the exclusions panel to see rejected or uncertain offers.
+Scout validates extracted constraints, retrieves relevant preferences, writes a search strategy, binds the validated constraints into a structured plan, reads the CSV, compares known delivered totals, and prepares a recommendation. Open the search-plan panel to inspect the actual steps and the exclusions panel to see rejected or uncertain offers.
 
 The graph pauses at `approve_purchase`. **Confirm simulation** resumes with `True`; **Reject purchase** resumes with `False`. Only the approved branch reaches the separate simulation node. There is no external order or payment. Missing budgets trigger a clarification interrupt before a tool search. No-match requests stop without increasing the budget.
 
@@ -79,11 +79,17 @@ The new condition record supersedes the old one. **Show history** displays the o
 
 `STORE` means eligible for approval, not already written. `TEMPORARY` input, such as “Refurbished is acceptable for this purchase,” is not stored as a general preference. Sensitive, third-party, and unsupported candidates return `HUMAN_REVIEW`, which ends without a write and asks for a supported safe preference. This small prototype supports bounded fit, condition, noise-cancellation, battery, and ranking preferences rather than arbitrary autobiographical memory.
 
+## Expanded catalog
+
+The catalog contains 36 fictional models and 110 offers across the same three sample retailers. The latest expansion adds 30 independently illustrated models and 90 offers while preserving the original 20 rows. All three form factors, six brands, five colors, ANC and standard audio, varied battery life, new and refurbished conditions, stock exclusions, and unknown shipping are represented. The practice engine recognizes full model names and product IDs directly from the CSV. Gemini extracts the requested model from the request. Gemini writes search steps; Python binds the exact validated filters, ranking, and result limit, so planning cannot introduce extra requirements for unfamiliar models. The frontend counts and suggested product budgets are derived from current offers.
+
+Earlier Gemini and frontend-v2 evidence is preserved as a record of the original catalog. `evidence/catalog-expansion/` captures verification of the current catalog, including a live Gemini request for Orbit Longplay and the updated sample scenarios. The exact prompts for all 30 new images are collected in `tools/catalog_image_prompts.json`.
+
 ## Frontend design
 
 The responsive webapp implements the approved Scout concepts: warm ivory, deep green, orange actions, editorial serif headings, and horizontal navigation. Shopping includes a photographic hero, animated SVG soundwaves, a live reasoning trail, price comparisons, and explicit approval controls. Catalog has searchable offer cards and retailer comparison dialogs. Memory shows readable preferences, approval provenance, correction history, and the exact proposal before saving. Architecture renders every real graph node and edge as interactive SVG, with execution highlights, a node inspector, diagram enlargement, state inspection, and Mermaid export.
 
-All seven illustrative images were generated with the built-in image generation tool. Six transparent product cutouts and one editorial hero are served locally as WebP from `static/images/`; their prompts are recorded in `tools/image_assets.json`. Product images illustrate fictional catalog entries and are not manufacturer photographs. The conceptual screen images are not embedded as application screens.
+All 37 illustrative images were generated with the built-in image generation tool. Thirty-six transparent product cutouts and one editorial hero are served locally as WebP from `static/images/`; their prompts are recorded in `tools/image_assets.json` and `tools/image_batch_a.json`, `tools/image_batch_b.json`, and `tools/image_batch_c.json`. The 30 added product specifications are listed in `tools/catalog_expansion.json`. Product images illustrate fictional catalog entries and are not manufacturer photographs. The conceptual screen images are not embedded as application screens.
 
 DM Sans and Instrument Serif are served from `static/fonts/`, with their SIL Open Font License texts included. There are no runtime font or image downloads, and no added JavaScript framework or backend dependency. Animations respect reduced-motion preferences. The mobile Architecture diagram scrolls within its own frame to keep node labels readable.
 
@@ -128,7 +134,7 @@ The regression suite uses labeled sample rules and deliberately invalid-output s
 
 `evidence/sample` and `evidence/gemini` identify their engine in each captured state. `evidence/test_output.txt` contains regression results. Browser screenshots are labeled by their visible engine. The notebook demonstrates the same implementation and provides an explicit live-Gemini option.
 
-The captured submission includes 15 scenario states for each engine and 21 passing local checks. The live run used Gemini 3.1 Flash Lite. Provider high-demand and quota errors occurred during earlier attempts; the live harness continued from saved evidence in the same running server, retaining its original approved memory instead of replaying writes. `run_metadata.json` records that continuation. Use `--continue-evidence` only while that original server is still running; a server restart requires a fresh demo.
+The earlier captured submission includes 15 scenario states for each engine on the original six-model catalog. The expanded catalog passes 24 local checks; its updated sample scenarios are under `evidence/catalog-expansion/sample`. The live run used Gemini 3.1 Flash Lite. Provider high-demand and quota errors occurred during earlier attempts; the live harness continued from saved evidence in the same running server, retaining its original approved memory instead of replaying writes. `run_metadata.json` records that continuation. Use `--continue-evidence` only while that original server is still running; a server restart requires a fresh demo.
 
 ## Limitations and contributions
 
@@ -142,7 +148,7 @@ Before submission, identify the actual team members and their contributions. The
 
 - `shopping_assistant.py`: core agent, tool, memory logic, service, and CLI.
 - `webapp.py` and `static/`: local HTTP backend and responsive frontend.
-- `headphones.csv`: 20 fictional offers across six models and three retailers.
+- `headphones.csv`: 110 fictional offers across 36 models and three retailers.
 - `Project_1_Shopping_Assistant.ipynb`: executed sample walkthrough and live option.
 - `project_tests.py`, `run_demo.py`, and `evidence/`: verification and captured results.
 - `architecture.mmd`, `architecture.svg`, and `Project_1_Report.pdf`: submission documentation.

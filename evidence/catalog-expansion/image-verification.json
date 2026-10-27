@@ -1,0 +1,433 @@
+{
+  "added": 30,
+  "total_product_images": 36,
+  "unique_images": 30,
+  "generator": "built-in image_gen",
+  "agents": [
+    "product_images_a",
+    "product_images_b",
+    "product_images_c"
+  ],
+  "assets": [
+    {
+      "product_id": "AURA-ARC-BLK",
+      "image": "static/images/aura-arc.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 179800,
+      "sha256": "3d19eb1ac03b09ce64456e1cf635c52804d44aee3ef65f8164af94d538530ea6"
+    },
+    {
+      "product_id": "AURA-TRAVEL-SND",
+      "image": "static/images/aura-travel.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 179872,
+      "sha256": "c4b330b2f3d5fd0ff427a78c53b380f142e6d37b8b1ab4b6f6544a9647188986"
+    },
+    {
+      "product_id": "AURA-COMPACT-BLU",
+      "image": "static/images/aura-compact.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 177964,
+      "sha256": "7e9b48daf9ce9df2798116d38ee68802f4c445c4b949cbbbc364d6bc86d026f3"
+    },
+    {
+      "product_id": "AURA-MAX-WHT",
+      "image": "static/images/aura-max.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 221096,
+      "sha256": "427cbb026b34054876806862f9557ba6cb8f7356ceff5bbdf90afb2ee9269b2d"
+    },
+    {
+      "product_id": "AURA-BEAM-GRN",
+      "image": "static/images/aura-beam.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 129014,
+      "sha256": "645b41021d1883d2d646152cbc4c86ff02756b3e87e2f455f618ac1419a8ca8e"
+    },
+    {
+      "product_id": "FORM-FOCUS-BLK",
+      "image": "static/images/form-focus.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 182270,
+      "sha256": "d708fdabd579c3ff24ed241fe1eda3e0b9e378b39ce87fbd67763d2b8739e660"
+    },
+    {
+      "product_id": "FORM-LOFT-WHT",
+      "image": "static/images/form-loft.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 206212,
+      "sha256": "af931104d7cc92909496fcdba24935a5abb09c2ef4bbba7bd7f3c3adc872fde4"
+    },
+    {
+      "product_id": "FORM-FOLD-SND",
+      "image": "static/images/form-fold.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 157656,
+      "sha256": "74f4636169bb3099587014c4ca022769345e8ddfd9abd543a123b1bf95fc170c"
+    },
+    {
+      "product_id": "FORM-CALM-GRN",
+      "image": "static/images/form-calm.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 247454,
+      "sha256": "95274420ca16d35631ad0641472002e88c7a16c15c30c718832d6d9a2be0039a"
+    },
+    {
+      "product_id": "FORM-BUDS-WHT",
+      "image": "static/images/form-buds.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 103828,
+      "sha256": "3739002d2055b296af6ced0c4c8af260e800b7ccf8e27482af7fbe81e97667db"
+    },
+    {
+      "product_id": "ECHO-MINI-GRN",
+      "image": "static/images/echo-mini.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 147050,
+      "sha256": "ac0c2eeddcf36b5c61a1ee233a6d0ab481401328fd2a986e0edec1a242a30473"
+    },
+    {
+      "product_id": "ECHO-PLUS-BLK",
+      "image": "static/images/echo-plus.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 138244,
+      "sha256": "4e097dfda729352fcfe78aacdb65ef9e7ed64a20c936088f99ef532edae09d1f"
+    },
+    {
+      "product_id": "ECHO-SPORT-BLU",
+      "image": "static/images/echo-sport.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 141590,
+      "sha256": "301609227f5daf1ec223a06e263b1e896ec909bead43ddce4ba41294fa74683b"
+    },
+    {
+      "product_id": "ECHO-FLOW-SND",
+      "image": "static/images/echo-flow.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 133494,
+      "sha256": "73764fccd1cd302ba0190e94369b6a9ddac45c1bdac36a6cdbd2a8358c8c7f8c"
+    },
+    {
+      "product_id": "ECHO-NIGHT-BLK",
+      "image": "static/images/echo-night.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 215684,
+      "sha256": "4be472207b8cd189c6d1410fee19eb839e43fec356d442366c2a163b783c2340"
+    },
+    {
+      "product_id": "PULSE-GO-BLU",
+      "image": "static/images/pulse-go.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 164226,
+      "sha256": "5db78946195dd724f170465960ae7177539613e5f807f3a8b1e0f82a979dfa50"
+    },
+    {
+      "product_id": "PULSE-MOVE-GRN",
+      "image": "static/images/pulse-move.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 254814,
+      "sha256": "5e9ca733b9fa020ab1d8c23831d64baa7bb21e27d4e837b9a948924906ece690"
+    },
+    {
+      "product_id": "PULSE-FOCUS-BLK",
+      "image": "static/images/pulse-focus.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 183734,
+      "sha256": "7e88ea9ed92164468c932c2fed37ca5560a6401f472f2037ffdd669742bc6553"
+    },
+    {
+      "product_id": "PULSE-CLOUD-WHT",
+      "image": "static/images/pulse-cloud.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 198844,
+      "sha256": "4f8c200aefefb8757ded84f687dd2629f139289c009e1675041a9a9c4822e389"
+    },
+    {
+      "product_id": "PULSE-SPRINT-BLK",
+      "image": "static/images/pulse-sprint.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 112486,
+      "sha256": "6c520d9ab1aeb0e2f130077b501139c94aff091851286d213da879103e4d1107"
+    },
+    {
+      "product_id": "VALE-STUDIO-SND",
+      "image": "static/images/vale-studio.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 244408,
+      "sha256": "63eefc9885920bfe3222cb0d8983a05cb747edbcbca37c5b9833e7709eb38991"
+    },
+    {
+      "product_id": "VALE-AIR-WHT",
+      "image": "static/images/vale-air.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 218766,
+      "sha256": "16597fd50c08f84f6a0926602dc3d39c41e119464c58ec5ef4a72d4545588b34"
+    },
+    {
+      "product_id": "VALE-POCKET-GRN",
+      "image": "static/images/vale-pocket.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 120934,
+      "sha256": "95a919514f45d7ef8bf3ff29fd6d2c4541eff2d1f0ceadf16af27a2e1e17cedb"
+    },
+    {
+      "product_id": "VALE-COMMUTE-BLK",
+      "image": "static/images/vale-commute.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 172726,
+      "sha256": "300d1e6210c59e3f33869d0885fbb233eb174b81d57cc283d468f9579a3461e2"
+    },
+    {
+      "product_id": "VALE-DRIFT-BLU",
+      "image": "static/images/vale-drift.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 196580,
+      "sha256": "4641d274b5c4722ab6e4ceae51faad177d23d8eeeecfdc05086d8fb1aac9e0b6"
+    },
+    {
+      "product_id": "ORBIT-CORE-BLK",
+      "image": "static/images/orbit-core.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 204990,
+      "sha256": "7fdf0a538c30442b5560e992df3a10398e23d64aaea602cee3a962b0a599cd6e"
+    },
+    {
+      "product_id": "ORBIT-MINI-WHT",
+      "image": "static/images/orbit-mini.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 109542,
+      "sha256": "dcf3ca8579bed9b2fbb0221c39700b8a57496b6593afcd915f994c8064183070"
+    },
+    {
+      "product_id": "ORBIT-LONGPLAY-SND",
+      "image": "static/images/orbit-longplay.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 218578,
+      "sha256": "ea0d7a6129c4ef7b76b3e0992f7eeb66f8623fde3505cc2b673b7cc8035c082c"
+    },
+    {
+      "product_id": "ORBIT-FLEX-BLU",
+      "image": "static/images/orbit-flex.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 201880,
+      "sha256": "3371defde34cf8c552bf8f32accf31ab4848699d254146f12e1068ce3584c00b"
+    },
+    {
+      "product_id": "ORBIT-QUIET-GRN",
+      "image": "static/images/orbit-quiet.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "bytes": 110056,
+      "sha256": "e897f1f0f0eba239807c3acfee626878f6e7ec1779abc7c7ffba5af59bd5d9f0"
+    }
+  ]
+}

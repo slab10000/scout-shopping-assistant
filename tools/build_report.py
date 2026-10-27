@@ -93,18 +93,19 @@ class Diagram(Flowable):
         c.drawString(7,19,'Conditional paths: clarify missing budget; stop unsupported requests or unmatched offers.')
         c.drawString(7,3,'Full graph: Architecture tab, architecture.svg, and the generated architecture.mmd file.')
 
-sample=json.loads((ROOT/'evidence'/'sample'/'scenarios.json').read_text())
+sample_dir=ROOT/'evidence'/'catalog-expansion'/'sample'
+sample=json.loads((sample_dir/'scenarios.json').read_text())
 live_path=ROOT/'evidence'/'gemini'/'scenarios.json'
 live=json.loads(live_path.read_text()) if live_path.exists() else {}
 live_complete=all(live.get(k,{}).get('status')==v for k,v in {'normal_approved':'SIMULATED_CONFIRMED','memory_fit_saved':'MEMORY_SAVED','memory_condition_saved':'MEMORY_SAVED','later_using_two_memories':'WAITING_APPROVAL','purchase_rejected':'CANCELLED','correction_saved':'MEMORY_SAVED','later_after_correction':'WAITING_APPROVAL','temporary_not_saved':'NOT_STORED','memory_rejected':'MEMORY_REJECTED','no_matching_offer':'NO_MATCHES'}.items())
-tests=(ROOT/'evidence'/'test_output.txt').read_text()
+tests=(ROOT/'evidence'/'catalog-expansion'/'test_output.txt').read_text()
 count=re.search(r'Ran (\d+) tests',tests).group(1)
 story=[P('Scout Shopping Assistant','TitleScout'),P('ITS 58100 | Project 1 | One memory enabled agent','SmallScout'),
  P('Scout helps a user choose wireless headphones by turning a natural-language request into a constrained search and a justified comparison. One Gemini-powered LangGraph workflow uses a CSV information source and approved preferences across separate interactions. The local webapp adds Shopping, Catalog, Memory, and Architecture tabs.'),
  P('Problem and input','HeadScout'),
- P('Example: “Find wireless headphones under $150 for studying; prioritize noise cancellation.” The sample catalog contains 20 fictional offers across six models and three simulated retailers. Output includes a shortlist, known item-and-shipping totals before tax, exclusions, uncertainty, and a proposed simulated purchase.'),
+ P('Example: “Find wireless headphones under $150 for studying; prioritize noise cancellation.” The sample catalog contains 110 fictional offers across 36 models and three simulated retailers. Output includes a shortlist, known item-and-shipping totals before tax, exclusions, uncertainty, and a proposed simulated purchase.'),
  P('Workflow and execution control','HeadScout'),Diagram(),Spacer(1,10),
- P('The implementation retains the labs’ TypedDict state, small node functions, partial updates, conditional edges, and audit log. Gemini performs structured request extraction, planning, recommendation, and supported memory proposals. Python enforces schemas, constraints, decimal arithmetic, and approved offer IDs. The executable plan drives the CSV tool and comparison policy.'),
+ P('The implementation retains the labs’ TypedDict state, small node functions, partial updates, conditional edges, and audit log. Gemini extracts requirements and writes search steps, recommendations, and memory proposals. Python binds the exact validated filters to the plan and enforces schemas, decimal arithmetic, and approved offer IDs. The executable plan drives the CSV tool and comparison policy.'),
  P('The graph pauses with interrupt() before a simulated purchase or memory write. A strict boolean passed through Command(resume=...) selects approval or rejection in the same thread. The side effect runs in a later node and checks approval again. Rejection cancels; no real order, payment, or retailer action exists.'),
  P('Design decisions','HeadScout'),
  P('Current explicit constraints override remembered defaults. Unknown shipping cannot win a delivered-cost comparison. Only equivalent model, variant, and condition offers are interchangeable. Hard constraints precede ranking, and no-match requests stop without relaxing the budget. Gemini errors stay visible and never silently enable the explicitly labeled sample engine.'),
@@ -115,7 +116,7 @@ story=[P('Scout Shopping Assistant','TitleScout'),P('ITS 58100 | Project 1 | One
  P('Recorded scenarios','HeadScout')]
 rows=[['Scenario','Expected behavior','Observed sample result'],
  ['Normal request','Pause, then confirm simulation',sample['normal_approved']['status']],
- ['Later thread with two records','Apply over-ear and new-only preferences',f"{len(sample['later_using_two_memories']['selected_memories'])} records; O001 selected"],
+ ['Later thread with two records','Apply over-ear and new-only preferences',f"{len(sample['later_using_two_memories']['selected_memories'])} records; {sample['later_using_two_memories']['recommendation']['offer_id']} selected"],
  ['Rejected purchase','No confirmation node',sample['purchase_rejected']['status']],
  ['Approved correction','Replace new-only with any condition',sample['later_after_correction']['effective_constraints']['condition']],
  ['Temporary exception','No reusable write',sample['temporary_not_saved']['status']],
@@ -128,7 +129,7 @@ story.extend([Spacer(1,10),P(f'{count} local regression checks passed using the 
 if live_complete:
     metadata_path=ROOT/'evidence'/'gemini'/'run_metadata.json'
     live_model=json.loads(metadata_path.read_text()).get('model','Gemini Flash') if metadata_path.exists() else 'configured Gemini Flash model'
-    story.append(P(f'Live Gemini scenarios also passed: normal confirmation, two approved records, later retrieval, rejection, correction, and no matches. Evidence in evidence/gemini identifies the live engine and preserves actual states. Model: {escape(live_model)}. Captured reruns may vary; earlier tests encountered provider quota and high-demand responses.','SmallScout'))
+    story.append(P(f'Earlier live Gemini scenarios passed on the original six-model catalog: normal confirmation, two approved records, retrieval, rejection, correction, and no matches. Preserved evidence/gemini identifies those original live states; the expanded catalog was verified with the sample engine. Model: {escape(live_model)}. Captured reruns may vary; earlier tests encountered provider quota and high-demand responses.','SmallScout'))
 else:
     story.append(P('Live Gemini request extraction, planning, recommendation, and memory proposals were verified, but provider quota and high-demand responses interrupted the full live scenario run. Partial states are in evidence/gemini. The sample engine’s complete results do not claim live LLM execution.','SmallScout'))
 story.extend([P('Limitations and contributions','HeadScout'),

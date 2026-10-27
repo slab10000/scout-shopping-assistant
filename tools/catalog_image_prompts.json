@@ -1,0 +1,230 @@
+{
+  "generator": "Built-in image_gen",
+  "batch_manifests": [
+    "image_batch_a.json",
+    "image_batch_b.json",
+    "image_batch_c.json"
+  ],
+  "assets": [
+    {
+      "product_id": "AURA-ARC-BLK",
+      "name": "Aura Arc",
+      "file": "static/images/aura-arc.webp",
+      "prompt": "Use case: product-mockup. Asset type: one transparent product photograph for the Scout shopping catalogue. Input Image 1 is a STYLE REFERENCE ONLY, not an edit target. Generate a new, distinct fictional product. Scene/backdrop: actual transparent alpha background, no background color or scenery. Style: premium photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware. Composition: front three-quarter view, entire subject centered and fully visible, about 80% of a square canvas with even generous padding. No logos, labels, words, text, watermark, pedestal, floor, furniture, hands, packaging, or cast shadow outside the object. Clean accurate silhouette and alpha edges. Subject: matte charcoal over-ear headphones with a slender curved metal headband, oval plush earcups, and brushed dark aluminum yokes. Color: graphite. Product identity for tracking only, do not print: Aura Arc. Show exactly one pair of headphones, in the open wearing position.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "AURA-TRAVEL-SND",
+      "name": "Aura Travel",
+      "file": "static/images/aura-travel.webp",
+      "prompt": "Use case: product-mockup. Asset type: one transparent product photograph for the Scout shopping catalogue. Input Image 1 is a STYLE REFERENCE ONLY, not an edit target. Generate a new, distinct fictional product. Scene/backdrop: actual transparent alpha background, no background color or scenery. Style: premium photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware. Composition: front three-quarter view, entire subject centered and fully visible, about 80% of a square canvas with even generous padding. No logos, labels, words, text, watermark, pedestal, floor, furniture, hands, packaging, or cast shadow outside the object. Clean accurate silhouette and alpha edges. Subject: sand beige travel over-ear headphones with inward-folding rounded earcups, generous soft cushions, and compact articulated hinges; shown open for wear. Color: sand. Product identity for tracking only, do not print: Aura Travel. Show exactly one pair of headphones, in the open wearing position.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "AURA-COMPACT-BLU",
+      "name": "Aura Compact",
+      "file": "static/images/aura-compact.webp",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: dusty navy blue compact on-ear headphones with small circular ear cushions and a thin padded headband. IMPORTANT physical fit: ON-EAR headphones, with SMALL CIRCULAR pads resting on the ears, NOT large oval over-ear cups. Minimal narrow padded headband and compact ROUND earcup shells. Show one headphone set open for wearing.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "AURA-MAX-WHT",
+      "name": "Aura Max",
+      "file": "static/images/aura-max.webp",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: premium ivory over-ear headphones with broad oval aluminum earcup shells, thick cushions, and a softly padded wide headband. Composition: precisely ONE headphone set open for wearing. Distinct physical design as described; not a generic repeated headphone shape.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "AURA-BEAM-GRN",
+      "name": "Aura Beam",
+      "file": "static/images/aura-beam.webp",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: sage green stemless wireless in-ear earbuds with silicone tips and a matching open oval charging case, both earbuds clearly visible. Composition: precisely TWO small individual earbuds with their matching OPEN charging case. No headband or large headphones.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "FORM-FOCUS-BLK",
+      "name": "Form Focus",
+      "file": "static/images/form-focus.webp",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: graphite over-ear headphones with clean flat oval cup faces, a sculptural arch headband, and deep acoustic cushions. Composition: precisely ONE headphone set open for wearing. Distinct physical design as described; not a generic repeated headphone shape.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "FORM-LOFT-WHT",
+      "name": "Form Loft",
+      "file": "static/images/form-loft.webp",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: warm ivory over-ear headphones with softly rounded earcups, textile-textured headband padding, and slim silver hinge arms. Composition: exactly one headphone set, open for wearing; entire subject fully visible.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "FORM-FOLD-SND",
+      "name": "Form Fold",
+      "file": "static/images/form-fold.webp",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: sand tan portable on-ear headphones with small round padded earcups and clearly articulated folding hinges, displayed open for wear. IMPORTANT: small circular ON-EAR pads that rest on the ear, NOT large oval over-ear cups. Slim lightweight folding construction, circular cup diameter significantly smaller than headband width.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "FORM-CALM-GRN",
+      "name": "Form Calm",
+      "file": "static/images/form-calm.webp",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: muted sage green over-ear headphones with capsule-shaped smooth earcups, a broad cushioned arch, and a serene minimalist silhouette. Composition: exactly one headphone set, open for wearing; entire subject fully visible.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "FORM-BUDS-WHT",
+      "name": "Form Buds",
+      "file": "static/images/form-buds.webp",
+      "prompt": "Use case: product-mockup. Asset type: a single premium photographic product cutout for a headphone shop website. Generate the exact new fictional product below, isolated on a genuinely transparent alpha background. Square canvas. Carefully centered, entire subject visible with 12% clear margin, realistic front three-quarter view. Warm soft studio lighting, finely detailed matte material and soft cushions, professional catalogue photo, clean alpha silhouette. NO background, scenery, floor, pedestal, props, floating particles, logos, brand marks, labels, text, or shadow outside the product. Subject: ivory short-stem in-ear wireless earbuds with silicone tips beside an open rounded rectangular ivory charging case. Composition: exactly two small ivory earbuds with short stems and silicone tips, with the matching OPEN rounded rectangular charging case. Earbuds sit outside and beside the case, all three objects fully visible.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "ECHO-MINI-GRN",
+      "name": "Echo Mini",
+      "file": "static/images/echo-mini.webp",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: actual transparent alpha background, no scenery or floor. Subject: tiny sage green bean-shaped stemless in-ear earbuds with silicone tips and a very compact open pebble charging case. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly two earbuds and their matching open charging case together, all fully visible. Color: sage. Constraints: no text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product; do not create a sprite sheet, UI or multiple product variants.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "ECHO-PLUS-BLK",
+      "name": "Echo Plus",
+      "file": "static/images/echo-plus.webp",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: actual transparent alpha background, no scenery or floor. Subject: premium charcoal in-ear earbuds with broad oval touch surfaces and a dark open charging case with subtle gunmetal trim. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly two earbuds and their matching open charging case together, all fully visible. Color: graphite. Constraints: no text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product; do not create a sprite sheet, UI or multiple product variants.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "ECHO-SPORT-BLU",
+      "name": "Echo Sport",
+      "file": "static/images/echo-sport.webp",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: actual transparent alpha background, no scenery or floor. Subject: dusty blue sports in-ear earbuds with small stabilizing silicone wings, shown with a matching open compact charging case. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly two earbuds and their matching open charging case together, all fully visible. Color: blue. Constraints: no text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product; do not create a sprite sheet, UI or multiple product variants.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "ECHO-FLOW-SND",
+      "name": "Echo Flow",
+      "file": "static/images/echo-flow.webp",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: actual transparent alpha background, no scenery or floor. Subject: sand-colored wireless in-ear earbuds with slim short stems, soft silicone tips, and an open softly rounded charging case. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly two earbuds and their matching open charging case together, all fully visible. Color: sand. Constraints: no text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product; do not create a sprite sheet, UI or multiple product variants.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "ECHO-NIGHT-BLK",
+      "name": "Echo Night",
+      "file": "static/images/echo-night.webp",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: actual transparent alpha background, no scenery or floor. Subject: matte black over-ear headphones with subtle ridged outer earcup rims, soft oval cushions, and a smooth low-profile padded headband. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly one pair of headphones, entire headband and both earcups fully visible. Color: graphite. Constraints: no text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product; do not create a sprite sheet, UI or multiple product variants.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "PULSE-GO-BLU",
+      "name": "Pulse Go",
+      "file": "static/images/pulse-go.webp",
+      "prompt": "Use case: background-extraction. Edit target: the attached product photograph. Remove all stray colored and white edge residue, matte halos, speckles, and any disconnected pixels outside the exact physical product silhouette. Keep the product itself, its color, materials, hardware, arrangement, framing, perspective, detail, and lighting unchanged. Preserve the real transparent alpha background. All space around the product and all holes/gaps must be perfectly transparent with crisp natural antialiased edges. Do not add text, shadows, floor, objects, branding, backdrop, or change the device.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "PULSE-MOVE-GRN",
+      "name": "Pulse Move",
+      "file": "static/images/pulse-move.webp",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: genuinely transparent alpha background. Subject: lightweight sage green over-ear headphones with softly faceted oval earcups, simple hinge arms, and fabric-covered headband padding. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly one pair of headphones, entire headband and both earcups fully visible. Color: sage. Constraints: clean accurate product silhouette with pristine transparent edges, no colored halos, stray pixels, matte residue, edge speckles, white cutout remnants, text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product. Do not create a sprite sheet, UI or multiple variants.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "PULSE-FOCUS-BLK",
+      "name": "Pulse Focus",
+      "file": "static/images/pulse-focus.webp",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: genuinely transparent alpha background. Subject: charcoal black over-ear headphones with rounded oval cups, a single tactile control button on the outer rim, and a compact padded arch. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly one pair of headphones, entire headband and both earcups fully visible. Color: graphite. Constraints: clean accurate product silhouette with pristine transparent edges, no colored halos, stray pixels, matte residue, edge speckles, white cutout remnants, text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product. Do not create a sprite sheet, UI or multiple variants.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "PULSE-CLOUD-WHT",
+      "name": "Pulse Cloud",
+      "file": "static/images/pulse-cloud.webp",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: genuinely transparent alpha background. Subject: soft ivory over-ear headphones with unusually plush deep rounded cushions, smooth pale earcup faces, and a thick cloudlike padded headband. Style: photorealistic studio product photography, warm soft natural highlights, tactile matte materials, meticulous realistic hardware detail. Composition: one centered full product silhouette, front three-quarter angle, generous even padding, occupies about 80 percent of a square canvas. Show exactly one pair of headphones, entire headband and both earcups fully visible. Color: ivory. Constraints: clean accurate product silhouette with pristine transparent edges, no colored halos, stray pixels, matte residue, edge speckles, white cutout remnants, text, logos, labels, branding, watermark, pedestal, furniture, background color, floor, or cast shadow outside product. Do not create a sprite sheet, UI or multiple variants.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "PULSE-SPRINT-BLK",
+      "name": "Pulse Sprint",
+      "file": "static/images/pulse-sprint.webp",
+      "prompt": "Use case: product-mockup. Asset type: one standalone premium product catalog cutout for the Scout shopping website. Scene/backdrop: genuinely transparent alpha background. Subject: compact black wireless in-ear earbuds with silicone stabilizer fins and a matching open low rectangular charging case. Photorealistic studio photography, warm soft natural highlights, tactile matte materials. Front three-quarter angle, square canvas, full subject centered with generous padding. Show exactly two earbuds with silicone tips and their matching open charging case, all fully visible. Pristine accurate transparent edges without halos, speckles or matte residue. No text, logos, labels, watermark, background scenery, floor, pedestal or cast shadows outside objects.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "VALE-STUDIO-SND",
+      "name": "Vale Studio",
+      "image": "vale-studio",
+      "file": "static/images/vale-studio.webp",
+      "prompt": "Use case: product-mockup. Asset type: one individual ecommerce catalogue photograph for a fictional headphone model. Generate a premium realistic studio product cutout on a genuinely transparent alpha background. Center the full product silhouette with generous even padding; product occupies about 78% of a square canvas. Front three-quarter camera angle, warm soft natural studio lighting, restrained highlights and tactile matte materials. No text, lettering, logo, watermark, UI, props, pedestal, floor, or background. No external cast shadows. Do not show multiple color variants or a contact sheet. Subject: premium sand taupe over-ear headphones with oval brushed metal earcups, brownish soft cushions, and a refined padded headband. All physical details must be coherent, clean, sharp and professionally photographed; preserve the requested sand color and over-ear fit.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "VALE-AIR-WHT",
+      "name": "Vale Air",
+      "image": "vale-air",
+      "file": "static/images/vale-air.webp",
+      "prompt": "Use case: product-mockup. Asset type: one individual ecommerce catalogue photograph for a fictional headphone model. Generate a premium realistic studio product cutout on a genuinely transparent alpha background. Center the full product silhouette with generous even padding; product occupies about 78% of a square canvas. Front three-quarter camera angle, warm soft natural studio lighting, restrained highlights and tactile matte materials. No text, lettering, logo, watermark, UI, props, pedestal, floor, or background. No external cast shadows. Do not show multiple color variants or a contact sheet. Subject: light ivory over-ear headphones with delicate open yoke arms, soft rounded capsule earcups, and a lightweight fabric-padded headband. All physical details must be coherent, clean, sharp and professionally photographed; preserve the requested ivory color and over-ear fit.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "VALE-POCKET-GRN",
+      "name": "Vale Pocket",
+      "image": "vale-pocket",
+      "file": "static/images/vale-pocket.webp",
+      "prompt": "Use case: product-mockup. Asset type: one individual ecommerce catalogue photograph for a fictional headphone model. Generate a premium realistic studio product cutout on a genuinely transparent alpha background. Center the full product silhouette with generous even padding; product occupies about 78% of a square canvas. Front three-quarter camera angle, warm soft natural studio lighting, restrained highlights and tactile matte materials. No text, lettering, logo, watermark, UI, props, pedestal, floor, or background. No external cast shadows. Do not show multiple color variants or a contact sheet. Subject: sage green short-stem in-ear earbuds with oval silicone tips and a matching open pocket-sized squircle charging case. All physical details must be coherent, clean, sharp and professionally photographed; preserve the requested sage color and in-ear fit.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "VALE-COMMUTE-BLK",
+      "name": "Vale Commute",
+      "image": "vale-commute",
+      "file": "static/images/vale-commute.webp",
+      "prompt": "Use case: product-mockup. Asset type: one individual ecommerce catalogue photograph for a fictional headphone model. Generate a premium realistic studio product cutout on a genuinely transparent alpha background. Center the full product silhouette with generous even padding; product occupies about 78% of a square canvas. Front three-quarter camera angle, warm soft natural studio lighting, restrained highlights and tactile matte materials. No text, lettering, logo, watermark, UI, props, pedestal, floor, or background. No external cast shadows. Do not show multiple color variants or a contact sheet. Subject: compact graphite on-ear headphones with circular cushioned earcups, exposed sliding metal adjustment rails, and a narrow padded headband. All physical details must be coherent, clean, sharp and professionally photographed; preserve the requested graphite color and on-ear fit.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "VALE-DRIFT-BLU",
+      "name": "Vale Drift",
+      "image": "vale-drift",
+      "file": "static/images/vale-drift.webp",
+      "prompt": "Use case: product-mockup. Asset type: one individual ecommerce catalogue photograph for a fictional headphone model. Generate a premium realistic studio product cutout on a genuinely transparent alpha background. Center the full product silhouette with generous even padding; product occupies about 78% of a square canvas. Front three-quarter camera angle, warm soft natural studio lighting, restrained highlights and tactile matte materials. No text, lettering, logo, watermark, UI, props, pedestal, floor, or background. No external cast shadows. Do not show multiple color variants or a contact sheet. Subject: muted slate blue over-ear headphones with smooth ovoid earcups, gently curved silver yokes, and dark blue padded cushions. All physical details must be coherent, clean, sharp and professionally photographed; preserve the requested blue color and over-ear fit.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "ORBIT-CORE-BLK",
+      "name": "Orbit Core",
+      "image": "orbit-core",
+      "file": "static/images/orbit-core.webp",
+      "prompt": "Use case: product-mockup. Asset type: one individual ecommerce catalogue photograph for a fictional headphone model. Generate a premium realistic studio product cutout on a genuinely transparent alpha background. Center the full product silhouette with generous even padding; product occupies about 78% of a square canvas. Front three-quarter camera angle, warm soft natural studio lighting, restrained highlights and tactile matte materials. No text, lettering, logo, watermark, UI, props, pedestal, floor, or background. No external cast shadows. Do not show multiple color variants or a contact sheet. Subject: graphite over-ear headphones with circular outer cup panels inside oval cushions, a subtle concentric ring detail, and a clean padded arch. All physical details must be coherent, clean, sharp and professionally photographed; preserve the requested graphite color and over-ear fit.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "ORBIT-MINI-WHT",
+      "name": "Orbit Mini",
+      "image": "orbit-mini",
+      "file": "static/images/orbit-mini.webp",
+      "prompt": "Use case: product-mockup. Asset type: one individual ecommerce catalogue photograph for a fictional headphone model. Generate a premium realistic studio product cutout on a genuinely transparent alpha background. Center the full product silhouette with generous even padding; product occupies about 78% of a square canvas. Front three-quarter camera angle, warm soft natural studio lighting, restrained highlights and tactile matte materials. No text, lettering, logo, watermark, UI, props, pedestal, floor, or background. No external cast shadows. Do not show multiple color variants or a contact sheet. Subject: tiny ivory stemless in-ear wireless earbuds with rounded triangular bodies, silicone tips, and a matching open miniature oval charging case. All physical details must be coherent, clean, sharp and professionally photographed; preserve the requested ivory color and in-ear fit.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "ORBIT-LONGPLAY-SND",
+      "name": "Orbit Longplay",
+      "image": "orbit-longplay",
+      "file": "static/images/orbit-longplay.webp",
+      "prompt": "Use case: product-mockup. Asset type: one individual ecommerce catalogue photograph for a fictional headphone model. Generate a premium realistic studio product cutout on a genuinely transparent alpha background. Center the full product silhouette with generous even padding; product occupies about 78% of a square canvas. Front three-quarter camera angle, warm soft natural studio lighting, restrained highlights and tactile matte materials. No text, lettering, logo, watermark, UI, props, pedestal, floor, or background. No external cast shadows. Do not show multiple color variants or a contact sheet. Subject: sand beige full-size over-ear headphones with substantial padded oval earcups, sturdy brushed-metal yokes, and a broad padded headband. All physical details must be coherent, clean, sharp and professionally photographed; preserve the requested sand color and over-ear fit.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "ORBIT-FLEX-BLU",
+      "name": "Orbit Flex",
+      "image": "orbit-flex",
+      "file": "static/images/orbit-flex.webp",
+      "prompt": "Use case: product-mockup. Asset type: one individual ecommerce catalogue photograph for a fictional headphone model. Generate a premium realistic studio product cutout on a genuinely transparent alpha background. Center the full product silhouette with generous even padding; product occupies about 78% of a square canvas. Front three-quarter camera angle, warm soft natural studio lighting, restrained highlights and tactile matte materials. No text, lettering, logo, watermark, UI, props, pedestal, floor, or background. No external cast shadows. Do not show multiple color variants or a contact sheet. Subject: slate blue flexible on-ear headphones with small circular foam-covered cushions, a gently curved slim headband, and compact folding joints shown open. All physical details must be coherent, clean, sharp and professionally photographed; preserve the requested blue color and on-ear fit.",
+      "transparent_background": true
+    },
+    {
+      "product_id": "ORBIT-QUIET-GRN",
+      "name": "Orbit Quiet",
+      "image": "orbit-quiet",
+      "file": "static/images/orbit-quiet.webp",
+      "prompt": "Use case: product-mockup. Asset type: one individual ecommerce catalogue photograph for a fictional headphone model. Generate a premium realistic studio product cutout on a genuinely transparent alpha background. Center the full product silhouette with generous even padding; product occupies about 78% of a square canvas. Front three-quarter camera angle, warm soft natural studio lighting, restrained highlights and tactile matte materials. No text, lettering, logo, watermark, UI, props, pedestal, floor, or background. No external cast shadows. Do not show multiple color variants or a contact sheet. Subject: premium muted sage green in-ear earbuds with silicone tips, gently flattened circular touch faces, and a matching open oval charging case. All physical details must be coherent, clean, sharp and professionally photographed; preserve the requested sage color and in-ear fit.",
+      "transparent_background": true
+    }
+  ]
+}

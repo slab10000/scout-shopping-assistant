@@ -1,0 +1,29 @@
+test_actual_graph_contains_branches_and_public_state_has_no_key (__main__.ProjectTests.test_actual_graph_contains_branches_and_public_state_has_no_key) ... ok
+test_added_models_can_be_requested_by_name_and_product_id (__main__.ProjectTests.test_added_models_can_be_requested_by_name_and_product_id) ... ok
+test_added_models_have_consistent_specs_and_three_retailers (__main__.ProjectTests.test_added_models_have_consistent_specs_and_three_retailers) ... ok
+test_approval_pause_then_rejection_has_no_confirmation (__main__.ProjectTests.test_approval_pause_then_rejection_has_no_confirmation) ... ok
+test_catalog_has_exact_decimal_totals_and_unknown_shipping (__main__.ProjectTests.test_catalog_has_exact_decimal_totals_and_unknown_shipping) ... ok
+test_clarification_resumes_same_thread_before_search (__main__.ProjectTests.test_clarification_resumes_same_thread_before_search) ... ok
+test_confirm_once_and_reject_repeated_resume (__main__.ProjectTests.test_confirm_once_and_reject_repeated_resume) ... ok
+test_correction_keeps_provenance_and_retrieves_only_active_record (__main__.ProjectTests.test_correction_keeps_provenance_and_retrieves_only_active_record) ... ok
+test_duplicate_preference_does_not_create_another_active_record (__main__.ProjectTests.test_duplicate_preference_does_not_create_another_active_record) ... ok
+test_equivalent_new_offer_uses_delivered_cost_not_item_price (__main__.ProjectTests.test_equivalent_new_offer_uses_delivered_cost_not_item_price) ... ok
+test_fresh_service_clears_in_memory_records_and_checkpoints (__main__.ProjectTests.test_fresh_service_clears_in_memory_records_and_checkpoints) ... ok
+test_hallucinated_offer_and_changed_plan_are_blocked (__main__.ProjectTests.test_hallucinated_offer_and_changed_plan_are_blocked) ... ok
+test_http_boundaries_and_frontend_assets (__main__.ProjectTests.test_http_boundaries_and_frontend_assets) ... ok
+test_live_planning_binds_exact_filters_for_an_unfamiliar_model (__main__.ProjectTests.test_live_planning_binds_exact_filters_for_an_unfamiliar_model) ... ok
+test_memory_changes_results_against_same_goal_without_memory (__main__.ProjectTests.test_memory_changes_results_against_same_goal_without_memory) ... ok
+test_no_matches_and_unsupported_request_do_not_prepare_action (__main__.ProjectTests.test_no_matches_and_unsupported_request_do_not_prepare_action) ... ok
+test_no_memory_write_before_approval_and_rejection_preserves_store (__main__.ProjectTests.test_no_memory_write_before_approval_and_rejection_preserves_store) ... ok
+test_rejected_correction_retains_earlier_preference (__main__.ProjectTests.test_rejected_correction_retains_earlier_preference) ... ok
+test_sensitive_and_temporary_candidates_are_not_saved (__main__.ProjectTests.test_sensitive_and_temporary_candidates_are_not_saved) ... ok
+test_temporary_exception_overrides_thread_without_changing_memory (__main__.ProjectTests.test_temporary_exception_overrides_thread_without_changing_memory) ... ok
+test_truthy_string_cannot_approve_purchase_or_memory (__main__.ProjectTests.test_truthy_string_cannot_approve_purchase_or_memory) ... ok
+test_two_records_used_in_fresh_thread_without_old_approval (__main__.ProjectTests.test_two_records_used_in_fresh_thread_without_old_approval) ... ok
+test_unknown_shipping_cannot_win_and_hard_budget_is_preserved (__main__.ProjectTests.test_unknown_shipping_cannot_win_and_hard_budget_is_preserved) ... ok
+test_user_namespace_and_thread_owner_boundaries (__main__.ProjectTests.test_user_namespace_and_thread_owner_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.515s
+
+OK

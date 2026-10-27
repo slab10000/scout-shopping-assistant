@@ -64,6 +64,12 @@ class SearchPlan(Schema):
     limit: int = Field(default=3, ge=1, le=5)
 
 
+class SearchStrategy(Schema):
+    """The model supplies planning prose; validated constraints remain authoritative."""
+    query: str = Field(min_length=1, max_length=200)
+    steps: list[str] = Field(min_length=2, max_length=5)
+
+
 class Recommendation(Schema):
     offer_id: str
     summary: str = Field(max_length=700)
@@ -158,11 +164,17 @@ class GeminiBrain:
             {"request": request})
 
     def plan(self, constraints):
-        return self.call(SearchPlan,
-            "Create an executable CSV search plan. Copy every supplied constraint EXACTLY into filters; "
-            "do not add filters or relax the budget. sort_by equals priority or balanced if unset. "
-            "Steps describe matching, total-cost comparison, and ranking. Return at most three results.",
+        strategy = self.call(SearchStrategy,
+            "Write a concise search query and two to five steps for this CSV comparison. "
+            "Use the exact requested product name when one is supplied. Steps describe matching, "
+            "stock and condition checks, delivered-cost comparison, and the requested ranking. "
+            "Do not propose new constraints or relax supplied constraints. Python binds the exact "
+            "validated filters, ranking, and a three-result limit to this strategy.",
             {"effective_constraints": constraints})
+        # Never ask a model to retype user constraints. In particular, invented
+        # form factors or features for unfamiliar model names cannot change a search.
+        return SearchPlan(**strategy, filters=Constraints.model_validate(constraints),
+            sort_by=constraints.get("priority") or "balanced", limit=3).model_dump()
 
     def recommend(self, candidates, constraints):
         return self.call(Recommendation,
@@ -187,6 +199,9 @@ class GeminiBrain:
 class SampleBrain:
     """Deliberately limited rules. This mode is always labeled and never claims an LLM call."""
     name = "Sample engine (no LLM)"
+
+    def __init__(self, catalog_path=ROOT / "headphones.csv"):
+        self.catalog_path = catalog_path
 
     def understand(self, request):
         t = request.lower()
@@ -217,9 +232,14 @@ class SampleBrain:
             c["priority"] = "battery"
         elif "prioritize noise" in t:
             c["priority"] = "noise_cancelling"
-        for name in ["Aura One", "Aura Pro", "Form Studio", "Echo Air", "Pulse Lite", "Form Open"]:
-            if name.lower() in t:
-                c["exact_model"] = name
+        # Read model names from the same CSV so new catalog entries work without
+        # maintaining a second hand-written model list in the practice engine.
+        products = {row["product_id"]: row for row in read_catalog(self.catalog_path)}
+        for row in sorted(products.values(), key=lambda row: len(row["product_name"]), reverse=True):
+            aliases = [row["product_name"], row["product_id"]]
+            if any(re.search(r"(?<!\w)" + re.escape(alias.lower()) + r"(?!\w)", t) for alias in aliases):
+                c["exact_model"] = row["product_name"]
+                break
         return Constraints.model_validate(c).model_dump()
 
     def plan(self, constraints):
@@ -577,7 +597,7 @@ class ShoppingService:
     def __init__(self, key=None, model=MODEL, catalog_path=ROOT / "headphones.csv"):
         self.key, self.model, self.catalog_path = key or os.getenv("GOOGLE_API_KEY", ""), model, catalog_path
         self.store = InMemoryStore()
-        self.sample = SampleBrain()
+        self.sample = SampleBrain(catalog_path)
         self.live = None
         self.lock = threading.RLock()
         self.owners = {}
