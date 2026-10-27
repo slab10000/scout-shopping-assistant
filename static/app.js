@@ -5,7 +5,7 @@ const esc = (v) => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&
 const icon = (name, cls = '') => `<svg class="${cls}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
 const money = v => v == null ? 'Unknown' : new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(v));
 const label = v => String(v || '').replaceAll('_',' ');
-const state = {view:'shop',engine:'gemini',meta:{},offers:[],memories:[],graph:null,run:null,memoryRun:null,lastRun:null,busy:false,prompt:'',memoryDraft:'',useMemory:true,search:'',condition:'all',stock:'all',showHistory:false,selectedNode:'understand'};
+const state = {view:'shop',engine:'gemini',meta:{},offers:[],memories:[],graph:null,graphSource:null,run:null,memoryRun:null,lastRun:null,busy:false,prompt:'',memoryDraft:'',useMemory:true,search:'',condition:'all',stock:'all',showHistory:false,selectedNode:'understand'};
 const requestedUser = new URLSearchParams(location.search).get('user');
 const USER = /^[a-zA-Z0-9_-]{1,60}$/.test(requestedUser||'') ? requestedUser : 'shopper-001';
 const pages = {shop:'Shopping assistant',catalog:'Product catalog',memory:'Memory',architecture:'Architecture'};
@@ -158,35 +158,62 @@ const nodeInfo = {
   finish_memory:['M4','Finish without write','Temporary input, uncertain candidates, and rejected proposals do not enter the reusable store.'],
   __end__:['END','End this run','The graph has reached a terminal branch. Ending is not equivalent to approval.']
 };
-const positions={__start__:[30,68],intake:[205,68],understand:[380,68],retrieve_memory:[555,68],plan_search:[730,68],search_catalog:[905,68],unsupported:[380,204],clarify:[555,204],insufficient:[730,204],compare_offers:[905,330],recommend:[730,330],approve_purchase:[555,330],confirm_purchase:[380,330],cancel_purchase:[555,452],no_matches:[905,452],form_memory:[205,595],approve_memory:[380,595],save_memory:[555,595],finish_memory:[730,595],__end__:[905,595]};
 function graphStatus(key){const r=state.lastRun;if(!r)return 'idle';if(r.error&&r.next?.includes(key))return 'error';if(r.pending&&r.next?.includes(key))return 'pending';if(state.busy&&!r.pending&&!r.error&&r.next?.includes(key))return 'running';if((r.audit_log||[]).some(e=>e.node===key)||key==='__start__')return 'visited';if(key==='__end__'&&!r.pending&&!r.error&&!state.busy&&!r.next?.length)return 'visited';return 'idle';}
+function nativeGraphMatches(){return !!state.graphSource && state.graphSource.mermaid===state.graph?.mermaid;}
 function graphSvg(){
- if(!state.graph)return '';
- const run=state.lastRun,events=run?.audit_log||[];
- const sequence=['__start__',...events.map(e=>e.node),...(run?.pending||state.busy?run?.next||[]:[])];
- const doneEdges=new Set(sequence.slice(1).map((n,i)=>`${sequence[i]}:${n}`));
- if(run&&!run.pending&&!run.error&&!state.busy&&!run.next?.length&&events.length)doneEdges.add(`${events.at(-1).node}:__end__`);
- const edges=state.graph.edges.map(e=>{
-  const a=positions[e.source],b=positions[e.target];if(!a||!b)return '';
-  const [ax,ay]=a,[bx,by]=b,w=148,h=57;let d;
-  if(ay===by){const f=bx>ax,x1=ax+(f?w:0),x2=bx+(f?0:w);d=Math.abs(bx-ax)>190?`M${x1} ${ay+h/2} H${x1+(f?12:-12)} V${ay-24} H${x2-(f?12:-12)} V${by+h/2} H${x2}`:`M${x1} ${ay+h/2} H${x2}`;}
-  else if(e.target==='__end__'){const lane=by-27;d=`M${ax+w} ${ay+h/2} H1080 V${lane} H${bx+w/2} V${by}`;}
-  else if(e.source==='intake'&&e.target==='form_memory')d=`M${ax+w/2} ${ay+h} V165 H174 V${by+h/2} H${bx}`;
-  else if(e.source==='clarify'&&e.target==='understand')d=`M${ax} ${ay+h/2} H${bx+w/2} V${by+h}`;
-  else{const x1=ax+w/2,y1=ay+(by>ay?h:0),x2=bx+w/2,y2=by+(by>ay?0:h);d=`M${x1} ${y1} V${(y1+y2)/2} H${x2} V${y2}`;}
-  const visited=doneEdges.has(`${e.source}:${e.target}`),current=visited&&['pending','running'].includes(graphStatus(e.target));
-  return `<path class="graph-edge ${e.conditional?'conditional':''} ${visited?'visited':''} ${current?'current':''}" d="${d}" marker-end="url(#arrow-${current?'current':visited?'visited':'default'})"><title>${esc(e.source)} → ${esc(e.target)}${e.label?': '+esc(e.label):''}</title></path>`;
- }).join('');
- const nodes=state.graph.nodes.map(key=>{const pos=positions[key],info=nodeInfo[key];if(!pos||!info)return '';const [x,y]=pos,s=graphStatus(key);return `<g class="graph-node ${s} ${state.selectedNode===key?'selected':''}" data-node="${key}" tabindex="0" role="button" aria-label="${esc(info[1])}: ${s==='idle'?'not executed':s==='visited'?'executed':s}"><rect x="${x}" y="${y}" width="148" height="57" rx="9"/><circle cx="${x+132}" cy="${y+15}" r="3"/><text class="node-number" x="${x+12}" y="${y+18}">${esc(info[0])}${s==='pending'?' · YOUR CALL':s==='visited'?' · DONE':''}</text><text class="node-title" x="${x+12}" y="${y+38}">${esc(info[1])}</text></g>`;}).join('');
- return `<svg viewBox="0 0 1110 693" xmlns="http://www.w3.org/2000/svg" aria-label="Actual LangGraph workflow with all ${state.graph.nodes.length} nodes and conditional memory routes" role="group"><defs>${['default','visited','current'].map(c=>`<marker id="arrow-${c}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path class="arrow-${c}" d="m0 0 10 5-10 5"/></marker>`).join('')}</defs><rect class="memory-lane" x="15" y="547" width="1065" height="125" rx="12"/><text class="graph-caption" x="30" y="33">SHOPPING · FROM REQUEST TO YOUR DECISION</text><text class="graph-caption" x="30" y="574">MEMORY · SAME AGENT, SEPARATE APPROVAL</text>${edges}${nodes}</svg>`;
+ if(!nativeGraphMatches())return '<div class="empty-state"><h3>The diagram needs an update.</h3><p>Regenerate the native graph assets with <code>python tools/build_architecture.py --render</code>.</p></div>';
+ const diagram=state.graphSource.diagram,[x,y,w,h]=diagram.view_box;
+ const nodes=state.graph.nodes.map(key=>{const b=diagram.bounds[key];return `<g id="native-node-${esc(key)}" class="native-node ${state.selectedNode===key?'selected':''}" data-node="${esc(key)}" role="button" tabindex="0" aria-pressed="${state.selectedNode===key}" aria-label="${esc(key)} — view Python code"><title>${esc(key)} · Click to see its Python code</title><rect x="${b.x}" y="${b.y}" width="${b.width}" height="${b.height}" rx="${b.radius}"/></g>`;}).join('');
+ return `<svg class="native-langgraph" viewBox="${x} ${y} ${w} ${h}" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Scout’s native LangGraph diagram, with all ${state.graph.nodes.length} clickable nodes"><image href="${esc(diagram.image)}" x="${x}" y="${y}" width="${w}" height="${h}" preserveAspectRatio="none" aria-hidden="true"/>${nodes}</svg>`;
+}
+function highlightPython(source){
+ const pattern=/(?:[rbufRBUF]{0,2})(?:"""[\s\S]*?"""|'''[\s\S]*?'''|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')|#[^\n]*|\b(?:def|class|return|if|elif|else|for|in|is|not|and|or|from|import|as|raise|with|try|except|finally|pass|lambda|yield)\b|\b(?:True|False|None)\b|\b\d+(?:\.\d+)?\b/g;
+ let html='',end=0;
+ for(const match of source.matchAll(pattern)){
+  html+=esc(source.slice(end,match.index));const value=match[0];
+  const kind=value.startsWith('#')?'comment':/^[rbufRBUF]*["']/.test(value)?'string':/^\d/.test(value)?'number':'keyword';
+  html+=`<span class="py-${kind}">${esc(value)}</span>`;end=match.index+value.length;
+ }
+ return html+esc(source.slice(end));
+}
+function sourceCodeCard(record,copyId,heading='Node function'){
+ return `<section class="python-source"><div class="source-heading"><span>${esc(heading)}</span><button class="subtle-link" data-copy-source="${esc(copyId)}">Copy code</button></div><div class="source-location">${esc(record.file)}:${record.line}${record.end_line!==record.line?'–'+record.end_line:''}</div><pre class="python-code" tabindex="0" aria-label="${esc(record.name)} Python source"><code>${highlightPython(record.code)}</code></pre></section>`;
+}
+function sourceRecord(id){
+ const source=state.graphSource;if(!source)return null;
+ if(id==='construction')return source.construction;
+ if(id==='state-schema')return source.state_schema;
+ const [node,type,index]=id.split(':');const detail=source.node_details[node];
+ return type==='helper'?detail?.helpers?.[Number(index)]:type==='route'?detail?.routing?.[Number(index)]:detail;
+}
+async function copySource(id){
+ const record=sourceRecord(id);if(!record)return;
+ try{await navigator.clipboard.writeText(record.code);toast('Python code copied.');}
+ catch{toast('Select the code in the panel to copy it.');}
+}
+function openGraphConstruction(){
+ if(!state.graphSource)return;
+ openModal(`<div class="modal-header"><div><span class="mini-label">THE SAME BUILDER USED BY THE AGENT</span><h2>Graph construction</h2></div><button class="icon-button" data-close aria-label="Close graph construction">${icon('close')}</button></div><p class="modal-intro">The actual node registry, edges, conditional branches, and compile call from <code>build_graph()</code>. Drawing this graph makes no LLM calls.</p>${sourceCodeCard(state.graphSource.construction,'construction','StateGraph builder')}<details class="source-support"><summary>ShoppingState · the shared state schema</summary>${sourceCodeCard(state.graphSource.state_schema,'state-schema','TypedDict state')}</details>`);
+ $('#modal-content').querySelectorAll('[data-copy-source]').forEach(button=>button.addEventListener('click',()=>copySource(button.dataset.copySource)));
+}
+function selectGraphNode(key){
+ if(!state.graph?.nodes.includes(key))return;
+ state.selectedNode=key;render();
+ document.getElementById(`native-node-${key}`)?.focus({preventScroll:true});
+ if(matchMedia('(max-width: 900px)').matches)$('#node-inspector')?.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'});
 }
 function architectureView(){
- const run=state.lastRun,info=nodeInfo[state.selectedNode],status=graphStatus(state.selectedNode),event=run?.audit_log?.findLast(e=>e.node===state.selectedNode);
- const routes=(state.graph?.edges||[]).filter(e=>e.source===state.selectedNode);
- return `<div class="page-heading"><div><div class="page-eyebrow">BUILT TO BE UNDERSTOOD</div><h1>Every step, in the <em>open.</em></h1><p>One stateful agent. A visible plan. You, in control.</p></div><button class="secondary-button" id="download-graph">${icon('download')}Export Mermaid</button></div><div class="architecture-layout"><section class="graph-panel"><div class="graph-toolbar"><div><h2>Scout’s LangGraph</h2><span>${state.graph?.nodes.length||20} nodes · ${run?esc(run.engine_label)+' · '+esc(run.thread_id.slice(0,8)):'Choose a node to explore'}</span></div><div class="graph-legend"><span><i></i>Not run</span><span><i class="visited"></i>Executed</span><span><i class="pending"></i>Waiting</span></div></div><div class="graph-canvas" data-zoom="${state.graphZoom||'fit'}">${graphSvg()}</div><div class="graph-bottom"><span>${icon('info')}Dashed connections are conditional routes.</span><button class="subtle-link" id="graph-zoom">${icon('search')}${state.graphZoom==='detail'?'Fit diagram':'Enlarge diagram'}</button></div></section><aside class="node-inspector"><div class="inspector-eyebrow">${icon('flow')}NODE EXPLORER</div><span class="node-index">${esc(info[0])}</span><h2>${esc(info[1])}</h2><code>${esc(state.selectedNode)}</code><span class="pill ${status==='pending'?'amber':status==='visited'?'green':''}">${status==='idle'?'Not executed':status==='visited'?'Executed':status==='pending'?'Waiting for you':label(status)}</span><p>${esc(info[2])}</p><div class="node-routes"><span class="mini-label">NEXT POSSIBLE STEPS</span>${routes.length?routes.map(e=>`<button data-node="${esc(e.target)}">${esc(nodeInfo[e.target]?.[1]||e.target)} <span>${esc(e.label||'next')} ${icon('arrow')}</span></button>`).join(''):'<p>This branch has ended.</p>'}</div>${event?`<div class="node-event"><span class="mini-label">LATEST ACTUAL EVENT</span><p>${esc(event.detail)}</p></div>`:''}${run?'<button class="secondary-button" data-inspect-last>Inspect saved state '+icon('arrow')+'</button>':'<div class="node-hint">Start a shopping or memory request to see its actual path light up.</div>'}</aside></div><div class="architecture-principles"><article><span class="principle-icon">${icon('chat')}</span><div><h3>State follows the thread.</h3><p>InMemorySaver checkpoints the request, plan, offers, and approval. An interrupt resumes that same execution.</p></div><span class="pill">thread_id</span></article><article><span class="principle-icon">${icon('memory')}</span><div><h3>Memory follows you.</h3><p>InMemoryStore retrieves approved preferences across new threads. Both stores clear on server restart.</p></div><span class="pill">user_id</span></article></div><div class="architecture-bottom"><details class="details-panel"><summary>Exact graph from LangGraph <span>Mermaid source</span></summary><pre class="code-block">${esc(state.graph?.mermaid||'Loading…')}</pre></details><details class="details-panel"><summary>Latest execution trace <span>${run?esc(run.status):'No run yet'}</span></summary>${run?(run.audit_log||[]).map(e=>`<div class="detail-row"><strong>${esc(e.node)}</strong><span>${esc(e.detail)}</span></div>`).join(''):'<p>Start a request to inspect its node events.</p>'}</details></div><p class="diagram-notice">Nodes and edges are read from app.get_graph(). Highlights reflect actual events and the saved waiting node.</p>`;
+ const run=state.lastRun,key=state.selectedNode,info=nodeInfo[key]||[key,key,''],status=graphStatus(key);
+ const detail=state.graphSource?.node_details?.[key];
+ const event=run?.audit_log?.findLast(e=>e.node===key);
+ const routes=(state.graph?.edges||[]).filter(e=>e.source===key);
+ const code=detail?`${detail.kind==='builtin'?'<div class="builtin-note">LangGraph provides this marker. The code below shows its actual graph wiring; it has no custom node function.</div>':''}${sourceCodeCard(detail,`${key}:node`,detail.kind==='builtin'?'Graph wiring':'Actual node function')}${detail.reads.length||detail.writes.length?`<div class="node-state-fields">${[['Reads state directly',detail.reads],['Returns state fields',detail.writes]].map(([label,fields])=>`<div><span>${label}</span><div>${fields.length?fields.map(field=>`<code>${esc(field)}</code>`).join(''):'<span>None</span>'}</div></div>`).join('')}</div>`:''}${detail.routing?.map((r,i)=>`<details class="source-support"><summary>${esc(r.name)}</summary>${sourceCodeCard(r,`${key}:route:${i}`,'Actual graph edge')}</details>`).join('')||''}${detail.helpers.length?`<div class="support-heading">Supporting code <span>${detail.helpers.length}</span></div>${detail.helpers.map((r,i)=>`<details class="source-support"><summary>${esc(r.name)}</summary>${sourceCodeCard(r,`${key}:helper:${i}`,'Called by this node')}</details>`).join('')}`:''}`:'<p class="node-hint">Node source is unavailable. Regenerate the architecture assets.</p>';
+ return `<div class="page-heading"><div><div class="page-eyebrow">BUILT TO BE UNDERSTOOD</div><h1>Every step, in the <em>open.</em></h1><p>The original LangGraph diagram. Click any node to read its Python code.</p></div><div class="architecture-actions"><button class="secondary-button" data-graph-source>${icon('flow')}Graph construction</button><button class="secondary-button" id="download-graph">${icon('download')}Export Mermaid</button></div></div><div class="architecture-layout native-architecture"><section class="graph-panel native-panel" aria-label="Native LangGraph diagram"><div class="graph-toolbar"><div><h2>Scout’s LangGraph</h2><span>${state.graph?.nodes.length||20} nodes · Native LangGraph rendering${run?' · '+esc(run.thread_id.slice(0,8)):''}</span></div><span class="native-diagram-badge">${icon('info')}Click a node to explore</span></div><div class="graph-canvas native-graph-canvas" data-zoom="${state.graphZoom||'fit'}">${graphSvg()}</div><div class="graph-bottom"><span>Original image · Native node positions · Actual Python source</span><button class="subtle-link" id="graph-zoom">${icon('search')}${state.graphZoom==='detail'?'Fit diagram':'Enlarge diagram'}</button></div></section><aside class="node-inspector native-inspector" id="node-inspector" aria-label="Selected node code and explanation"><div class="inspector-eyebrow">${icon('flow')}NODE EXPLORER<button class="subtle-link node-back" data-graph-back>Back to graph ↑</button></div><div class="node-explanation" aria-live="polite"><code class="node-id">${esc(key)}</code><div class="node-title-row"><h2>${esc(info[1])}</h2><span class="pill ${status==='pending'?'amber':status==='visited'?'green':''}">${status==='idle'?'Not executed':status==='visited'?'Executed':status==='pending'?'Waiting for you':label(status)}</span></div><p>${esc(info[2])}</p></div>${code}<div class="node-routes"><span class="mini-label">NEXT POSSIBLE STEPS</span>${routes.length?routes.map(e=>`<button data-node="${esc(e.target)}">${esc(e.target)} <span>${esc(e.label||'next')} ${icon('arrow')}</span></button>`).join(''):'<p>This branch has ended.</p>'}</div>${event?`<div class="node-event"><span class="mini-label">LATEST ACTUAL EVENT</span><p>${esc(event.detail)}</p></div>`:''}${run?'<button class="secondary-button" data-inspect-last>Inspect saved state '+icon('arrow')+'</button>':''}</aside></div><div class="architecture-principles"><article><span class="principle-icon">${icon('chat')}</span><div><h3>State follows the thread.</h3><p>InMemorySaver checkpoints the request, plan, offers, and approval. An interrupt resumes that same execution.</p></div><span class="pill">thread_id</span></article><article><span class="principle-icon">${icon('memory')}</span><div><h3>Memory follows you.</h3><p>InMemoryStore retrieves approved preferences across new threads. Both stores clear on server restart.</p></div><span class="pill">user_id</span></article></div><div class="architecture-bottom"><details class="details-panel"><summary>Exact graph from LangGraph <span>Mermaid source</span></summary><pre class="code-block">${esc(state.graph?.mermaid||'Loading…')}</pre></details><details class="details-panel"><summary>Latest execution trace <span>${run?esc(run.status):'No run yet'}</span></summary>${run?(run.audit_log||[]).map(e=>`<div class="detail-row"><strong>${esc(e.node)}</strong><span>${esc(e.detail)}</span></div>`).join(''):'<p>Start a request to inspect its node events.</p>'}</details></div><p class="diagram-notice">The diagram is the original image generated by app.get_graph().draw_mermaid_png(). Source snippets are extracted from shopping_assistant.py.</p>`;
 }
 
 function render() {
+  const previousCanvas=$('.native-graph-canvas');
+  const diagramScroll=previousCanvas?{left:previousCanvas.scrollLeft,top:previousCanvas.scrollTop}:null;
   document.title = `Scout — ${pages[state.view]}`;
   $('#engine-label').textContent=state.engine==='gemini'?(state.meta.connected?'Gemini connected':'Connect Gemini'):'Sample · no LLM';
   $('#profile-button').textContent=USER==='shopper-001'?'BL':'S';
@@ -198,6 +225,7 @@ function render() {
   $('#engine-select').disabled=state.busy;
   $('#content').innerHTML=(state.runError?`<div class="error-box" role="alert">${esc(state.runError)}</div>`:'')+({shop:shopView,catalog:catalogView,memory:memoryView,architecture:architectureView}[state.view])();
   bind();
+  if(diagramScroll){const canvas=$('.native-graph-canvas');if(canvas){canvas.scrollLeft=diagramScroll.left;canvas.scrollTop=diagramScroll.top;}}
 }
 function navigate(view) {state.view=view;render();window.scrollTo({top:0,behavior:'instant'});}
 
@@ -299,9 +327,12 @@ function bind() {
   $('#catalog-search')?.addEventListener('input',e=>{state.search=e.target.value;$('#catalog-grid').innerHTML=catalogGrid();$('#catalog-grid').querySelectorAll('[data-product]').forEach(b=>b.addEventListener('click',()=>productDetails(b.dataset.product)));});
   $('#condition-filter')?.addEventListener('change',e=>{state.condition=e.target.value;render();});
   $('#stock-filter')?.addEventListener('change',e=>{state.stock=e.target.value;render();});
+  $('#content').querySelectorAll('[data-copy-source]').forEach(button=>button.addEventListener('click',()=>copySource(button.dataset.copySource)));
+  $('[data-graph-source]')?.addEventListener('click',openGraphConstruction);
+  $('[data-graph-back]')?.addEventListener('click',()=>document.getElementById(`native-node-${state.selectedNode}`)?.scrollIntoView({block:'center',inline:'center',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'}));
   $('#graph-zoom')?.addEventListener('click',()=>{state.graphZoom=state.graphZoom==='detail'?'fit':'detail';render();});
   $('#download-graph')?.addEventListener('click',()=>download('scout-langgraph.mmd',state.graph.mermaid,'text/plain'));
-  $('#content').querySelectorAll('[data-node]').forEach(node=>{const choose=()=>{state.selectedNode=node.dataset.node;render();};node.addEventListener('click',choose);node.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose();}});});
+  $('#content').querySelectorAll('[data-node]').forEach(node=>{const choose=()=>selectGraphNode(node.dataset.node);node.addEventListener('click',choose);node.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose();}});});
 }
 
 document.querySelectorAll('.site-header [data-view]').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.view)));
@@ -313,8 +344,8 @@ $('#modal').addEventListener('click',e=>{if(e.target===$('#modal')){const r=$('#
 
 async function initialize() {
   try{
-    const [meta,catalog,graph]=await Promise.all([api('/api/meta'),api('/api/catalog'),api('/api/architecture')]);
-    state.meta=meta;state.offers=catalog.offers;state.graph=graph;await refreshMemories();render();
+    const [meta,catalog,graph,graphSource]=await Promise.all([api('/api/meta'),api('/api/catalog'),api('/api/architecture'),api('/static/architecture/scout-native.json').catch(()=>null)]);
+    state.meta=meta;state.offers=catalog.offers;state.graph=graph;state.graphSource=graphSource;await refreshMemories();render();
   }catch(error){$('#content').innerHTML=`<div class="error-box">${esc(error.message)} Refresh the page after starting the Python server.</div>`;}
 }
 initialize();

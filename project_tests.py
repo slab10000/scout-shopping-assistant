@@ -8,6 +8,10 @@ from decimal import Decimal
 import unittest
 import json
 from pathlib import Path
+import ast
+import hashlib
+import math
+import textwrap
 
 from fastapi.testclient import TestClient
 from langgraph.types import Command
@@ -259,6 +263,52 @@ class ProjectTests(unittest.TestCase):
             self.assertEqual(client.post("/api/runs", json={"request":"Find headphones under $150."}, headers={"Origin":"https://untrusted.example"}).status_code, 403)
             self.assertEqual(client.post("/api/runs", json={"request":"Find headphones under $150."}).status_code, 400)
             self.assertNotIn("api_key", str(client.get("/api/meta").json()))
+
+    def test_native_diagram_matches_the_compiled_graph_and_every_node(self):
+        root = Path(__file__).resolve().parent
+        manifest = json.loads((root / "static/architecture/scout-native.json").read_text())
+        graph = self.s.architecture()
+        self.assertEqual(manifest["mermaid"], graph["mermaid"])
+        self.assertEqual(set(manifest["nodes"]), set(graph["nodes"]))
+        self.assertEqual(set(manifest["diagram"]["bounds"]), set(graph["nodes"]))
+        png = (root / "static/architecture/scout-native.png").read_bytes()
+        self.assertEqual(png[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertEqual(hashlib.sha256(png).hexdigest(), manifest["diagram"]["image_sha256"])
+        x, y, width, height = manifest["diagram"]["view_box"]
+        for key, bounds in manifest["diagram"]["bounds"].items():
+            with self.subTest(node=key):
+                self.assertTrue(all(math.isfinite(v) for v in bounds.values()))
+                self.assertGreater(bounds["width"], 0)
+                self.assertGreater(bounds["height"], 0)
+                self.assertGreaterEqual(bounds["x"], x)
+                self.assertGreaterEqual(bounds["y"], y)
+                self.assertLessEqual(bounds["x"] + bounds["width"], x + width)
+                self.assertLessEqual(bounds["y"] + bounds["height"], y + height)
+
+    def test_node_inspector_source_is_current_actual_python_without_runtime_secrets(self):
+        root = Path(__file__).resolve().parent
+        source = (root / "shopping_assistant.py").read_text()
+        lines = source.splitlines(keepends=True)
+        manifest = json.loads((root / "static/architecture/scout-native.json").read_text())
+        self.assertEqual(hashlib.sha256(source.encode()).hexdigest(), manifest["source_sha256"])
+        self.assertEqual(set(manifest["node_details"]), set(self.s.architecture()["nodes"]))
+        snippets = [manifest["construction"], manifest["state_schema"]]
+        for detail in manifest["node_details"].values():
+            snippets += [detail, *detail["helpers"], *detail.get("routing", [])]
+        for snippet in snippets:
+            with self.subTest(source=snippet["name"], line=snippet["line"]):
+                actual = textwrap.dedent("".join(lines[snippet["line"]-1:snippet["end_line"]])).rstrip()
+                self.assertEqual(snippet["code"], actual)
+                ast.parse(snippet["code"])
+        self.assertEqual(manifest["node_details"]["search_catalog"]["name"], "search")
+        self.assertEqual(manifest["node_details"]["compare_offers"]["name"], "compare")
+        self.assertEqual(manifest["node_details"]["__start__"]["kind"], "builtin")
+        self.assertEqual(manifest["node_details"]["__end__"]["kind"], "builtin")
+        self.s.key = "private-test-key"
+        with TestClient(create_app(self.s)) as client:
+            response = client.get("/static/architecture/scout-native.json")
+            self.assertEqual(response.status_code, 200)
+            self.assertNotIn(self.s.key, response.text)
 
 
 if __name__ == "__main__":

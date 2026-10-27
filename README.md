@@ -87,13 +87,21 @@ Earlier Gemini and frontend-v2 evidence is preserved as a record of the original
 
 ## Frontend design
 
-The responsive webapp implements the approved Scout concepts: warm ivory, deep green, orange actions, editorial serif headings, and horizontal navigation. Shopping includes a photographic hero, animated SVG soundwaves, a live reasoning trail, price comparisons, and explicit approval controls. Catalog has searchable offer cards and retailer comparison dialogs. Memory shows readable preferences, approval provenance, correction history, and the exact proposal before saving. Architecture renders every real graph node and edge as interactive SVG, with execution highlights, a node inspector, diagram enlargement, state inspection, and Mermaid export.
+The responsive webapp implements the approved Scout concepts: warm ivory, deep green, orange actions, editorial serif headings, and horizontal navigation. Shopping includes a photographic hero, animated SVG soundwaves, a live reasoning trail, price comparisons, and explicit approval controls. Catalog has searchable offer cards and retailer comparison dialogs. Memory shows readable preferences, approval provenance, correction history, and the exact proposal before saving. Architecture displays the exact native LangGraph PNG with click targets extracted from Mermaid’s rendered node geometry. Selecting any node shows its actual Python function, source line numbers, explanation, directly read and returned state fields, graph routing, and expandable supporting functions. START and END show their real wiring rather than invented functions. The panel also includes graph construction, diagram enlargement, state inspection, and Mermaid export.
 
 All 37 illustrative images were generated with the built-in image generation tool. Thirty-six transparent product cutouts and one editorial hero are served locally as WebP from `static/images/`; their prompts are recorded in `tools/image_assets.json` and `tools/image_batch_a.json`, `tools/image_batch_b.json`, and `tools/image_batch_c.json`. The 30 added product specifications are listed in `tools/catalog_expansion.json`. Product images illustrate fictional catalog entries and are not manufacturer photographs. The conceptual screen images are not embedded as application screens.
 
-DM Sans and Instrument Serif are served from `static/fonts/`, with their SIL Open Font License texts included. There are no runtime font or image downloads, and no added JavaScript framework or backend dependency. Animations respect reduced-motion preferences. The mobile Architecture diagram scrolls within its own frame to keep node labels readable.
+DM Sans and Instrument Serif are served from `static/fonts/`, with their SIL Open Font License texts included. There are no runtime font or image downloads, and no added JavaScript framework or backend dependency. Animations respect reduced-motion preferences. The mobile Architecture diagram scrolls within its own frame to keep node labels readable. Selecting a node moves to its code panel; Back to graph returns to that node.
 
 `evidence/frontend-v2/verification.json` records browser verification with the explicitly selected sample engine and an isolated user namespace. The redesign retains the existing Gemini connection, Python implementation, CSV information source, and approval boundaries. Browser-only view state still resets on refresh.
+
+The native architecture assets live under `static/architecture/`. Their image is the original output of `app.get_graph().draw_mermaid_png()`. Code snippets are extracted from the real `build_graph()` node registry in `shopping_assistant.py`, including aliases such as `search_catalog` → `search`. After editing Python source, refresh the source manifest locally with:
+
+```sh
+python tools/build_architecture.py
+```
+
+If graph nodes or edges change, regenerate both layout and image with `python tools/build_architecture.py --render`. That drawing operation uses LangGraph’s Mermaid.INK renderer and makes no LLM calls. Runtime browsing uses the saved local files. Regression checks reject stale Python snippets or a diagram that no longer matches the compiled graph.
 
 ## Architecture and lab continuity
 

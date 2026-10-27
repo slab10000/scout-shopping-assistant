@@ -1,0 +1,33 @@
+{
+  "verified_at_utc": "2026-10-27T18:00:02.595660+00:00",
+  "original_diagram_bytes_preserved": true,
+  "native_geometry_source": "Mermaid.INK SVG for the identical LangGraph Mermaid definition",
+  "nodes_clicked": 20,
+  "node_code_exact_matches": 20,
+  "python_source_sha256": "ed45e538f6bac3f2f9ad49cc2d8cd1c556bb3fcd4dd271222afec470251684bd",
+  "start_end": "Actual graph wiring; no invented node functions",
+  "aliases": {
+    "search_catalog": "search",
+    "compare_offers": "compare"
+  },
+  "helper_expansion": "Actual search_catalog function opened and checked",
+  "graph_construction": "Actual StateGraph registry, edges and compile code verified",
+  "copy_handler": "Correct code passed to a stub clipboard writer; system clipboard unchanged",
+  "keyboard": "Enter selects nodes; focus retained; Tab moves to the next node",
+  "zoom": "Native image enlarges inside its own scrolling frame",
+  "mobile": "Save-memory selection reveals source inspector; Back to graph returns to selected node",
+  "responsive_widths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "page_horizontal_overflow": false,
+  "regression_tests_passed": 26,
+  "regression_tests_failed": 0,
+  "console_errors": 0,
+  "console_warnings": 0,
+  "runtime_change": "Static frontend assets only; no restart and no Gemini configuration or user memory changes",
+  "sources": "shopping_assistant.py, extracted by tools/build_architecture.py",
+  "runtime_rendering_network": "Local assets only; no Mermaid service or LLM calls when inspecting nodes"
+}

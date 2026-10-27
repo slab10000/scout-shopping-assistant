@@ -1,0 +1,925 @@
+{
+  "generator": "LangGraph draw_mermaid_png / native Mermaid node geometry",
+  "mermaid": "---\nconfig:\n  flowchart:\n    curve: linear\n---\ngraph TD;\n\t__start__([<p>__start__</p>]):::first\n\tintake(intake)\n\tunderstand(understand)\n\tretrieve_memory(retrieve_memory)\n\tclarify(clarify)\n\tplan_search(plan_search)\n\tsearch_catalog(search_catalog)\n\tcompare_offers(compare_offers)\n\trecommend(recommend)\n\tapprove_purchase(approve_purchase)\n\tconfirm_purchase(confirm_purchase)\n\tcancel_purchase(cancel_purchase)\n\tno_matches(no_matches)\n\tunsupported(unsupported)\n\tinsufficient(insufficient)\n\tform_memory(form_memory)\n\tapprove_memory(approve_memory)\n\tsave_memory(save_memory)\n\tfinish_memory(finish_memory)\n\t__end__([<p>__end__</p>]):::last\n\t__start__ --> intake;\n\tapprove_memory -. &nbsp;False&nbsp; .-> finish_memory;\n\tapprove_memory -. &nbsp;True&nbsp; .-> save_memory;\n\tapprove_purchase -. &nbsp;False&nbsp; .-> cancel_purchase;\n\tapprove_purchase -. &nbsp;True&nbsp; .-> confirm_purchase;\n\tclarify --> understand;\n\tcompare_offers -.-> no_matches;\n\tcompare_offers -.-> recommend;\n\tform_memory -. &nbsp;True&nbsp; .-> approve_memory;\n\tform_memory -. &nbsp;False&nbsp; .-> finish_memory;\n\tintake -. &nbsp;remember&nbsp; .-> form_memory;\n\tintake -. &nbsp;shop&nbsp; .-> understand;\n\tplan_search --> search_catalog;\n\trecommend --> approve_purchase;\n\tretrieve_memory -.-> clarify;\n\tretrieve_memory -.-> insufficient;\n\tretrieve_memory -.-> plan_search;\n\tretrieve_memory -.-> unsupported;\n\tsearch_catalog --> compare_offers;\n\tunderstand --> retrieve_memory;\n\tcancel_purchase --> __end__;\n\tconfirm_purchase --> __end__;\n\tfinish_memory --> __end__;\n\tinsufficient --> __end__;\n\tno_matches --> __end__;\n\tsave_memory --> __end__;\n\tunsupported --> __end__;\n\tclassDef default fill:#f2f0ff,line-height:1.2\n\tclassDef first fill-opacity:0\n\tclassDef last fill:#bfb6fc\n",
+  "nodes": [
+    "__start__",
+    "intake",
+    "understand",
+    "retrieve_memory",
+    "clarify",
+    "plan_search",
+    "search_catalog",
+    "compare_offers",
+    "recommend",
+    "approve_purchase",
+    "confirm_purchase",
+    "cancel_purchase",
+    "no_matches",
+    "unsupported",
+    "insufficient",
+    "form_memory",
+    "approve_memory",
+    "save_memory",
+    "finish_memory",
+    "__end__"
+  ],
+  "diagram": {
+    "image": "/static/architecture/scout-native.png",
+    "view_box": [
+      0.0,
+      0.0,
+      1274.4765625,
+      1099.0625
+    ],
+    "pixel_width": 1274,
+    "pixel_height": 1099,
+    "bounds": {
+      "__start__": {
+        "x": 685.94628,
+        "y": 8.0,
+        "width": 90.24806,
+        "height": 34.1875,
+        "radius": 17.09375
+      },
+      "intake": {
+        "x": 694.71875,
+        "y": 92.1875,
+        "width": 72.70312,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "understand": {
+        "x": 783.10547,
+        "y": 215.375,
+        "width": 110.0625,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "retrieve_memory": {
+        "x": 659.08594,
+        "y": 314.5625,
+        "width": 150.03125,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "clarify": {
+        "x": 477.47656,
+        "y": 413.75,
+        "width": 71.78125,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "plan_search": {
+        "x": 748.19141,
+        "y": 413.75,
+        "width": 117.17188,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "search_catalog": {
+        "x": 737.51953,
+        "y": 512.9375,
+        "width": 138.51562,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "compare_offers": {
+        "x": 736.33984,
+        "y": 612.125,
+        "width": 140.875,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "recommend": {
+        "x": 841.57031,
+        "y": 711.3125,
+        "width": 114.48438,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "approve_purchase": {
+        "x": 817.53906,
+        "y": 834.5,
+        "width": 162.54688,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "confirm_purchase": {
+        "x": 940.33594,
+        "y": 957.6875,
+        "width": 157.17188,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "cancel_purchase": {
+        "x": 739.36719,
+        "y": 957.6875,
+        "width": 150.96875,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "no_matches": {
+        "x": 572.19531,
+        "y": 957.6875,
+        "width": 117.17188,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "unsupported": {
+        "x": 1147.50781,
+        "y": 957.6875,
+        "width": 118.96875,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "insufficient": {
+        "x": 389.82031,
+        "y": 957.6875,
+        "width": 105.3125,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "form_memory": {
+        "x": 158.15625,
+        "y": 711.3125,
+        "width": 128.6875,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "approve_memory": {
+        "x": 8.0,
+        "y": 834.5,
+        "width": 154.5,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "save_memory": {
+        "x": 20.00781,
+        "y": 957.6875,
+        "width": 130.48438,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "finish_memory": {
+        "x": 200.49219,
+        "y": 957.6875,
+        "width": 134.03125,
+        "height": 49.1875,
+        "radius": 5
+      },
+      "__end__": {
+        "x": 569.79394,
+        "y": 1056.875,
+        "width": 85.82619,
+        "height": 34.1875,
+        "radius": 17.09375
+      }
+    },
+    "image_sha256": "798e2c30670f2bc4459a885ca1a66e0bbeb792547de68e1d9f1e32924391f37d"
+  },
+  "source_sha256": "ed45e538f6bac3f2f9ad49cc2d8cd1c556bb3fcd4dd271222afec470251684bd",
+  "node_details": {
+    "__start__": {
+      "name": "__start__",
+      "file": "shopping_assistant.py",
+      "line": 578,
+      "end_line": 578,
+      "code": "g.add_edge(START, \"intake\")",
+      "kind": "builtin",
+      "reads": [],
+      "writes": [],
+      "helpers": []
+    },
+    "intake": {
+      "name": "intake",
+      "file": "shopping_assistant.py",
+      "line": 425,
+      "end_line": 428,
+      "code": "def intake(s):\n    return {\"status\": \"STARTED\", \"approved\": False, \"confirmed\": False,\n            \"model_id\": getattr(brain_for(s[\"engine\"]), \"model\", \"sample-rules\"),\n            \"clarification_count\": 0, **event(\"intake\", f\"Started {s['mode']} request using {s['engine']}\")}",
+      "kind": "function",
+      "reads": [
+        "engine",
+        "mode"
+      ],
+      "writes": [
+        "approved",
+        "audit_log",
+        "clarification_count",
+        "confirmed",
+        "model_id",
+        "status"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        }
+      ],
+      "routing": [
+        {
+          "name": "Conditional routing",
+          "file": "shopping_assistant.py",
+          "line": 579,
+          "end_line": 579,
+          "code": "g.add_conditional_edges(\"intake\", lambda s: s[\"mode\"], {\"shop\": \"understand\", \"remember\": \"form_memory\"})"
+        }
+      ]
+    },
+    "understand": {
+      "name": "understand",
+      "file": "shopping_assistant.py",
+      "line": 430,
+      "end_line": 432,
+      "code": "def understand(s):\n    c = Constraints.model_validate(brain_for(s[\"engine\"]).understand(s[\"request\"])).model_dump()\n    return {\"constraints\": c, \"status\": \"UNDERSTOOD\", **event(\"understand\", \"Validated explicit request constraints\", \"llm\" if s[\"engine\"] == \"gemini\" else \"sample_rules\")}",
+      "kind": "function",
+      "reads": [
+        "engine",
+        "request"
+      ],
+      "writes": [
+        "audit_log",
+        "constraints",
+        "status"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        },
+        {
+          "name": "GeminiBrain.understand",
+          "file": "shopping_assistant.py",
+          "line": 158,
+          "end_line": 164,
+          "code": "def understand(self, request):\n    return self.call(Constraints,\n        \"Extract ONLY explicit constraints. Do not assume a budget, form factor, or condition. \"\n        \"Interpret earbuds as in-ear and ANC as noise_cancelling=true. \"\n        \"If refurbished is acceptable alongside new, condition=any. \"\n        \"Use unsupported only for clearly non-headphone shopping. Later clarification overrides earlier text.\",\n        {\"request\": request})"
+        },
+        {
+          "name": "SampleBrain.understand",
+          "file": "shopping_assistant.py",
+          "line": 206,
+          "end_line": 243,
+          "code": "def understand(self, request):\n    t = request.lower()\n    c = Constraints().model_dump()\n    if any(x in t for x in [\"laptop\", \"television\", \"refrigerator\", \"phone case\"]):\n        c[\"category\"] = \"unsupported\"\n    amounts = re.findall(r\"(?:under|budget(?: is| of)?|up to|below|\\$)\\s*\\$?(\\d+(?:\\.\\d+)?)\", t)\n    if amounts:\n        c[\"budget\"] = float(amounts[-1])\n    for fit in [\"over-ear\", \"on-ear\", \"in-ear\"]:\n        if fit in t:\n            c[\"form_factor\"] = fit\n    if \"earbuds\" in t:\n        c[\"form_factor\"] = \"in-ear\"\n    if re.search(r\"\\bnew\\b\", t):\n        c[\"condition\"] = \"new\"\n    if \"refurbished only\" in t:\n        c[\"condition\"] = \"refurbished\"\n    elif \"refurbished\" in t and any(x in t for x in [\"acceptable\", \"okay\", \"allow\", \"fine\", \"include\"]):\n        c[\"condition\"] = \"any\"\n    if \"noise cancellation\" in t or \"noise-cancelling\" in t or \"anc\" in t:\n        c[\"noise_cancelling\"] = True\n    if \"without anc\" in t or \"no noise cancellation\" in t:\n        c[\"noise_cancelling\"] = False\n    if \"cheapest\" in t or \"lowest price\" in t:\n        c[\"priority\"] = \"price\"\n    elif \"battery\" in t:\n        c[\"priority\"] = \"battery\"\n    elif \"prioritize noise\" in t:\n        c[\"priority\"] = \"noise_cancelling\"\n    # Read model names from the same CSV so new catalog entries work without\n    # maintaining a second hand-written model list in the practice engine.\n    products = {row[\"product_id\"]: row for row in read_catalog(self.catalog_path)}\n    for row in sorted(products.values(), key=lambda row: len(row[\"product_name\"]), reverse=True):\n        aliases = [row[\"product_name\"], row[\"product_id\"]]\n        if any(re.search(r\"(?<!\\w)\" + re.escape(alias.lower()) + r\"(?!\\w)\", t) for alias in aliases):\n            c[\"exact_model\"] = row[\"product_name\"]\n            break\n    return Constraints.model_validate(c).model_dump()"
+        }
+      ],
+      "routing": [
+        {
+          "name": "Next edge",
+          "file": "shopping_assistant.py",
+          "line": 580,
+          "end_line": 580,
+          "code": "g.add_edge(\"understand\", \"retrieve_memory\")"
+        }
+      ]
+    },
+    "retrieve_memory": {
+      "name": "retrieve_memory",
+      "file": "shopping_assistant.py",
+      "line": 434,
+      "end_line": 451,
+      "code": "def retrieve_memory(s):\n    ranked, chosen = rank_memories(records(store, s[\"user_id\"]), s[\"constraints\"]) if s.get(\"use_memory\", True) else ([], [])\n    effective = dict(s[\"constraints\"])\n    applied = []\n    for row in chosen:\n        key = row[\"key\"]\n        if effective.get(key) is None:\n            value = row[\"value\"]\n            if key == \"noise_cancelling\":\n                value = value == \"true\"\n            elif key == \"min_battery_hours\":\n                value = int(value)\n            effective[key] = value\n            applied.append(row[\"memory_id\"])\n    chosen = [{**r, \"applied\": r[\"memory_id\"] in applied} for r in chosen]\n    return {\"ranked_memories\": ranked, \"selected_memories\": chosen,\n            \"effective_constraints\": Constraints.model_validate(effective).model_dump(),\n            **event(\"retrieve_memory\", f\"Retrieved {len(chosen)} records; applied {len(applied)}\", \"memory_read\")}",
+      "kind": "function",
+      "reads": [
+        "constraints",
+        "use_memory",
+        "user_id"
+      ],
+      "writes": [
+        "audit_log",
+        "effective_constraints",
+        "ranked_memories",
+        "selected_memories"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        },
+        {
+          "name": "rank_memories",
+          "file": "shopping_assistant.py",
+          "line": 406,
+          "end_line": 418,
+          "code": "def rank_memories(data, constraints):\n    ranked = []\n    clock = datetime.now(timezone.utc)\n    for row in data:\n        if row[\"status\"] != \"active\":\n            continue\n        relevance = 1.0 if constraints[\"category\"] == \"headphones\" and row[\"scope\"] in {\"headphones\", \"shopping\"} else 0\n        age = max(0, (clock - datetime.fromisoformat(row[\"observed_at\"])).total_seconds() / 86400)\n        recency = 1 / (1 + age / 30)\n        score = .65 * relevance + .25 * row[\"importance\"] + .10 * recency\n        ranked.append({**row, \"relevance\": relevance, \"recency\": round(recency, 4), \"score\": round(score, 4)})\n    ranked.sort(key=lambda r: (-r[\"score\"], r[\"memory_id\"]))\n    return ranked, [r for r in ranked if r[\"relevance\"] >= .5][:3]"
+        },
+        {
+          "name": "records",
+          "file": "shopping_assistant.py",
+          "line": 401,
+          "end_line": 403,
+          "code": "def records(store, user_id, history=False):\n    data = [{\"memory_id\": item.key, **item.value} for item in store.search(namespace(user_id), limit=1000)]\n    return sorted([r for r in data if history or r[\"status\"] == \"active\"], key=lambda r: r[\"observed_at\"])"
+        },
+        {
+          "name": "ready",
+          "file": "shopping_assistant.py",
+          "line": 453,
+          "end_line": 460,
+          "code": "def ready(s):\n    if s[\"constraints\"][\"category\"] == \"unsupported\":\n        return \"unsupported\"\n    if s[\"effective_constraints\"][\"budget\"] is None and s[\"clarification_count\"] < 2:\n        return \"clarify\"\n    if s[\"effective_constraints\"][\"budget\"] is None:\n        return \"insufficient\"\n    return \"plan_search\""
+        }
+      ],
+      "routing": [
+        {
+          "name": "Conditional routing",
+          "file": "shopping_assistant.py",
+          "line": 581,
+          "end_line": 581,
+          "code": "g.add_conditional_edges(\"retrieve_memory\", ready, {n: n for n in [\"unsupported\", \"clarify\", \"insufficient\", \"plan_search\"]})"
+        }
+      ]
+    },
+    "clarify": {
+      "name": "clarify",
+      "file": "shopping_assistant.py",
+      "line": 462,
+      "end_line": 469,
+      "code": "def clarify(s):\n    answer = interrupt({\"kind\": \"clarification\", \"question\": \"What is your budget in USD, including shipping?\", \"request\": s[\"request\"]})\n    if not isinstance(answer, dict) or not isinstance(answer.get(\"text\"), str) or not answer[\"text\"].strip():\n        raise ValueError(\"Clarification needs nonempty text.\")\n    text = answer[\"text\"].strip()[:1000]\n    return {\"request\": s[\"request\"] + \"\\nLater clarification: \" + text,\n            \"clarification_count\": s[\"clarification_count\"] + 1,\n            **event(\"clarify\", \"User supplied budget clarification\", \"human\")}",
+      "kind": "function",
+      "reads": [
+        "clarification_count",
+        "request"
+      ],
+      "writes": [
+        "audit_log",
+        "clarification_count",
+        "request"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        }
+      ],
+      "routing": [
+        {
+          "name": "Next edge",
+          "file": "shopping_assistant.py",
+          "line": 582,
+          "end_line": 582,
+          "code": "g.add_edge(\"clarify\", \"understand\")"
+        }
+      ]
+    },
+    "plan_search": {
+      "name": "plan_search",
+      "file": "shopping_assistant.py",
+      "line": 471,
+      "end_line": 475,
+      "code": "def plan_search(s):\n    p = SearchPlan.model_validate(brain_for(s[\"engine\"]).plan(s[\"effective_constraints\"]))\n    if p.filters.model_dump() != s[\"effective_constraints\"] or p.sort_by != (s[\"effective_constraints\"].get(\"priority\") or \"balanced\"):\n        raise AssistantError(\"The model changed a constraint in its search plan. Retry with a clearer request.\")\n    return {\"plan\": p.model_dump(), **event(\"plan_search\", \"Created validated search parameters and comparison steps\", \"llm\" if s[\"engine\"] == \"gemini\" else \"sample_rules\")}",
+      "kind": "function",
+      "reads": [
+        "effective_constraints",
+        "engine"
+      ],
+      "writes": [
+        "audit_log",
+        "plan"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        },
+        {
+          "name": "GeminiBrain.plan",
+          "file": "shopping_assistant.py",
+          "line": 166,
+          "end_line": 177,
+          "code": "def plan(self, constraints):\n    strategy = self.call(SearchStrategy,\n        \"Write a concise search query and two to five steps for this CSV comparison. \"\n        \"Use the exact requested product name when one is supplied. Steps describe matching, \"\n        \"stock and condition checks, delivered-cost comparison, and the requested ranking. \"\n        \"Do not propose new constraints or relax supplied constraints. Python binds the exact \"\n        \"validated filters, ranking, and a three-result limit to this strategy.\",\n        {\"effective_constraints\": constraints})\n    # Never ask a model to retype user constraints. In particular, invented\n    # form factors or features for unfamiliar model names cannot change a search.\n    return SearchPlan(**strategy, filters=Constraints.model_validate(constraints),\n        sort_by=constraints.get(\"priority\") or \"balanced\", limit=3).model_dump()"
+        },
+        {
+          "name": "SampleBrain.plan",
+          "file": "shopping_assistant.py",
+          "line": 245,
+          "end_line": 250,
+          "code": "def plan(self, constraints):\n    return SearchPlan(query=constraints.get(\"exact_model\") or \"wireless headphones\",\n        steps=[\"Match the requested model and features in headphones.csv.\",\n               \"Filter stock, condition, budget, and unknown delivered costs.\",\n               \"Group equivalent offers and rank the best delivered totals.\"],\n        filters=Constraints(**constraints), sort_by=constraints.get(\"priority\") or \"balanced\", limit=3).model_dump()"
+        }
+      ],
+      "routing": [
+        {
+          "name": "Next edge",
+          "file": "shopping_assistant.py",
+          "line": 583,
+          "end_line": 583,
+          "code": "g.add_edge(\"plan_search\", \"search_catalog\")"
+        }
+      ]
+    },
+    "search_catalog": {
+      "name": "search",
+      "file": "shopping_assistant.py",
+      "line": 477,
+      "end_line": 479,
+      "code": "def search(s):\n    offers = search_catalog(s[\"plan\"], catalog_path)\n    return {\"offers\": offers, **event(\"search_catalog\", f\"Read headphones.csv: {len(offers)} candidate offers\", \"tool\")}",
+      "kind": "function",
+      "reads": [
+        "plan"
+      ],
+      "writes": [
+        "audit_log",
+        "offers"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        },
+        {
+          "name": "search_catalog",
+          "file": "shopping_assistant.py",
+          "line": 307,
+          "end_line": 316,
+          "code": "def search_catalog(plan, path=ROOT / \"headphones.csv\"):\n    \"\"\"Real Python information-source tool. Executes the validated plan parameters.\"\"\"\n    p = SearchPlan.model_validate(plan)\n    rows = read_catalog(path)\n    exact = p.filters.exact_model\n    if exact:\n        wanted = re.sub(r\"[^a-z0-9]\", \"\", exact.lower())\n        rows = [r for r in rows if wanted in {\n            re.sub(r\"[^a-z0-9]\", \"\", r[k].lower()) for k in [\"product_name\", \"model\", \"product_id\"]}]\n    return rows"
+        }
+      ],
+      "routing": [
+        {
+          "name": "Next edge",
+          "file": "shopping_assistant.py",
+          "line": 584,
+          "end_line": 584,
+          "code": "g.add_edge(\"search_catalog\", \"compare_offers\")"
+        }
+      ]
+    },
+    "compare_offers": {
+      "name": "compare",
+      "file": "shopping_assistant.py",
+      "line": 481,
+      "end_line": 483,
+      "code": "def compare(s):\n    comparison = compare_offers(s[\"offers\"], s[\"plan\"])\n    return {\"comparison\": comparison, **event(\"compare_offers\", f\"{len(comparison['eligible'])} eligible, {len(comparison['excluded'])} excluded, {len(comparison['uncertain'])} uncertain\", \"code\")}",
+      "kind": "function",
+      "reads": [
+        "offers",
+        "plan"
+      ],
+      "writes": [
+        "audit_log",
+        "comparison"
+      ],
+      "helpers": [
+        {
+          "name": "compare_offers",
+          "file": "shopping_assistant.py",
+          "line": 319,
+          "end_line": 362,
+          "code": "def compare_offers(offers, plan):\n    p = SearchPlan.model_validate(plan)\n    c = p.filters.model_dump()\n    eligible, excluded, uncertain = [], [], []\n    for offer in offers:\n        row, reasons = dict(offer), []\n        if not row[\"in_stock\"]:\n            reasons.append(\"Out of stock\")\n        for key in [\"form_factor\", \"noise_cancelling\"]:\n            if c[key] is not None and row[key] != c[key]:\n                reasons.append(f\"Does not match {key.replace('_', ' ')}\")\n        if c[\"condition\"] not in {None, \"any\"} and row[\"condition\"] != c[\"condition\"]:\n            reasons.append(\"Does not match product condition\")\n        if c[\"min_battery_hours\"] is not None and row[\"battery_hours\"] < c[\"min_battery_hours\"]:\n            reasons.append(\"Battery life below minimum\")\n        if c[\"budget\"] is not None:\n            known_min = Decimal(row[\"total_price\"] or row[\"price\"])\n            if known_min > Decimal(str(c[\"budget\"])):\n                reasons.append(\"Above budget including known shipping\")\n        if reasons:\n            excluded.append({**row, \"reasons\": reasons})\n        elif row[\"total_price\"] is None:\n            uncertain.append({**row, \"reasons\": [\"Shipping unknown; delivered cost cannot be compared\"]})\n        else:\n            price = float(row[\"total_price\"])\n            # Transparent policy weights, not a learned quality or review score.\n            row[\"score\"] = round(.55 * (1 / (1 + price / 100)) + .25 * row[\"battery_hours\"] / 60 + .20 * int(row[\"noise_cancelling\"]), 4)\n            eligible.append(row)\n    def order(row):\n        price = Decimal(row[\"total_price\"])\n        if p.sort_by == \"price\":\n            return (price, row[\"offer_id\"])\n        if p.sort_by == \"battery\":\n            return (-row[\"battery_hours\"], price, row[\"offer_id\"])\n        if p.sort_by == \"noise_cancelling\":\n            return (-int(row[\"noise_cancelling\"]), price, row[\"offer_id\"])\n        return (-row[\"score\"], price, row[\"offer_id\"])\n    # First find the cheapest equivalent offer. Then compare different products.\n    cheapest = {}\n    for row in sorted(eligible, key=lambda r: (Decimal(r[\"total_price\"]), r[\"offer_id\"])):\n        cheapest.setdefault((row[\"product_id\"], row[\"condition\"]), row)\n    shortlist = sorted(cheapest.values(), key=order)[:p.limit]\n    return {\"eligible\": sorted(eligible, key=order), \"shortlist\": shortlist,\n            \"excluded\": excluded, \"uncertain\": uncertain}"
+        },
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        }
+      ],
+      "routing": [
+        {
+          "name": "Conditional routing",
+          "file": "shopping_assistant.py",
+          "line": 585,
+          "end_line": 585,
+          "code": "g.add_conditional_edges(\"compare_offers\", lambda s: \"recommend\" if s[\"comparison\"][\"shortlist\"] else \"no_matches\", {\"recommend\": \"recommend\", \"no_matches\": \"no_matches\"})"
+        }
+      ]
+    },
+    "recommend": {
+      "name": "recommend",
+      "file": "shopping_assistant.py",
+      "line": 485,
+      "end_line": 492,
+      "code": "def recommend(s):\n    candidates = s[\"comparison\"][\"shortlist\"]\n    r = Recommendation.model_validate(brain_for(s[\"engine\"]).recommend(candidates, s[\"effective_constraints\"])).model_dump()\n    offer = next((o for o in candidates if o[\"offer_id\"] == r[\"offer_id\"]), None)\n    if offer is None:\n        raise AssistantError(\"The model recommended an offer outside the validated shortlist. No action was prepared.\")\n    return {\"recommendation\": r, \"proposed_action\": {\"kind\": \"simulated_purchase\", \"offer\": offer},\n            \"status\": \"WAITING_APPROVAL\", **event(\"recommend\", f\"Prepared recommendation for {offer['offer_id']}\", \"llm\" if s[\"engine\"] == \"gemini\" else \"sample_rules\")}",
+      "kind": "function",
+      "reads": [
+        "comparison",
+        "effective_constraints",
+        "engine"
+      ],
+      "writes": [
+        "audit_log",
+        "proposed_action",
+        "recommendation",
+        "status"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        },
+        {
+          "name": "GeminiBrain.recommend",
+          "file": "shopping_assistant.py",
+          "line": 179,
+          "end_line": 184,
+          "code": "def recommend(self, candidates, constraints):\n    return self.call(Recommendation,\n        \"Choose an offer_id from candidates, normally the first-ranked offer. Explain the fit and \"\n        \"tradeoffs in plain language. Do not repeat numeric prices: the UI builds those from CSV. \"\n        \"No claims about real reviews, comfort testing, guarantees, or current internet availability.\",\n        {\"candidates\": candidates, \"constraints\": constraints})"
+        },
+        {
+          "name": "SampleBrain.recommend",
+          "file": "shopping_assistant.py",
+          "line": 252,
+          "end_line": 257,
+          "code": "def recommend(self, candidates, constraints):\n    top = candidates[0]\n    return {\"offer_id\": top[\"offer_id\"],\n        \"summary\": f\"{top['product_name']} is the strongest match under the selected comparison rules.\",\n        \"reasons\": [\"Meets the active constraints.\", \"Has a known item-and-shipping total.\"],\n        \"tradeoffs\": [\"Sample catalog only; tax and real availability are not included.\"]}"
+        }
+      ],
+      "routing": [
+        {
+          "name": "Next edge",
+          "file": "shopping_assistant.py",
+          "line": 586,
+          "end_line": 586,
+          "code": "g.add_edge(\"recommend\", \"approve_purchase\")"
+        }
+      ]
+    },
+    "approve_purchase": {
+      "name": "approve_purchase",
+      "file": "shopping_assistant.py",
+      "line": 494,
+      "end_line": 498,
+      "code": "def approve_purchase(s):\n    decision = interrupt({\"kind\": \"purchase_approval\", \"question\": \"Confirm this simulated purchase? No real order or payment will occur.\", \"offer\": s[\"proposed_action\"][\"offer\"]})\n    if type(decision) is not bool:\n        raise ValueError(\"Approval must be an explicit boolean.\")\n    return {\"approved\": decision, **event(\"approve_purchase\", f\"User {'approved' if decision else 'rejected'} the simulated purchase\", \"human\")}",
+      "kind": "function",
+      "reads": [
+        "proposed_action"
+      ],
+      "writes": [
+        "approved",
+        "audit_log"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        }
+      ],
+      "routing": [
+        {
+          "name": "Conditional routing",
+          "file": "shopping_assistant.py",
+          "line": 587,
+          "end_line": 587,
+          "code": "g.add_conditional_edges(\"approve_purchase\", lambda s: s[\"approved\"], {True: \"confirm_purchase\", False: \"cancel_purchase\"})"
+        }
+      ]
+    },
+    "confirm_purchase": {
+      "name": "confirm_purchase",
+      "file": "shopping_assistant.py",
+      "line": 500,
+      "end_line": 504,
+      "code": "def confirm_purchase(s):\n    if s.get(\"approved\") is not True:\n        raise ValueError(\"Approval is required.\")\n    return {\"confirmed\": True, \"status\": \"SIMULATED_CONFIRMED\", \"response\": \"Simulated purchase confirmed. No real order or payment was made.\",\n            **event(\"confirm_purchase\", \"Confirmed simulation after approval; no external side effect\", \"simulation\")}",
+      "kind": "function",
+      "reads": [
+        "approved"
+      ],
+      "writes": [
+        "audit_log",
+        "confirmed",
+        "response",
+        "status"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        }
+      ],
+      "routing": []
+    },
+    "cancel_purchase": {
+      "name": "cancel_purchase",
+      "file": "shopping_assistant.py",
+      "line": 506,
+      "end_line": 508,
+      "code": "def cancel_purchase(s):\n    return {\"confirmed\": False, \"status\": \"CANCELLED\", \"response\": \"Purchase cancelled. Nothing was ordered or charged.\",\n            **event(\"cancel_purchase\", \"Cancelled without confirming a purchase\")}",
+      "kind": "function",
+      "reads": [],
+      "writes": [
+        "audit_log",
+        "confirmed",
+        "response",
+        "status"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        }
+      ],
+      "routing": []
+    },
+    "no_matches": {
+      "name": "no_matches",
+      "file": "shopping_assistant.py",
+      "line": 510,
+      "end_line": 512,
+      "code": "def no_matches(s):\n    return {\"status\": \"NO_MATCHES\", \"response\": \"No offer meets all constraints with a known delivered cost. Review the exclusions or start a new search with revised requirements.\",\n            **event(\"no_matches\", \"Stopped without relaxing constraints\")}",
+      "kind": "function",
+      "reads": [],
+      "writes": [
+        "audit_log",
+        "response",
+        "status"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        }
+      ],
+      "routing": []
+    },
+    "unsupported": {
+      "name": "unsupported",
+      "file": "shopping_assistant.py",
+      "line": 514,
+      "end_line": 515,
+      "code": "def unsupported(s):\n    return {\"status\": \"UNSUPPORTED\", \"response\": \"This sample catalog covers wireless headphones. Try a headphone request.\", **event(\"unsupported\", \"Unsupported category; no tool or action executed\")}",
+      "kind": "function",
+      "reads": [],
+      "writes": [
+        "audit_log",
+        "response",
+        "status"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        }
+      ],
+      "routing": []
+    },
+    "insufficient": {
+      "name": "insufficient",
+      "file": "shopping_assistant.py",
+      "line": 517,
+      "end_line": 518,
+      "code": "def insufficient(s):\n    return {\"status\": \"NEEDS_INFORMATION\", \"response\": \"A positive USD budget is required. Start a new search with a budget.\", **event(\"insufficient\", \"Stopped after two clarification attempts\")}",
+      "kind": "function",
+      "reads": [],
+      "writes": [
+        "audit_log",
+        "response",
+        "status"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        }
+      ],
+      "routing": []
+    },
+    "form_memory": {
+      "name": "form_memory",
+      "file": "shopping_assistant.py",
+      "line": 520,
+      "end_line": 531,
+      "code": "def form_memory(s):\n    # Deterministic guards precede semantic model judgment.\n    text = s[\"request\"].lower()\n    if any(w in text for w in [\"password\", \"credit card\", \"medical\", \"roommate\", \"api key\"]):\n        p = MemoryProposal(decision=\"HUMAN_REVIEW\", reason=\"Sensitive or third-party information is outside this preference store.\").model_dump()\n    elif any(w in text for w in [\"this purchase\", \"this week\", \"right now\", \"error 503\", \"today only\"]):\n        p = MemoryProposal(decision=\"TEMPORARY\", reason=\"This is temporary context, not a general preference.\").model_dump()\n    else:\n        p = validate_memory(brain_for(s[\"engine\"]).form_memory(s[\"request\"]))\n    old = [r for r in records(store, s[\"user_id\"]) if r[\"key\"] == p.get(\"key\")]\n    return {\"proposal\": p, \"previous_memories\": old, \"status\": \"MEMORY_PROPOSED\",\n            **event(\"form_memory\", f\"Memory policy: {p['decision']}\", \"memory_proposal\")}",
+      "kind": "function",
+      "reads": [
+        "engine",
+        "request",
+        "user_id"
+      ],
+      "writes": [
+        "audit_log",
+        "previous_memories",
+        "proposal",
+        "status"
+      ],
+      "helpers": [
+        {
+          "name": "MemoryProposal",
+          "file": "shopping_assistant.py",
+          "line": 83,
+          "end_line": 91,
+          "code": "class MemoryProposal(Schema):\n    decision: Literal[\"STORE\", \"TEMPORARY\", \"HUMAN_REVIEW\"]\n    key: MemoryKey | None = None\n    value: str | None = Field(default=None, max_length=60)\n    memory_type: Literal[\"semantic\", \"procedural\"] = \"semantic\"\n    text: str = Field(default=\"\", max_length=300)\n    scope: Literal[\"headphones\", \"shopping\"] = \"headphones\"\n    importance: float = Field(default=.8, ge=0, le=1)\n    reason: str = Field(max_length=400)"
+        },
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        },
+        {
+          "name": "records",
+          "file": "shopping_assistant.py",
+          "line": 401,
+          "end_line": 403,
+          "code": "def records(store, user_id, history=False):\n    data = [{\"memory_id\": item.key, **item.value} for item in store.search(namespace(user_id), limit=1000)]\n    return sorted([r for r in data if history or r[\"status\"] == \"active\"], key=lambda r: r[\"observed_at\"])"
+        },
+        {
+          "name": "validate_memory",
+          "file": "shopping_assistant.py",
+          "line": 94,
+          "end_line": 113,
+          "code": "def validate_memory(p):\n    p = MemoryProposal.model_validate(p)\n    if p.decision != \"STORE\":\n        return p.model_dump()\n    allowed = {\n        \"form_factor\": {\"over-ear\", \"on-ear\", \"in-ear\"},\n        \"condition\": {\"new\", \"refurbished\", \"any\"},\n        \"noise_cancelling\": {\"true\", \"false\"},\n        \"priority\": {\"balanced\", \"price\", \"battery\", \"noise_cancelling\"},\n    }\n    if not p.key or p.value is None:\n        raise ValueError(\"A memory must have a supported key and value.\")\n    if p.key == \"min_battery_hours\":\n        if not p.value.isdigit() or not 0 <= int(p.value) <= 100:\n            raise ValueError(\"Invalid battery preference.\")\n    elif p.value not in allowed[p.key]:\n        raise ValueError(\"Invalid preference value.\")\n    # Store only canonical, bounded content. Arbitrary source text is not a policy.\n    p.text = f\"{'Headphones' if p.scope == 'headphones' else 'Shopping'}: {p.key.replace('_', ' ')} = {p.value}.\"\n    return p.model_dump()"
+        },
+        {
+          "name": "GeminiBrain.form_memory",
+          "file": "shopping_assistant.py",
+          "line": 186,
+          "end_line": 195,
+          "code": "def form_memory(self, statement):\n    return self.call(MemoryProposal,\n        \"Propose one explicit reusable preference. Supported keys are form_factor, condition, \"\n        \"noise_cancelling, min_battery_hours, priority. Canonical values are those in Constraints; \"\n        \"booleans as 'true'/'false', numbers as strings. Refurbished acceptable means condition=any. \"\n        \"Use shopping scope for general condition preference, headphones for fit/features. \"\n        \"One-purchase or this-week exceptions, current budgets, outages and errors are TEMPORARY. \"\n        \"Sensitive information, third-party facts, episodes without a supported key, and ambiguity \"\n        \"require HUMAN_REVIEW; do not suggest storing sensitive content. STORE is only a proposal.\",\n        {\"statement\": statement})"
+        },
+        {
+          "name": "SampleBrain.form_memory",
+          "file": "shopping_assistant.py",
+          "line": 259,
+          "end_line": 272,
+          "code": "def form_memory(self, statement):\n    t = statement.lower()\n    base = {\"reason\": \"An explicit reusable preference can help later searches.\"}\n    if any(x in t for x in [\"this purchase\", \"this week\", \"right now\", \"503\", \"budget\", \"today\"]):\n        return MemoryProposal(decision=\"TEMPORARY\", reason=\"This is temporary context for the current request.\").model_dump()\n    if any(x in t for x in [\"password\", \"medical\", \"roommate\", \"credit card\", \"address\"]):\n        return MemoryProposal(decision=\"HUMAN_REVIEW\", reason=\"Sensitive or third-party information is outside the preference policy.\").model_dump()\n    c = self.understand(statement)\n    for key in [\"condition\", \"form_factor\", \"noise_cancelling\", \"priority\"]:\n        if c.get(key) is not None:\n            value = str(c[key]).lower() if type(c[key]) is bool else c[key]\n            return MemoryProposal(decision=\"STORE\", key=key, value=value,\n                scope=\"shopping\" if key == \"condition\" else \"headphones\", **base).model_dump()\n    return MemoryProposal(decision=\"HUMAN_REVIEW\", reason=\"State one explicit fit, condition, feature, or ranking preference.\").model_dump()"
+        }
+      ],
+      "routing": [
+        {
+          "name": "Conditional routing",
+          "file": "shopping_assistant.py",
+          "line": 588,
+          "end_line": 588,
+          "code": "g.add_conditional_edges(\"form_memory\", lambda s: s[\"proposal\"][\"decision\"] == \"STORE\", {True: \"approve_memory\", False: \"finish_memory\"})"
+        }
+      ]
+    },
+    "approve_memory": {
+      "name": "approve_memory",
+      "file": "shopping_assistant.py",
+      "line": 533,
+      "end_line": 538,
+      "code": "def approve_memory(s):\n    answer = interrupt({\"kind\": \"memory_approval\", \"question\": \"Save exactly this preference for later threads?\",\n                        \"proposal\": s[\"proposal\"], \"replaces\": s[\"previous_memories\"]})\n    if type(answer) is not bool:\n        raise ValueError(\"Memory approval must be an explicit boolean.\")\n    return {\"approved\": answer, **event(\"approve_memory\", f\"User {'approved' if answer else 'rejected'} the memory write\", \"human\")}",
+      "kind": "function",
+      "reads": [
+        "previous_memories",
+        "proposal"
+      ],
+      "writes": [
+        "approved",
+        "audit_log"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        }
+      ],
+      "routing": [
+        {
+          "name": "Conditional routing",
+          "file": "shopping_assistant.py",
+          "line": 589,
+          "end_line": 589,
+          "code": "g.add_conditional_edges(\"approve_memory\", lambda s: s[\"approved\"], {True: \"save_memory\", False: \"finish_memory\"})"
+        }
+      ]
+    },
+    "save_memory": {
+      "name": "save_memory",
+      "file": "shopping_assistant.py",
+      "line": 540,
+      "end_line": 560,
+      "code": "def save_memory(s, config):\n    if s.get(\"approved\") is not True:\n        raise ValueError(\"Memory write requires explicit approval.\")\n    p = validate_memory(s[\"proposal\"])\n    if p[\"decision\"] != \"STORE\":\n        raise ValueError(\"Only STORE proposals can be written.\")\n    memory_id = \"memory-\" + config[\"configurable\"][\"thread_id\"]\n    if store.get(namespace(s[\"user_id\"]), memory_id):\n        return {\"memory_id\": memory_id, \"status\": \"MEMORY_SAVED\"}\n    old = [r for r in records(store, s[\"user_id\"]) if r[\"key\"] == p[\"key\"] and r[\"scope\"] == p[\"scope\"]]\n    duplicate = next((r for r in old if r[\"value\"] == p[\"value\"]), None)\n    if duplicate:\n        return {\"memory_id\": duplicate[\"memory_id\"], \"status\": \"MEMORY_UNCHANGED\", \"response\": \"That approved preference is already active.\", **event(\"save_memory\", \"Kept the existing identical record\", \"memory_write\")}\n    record = {**{k: p[k] for k in [\"key\", \"value\", \"memory_type\", \"text\", \"scope\", \"importance\"]},\n              \"observed_at\": now(), \"approved_at\": now(), \"source_thread\": config[\"configurable\"][\"thread_id\"],\n              \"status\": \"active\", \"superseded_by\": None}\n    store.put(namespace(s[\"user_id\"]), memory_id, record)\n    for row in old:\n        store.put(namespace(s[\"user_id\"]), row[\"memory_id\"], {k: v for k, v in {**row, \"status\": \"superseded\", \"superseded_by\": memory_id}.items() if k != \"memory_id\"})\n    return {\"memory_id\": memory_id, \"status\": \"MEMORY_SAVED\", \"response\": \"Preference saved. A new thread for this user can retrieve it.\",\n            **event(\"save_memory\", f\"Saved {memory_id}; superseded {len(old)} earlier record(s)\", \"memory_write\")}",
+      "kind": "function",
+      "reads": [
+        "approved",
+        "proposal",
+        "user_id"
+      ],
+      "writes": [
+        "audit_log",
+        "memory_id",
+        "response",
+        "status"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        },
+        {
+          "name": "namespace",
+          "file": "shopping_assistant.py",
+          "line": 397,
+          "end_line": 398,
+          "code": "def namespace(user_id):\n    return (\"users\", user_id, \"shopping\")"
+        },
+        {
+          "name": "now",
+          "file": "shopping_assistant.py",
+          "line": 34,
+          "end_line": 35,
+          "code": "def now():\n    return datetime.now(timezone.utc).isoformat(timespec=\"seconds\")"
+        },
+        {
+          "name": "records",
+          "file": "shopping_assistant.py",
+          "line": 401,
+          "end_line": 403,
+          "code": "def records(store, user_id, history=False):\n    data = [{\"memory_id\": item.key, **item.value} for item in store.search(namespace(user_id), limit=1000)]\n    return sorted([r for r in data if history or r[\"status\"] == \"active\"], key=lambda r: r[\"observed_at\"])"
+        },
+        {
+          "name": "validate_memory",
+          "file": "shopping_assistant.py",
+          "line": 94,
+          "end_line": 113,
+          "code": "def validate_memory(p):\n    p = MemoryProposal.model_validate(p)\n    if p.decision != \"STORE\":\n        return p.model_dump()\n    allowed = {\n        \"form_factor\": {\"over-ear\", \"on-ear\", \"in-ear\"},\n        \"condition\": {\"new\", \"refurbished\", \"any\"},\n        \"noise_cancelling\": {\"true\", \"false\"},\n        \"priority\": {\"balanced\", \"price\", \"battery\", \"noise_cancelling\"},\n    }\n    if not p.key or p.value is None:\n        raise ValueError(\"A memory must have a supported key and value.\")\n    if p.key == \"min_battery_hours\":\n        if not p.value.isdigit() or not 0 <= int(p.value) <= 100:\n            raise ValueError(\"Invalid battery preference.\")\n    elif p.value not in allowed[p.key]:\n        raise ValueError(\"Invalid preference value.\")\n    # Store only canonical, bounded content. Arbitrary source text is not a policy.\n    p.text = f\"{'Headphones' if p.scope == 'headphones' else 'Shopping'}: {p.key.replace('_', ' ')} = {p.value}.\"\n    return p.model_dump()"
+        }
+      ],
+      "routing": []
+    },
+    "finish_memory": {
+      "name": "finish_memory",
+      "file": "shopping_assistant.py",
+      "line": 562,
+      "end_line": 567,
+      "code": "def finish_memory(s):\n    decision = s[\"proposal\"][\"decision\"]\n    rejected = decision == \"STORE\"\n    return {\"status\": \"MEMORY_REJECTED\" if rejected else \"NOT_STORED\" if decision == \"TEMPORARY\" else \"REVIEW_REQUIRED\",\n            \"response\": \"No memory written. \" + (\"You rejected the proposal.\" if rejected else s[\"proposal\"][\"reason\"]),\n            **event(\"finish_memory\", \"No reusable memory written\")}",
+      "kind": "function",
+      "reads": [
+        "proposal"
+      ],
+      "writes": [
+        "audit_log",
+        "response",
+        "status"
+      ],
+      "helpers": [
+        {
+          "name": "event",
+          "file": "shopping_assistant.py",
+          "line": 393,
+          "end_line": 394,
+          "code": "def event(node, detail, kind=\"step\"):\n    return {\"audit_log\": [{\"node\": node, \"detail\": detail, \"kind\": kind, \"at\": now()}]}"
+        }
+      ],
+      "routing": []
+    },
+    "__end__": {
+      "name": "__end__",
+      "file": "shopping_assistant.py",
+      "line": 590,
+      "end_line": 591,
+      "code": "for name in [\"confirm_purchase\", \"cancel_purchase\", \"no_matches\", \"unsupported\", \"insufficient\", \"save_memory\", \"finish_memory\"]:\n    g.add_edge(name, END)",
+      "kind": "builtin",
+      "reads": [],
+      "writes": [],
+      "helpers": []
+    }
+  },
+  "construction": {
+    "name": "build_graph",
+    "file": "shopping_assistant.py",
+    "line": 569,
+    "end_line": 592,
+    "code": "nodes = {\"intake\": intake, \"understand\": understand, \"retrieve_memory\": retrieve_memory,\n    \"clarify\": clarify, \"plan_search\": plan_search, \"search_catalog\": search,\n    \"compare_offers\": compare, \"recommend\": recommend, \"approve_purchase\": approve_purchase,\n    \"confirm_purchase\": confirm_purchase, \"cancel_purchase\": cancel_purchase, \"no_matches\": no_matches,\n    \"unsupported\": unsupported, \"insufficient\": insufficient, \"form_memory\": form_memory,\n    \"approve_memory\": approve_memory, \"save_memory\": save_memory, \"finish_memory\": finish_memory}\ng = StateGraph(ShoppingState)\nfor name, fn in nodes.items():\n    g.add_node(name, fn)\ng.add_edge(START, \"intake\")\ng.add_conditional_edges(\"intake\", lambda s: s[\"mode\"], {\"shop\": \"understand\", \"remember\": \"form_memory\"})\ng.add_edge(\"understand\", \"retrieve_memory\")\ng.add_conditional_edges(\"retrieve_memory\", ready, {n: n for n in [\"unsupported\", \"clarify\", \"insufficient\", \"plan_search\"]})\ng.add_edge(\"clarify\", \"understand\")\ng.add_edge(\"plan_search\", \"search_catalog\")\ng.add_edge(\"search_catalog\", \"compare_offers\")\ng.add_conditional_edges(\"compare_offers\", lambda s: \"recommend\" if s[\"comparison\"][\"shortlist\"] else \"no_matches\", {\"recommend\": \"recommend\", \"no_matches\": \"no_matches\"})\ng.add_edge(\"recommend\", \"approve_purchase\")\ng.add_conditional_edges(\"approve_purchase\", lambda s: s[\"approved\"], {True: \"confirm_purchase\", False: \"cancel_purchase\"})\ng.add_conditional_edges(\"form_memory\", lambda s: s[\"proposal\"][\"decision\"] == \"STORE\", {True: \"approve_memory\", False: \"finish_memory\"})\ng.add_conditional_edges(\"approve_memory\", lambda s: s[\"approved\"], {True: \"save_memory\", False: \"finish_memory\"})\nfor name in [\"confirm_purchase\", \"cancel_purchase\", \"no_matches\", \"unsupported\", \"insufficient\", \"save_memory\", \"finish_memory\"]:\n    g.add_edge(name, END)\nreturn g.compile(checkpointer=InMemorySaver(), store=store)"
+  },
+  "state_schema": {
+    "name": "ShoppingState",
+    "file": "shopping_assistant.py",
+    "line": 366,
+    "end_line": 390,
+    "code": "class ShoppingState(TypedDict, total=False):\n    user_id: str\n    mode: str\n    engine: str\n    model_id: str\n    request: str\n    use_memory: bool\n    constraints: dict\n    effective_constraints: dict\n    selected_memories: list[dict]\n    ranked_memories: list[dict]\n    plan: dict\n    offers: list[dict]\n    comparison: dict\n    recommendation: dict\n    proposed_action: dict\n    proposal: dict\n    previous_memories: list[dict]\n    approved: bool\n    confirmed: bool\n    memory_id: str\n    status: str\n    response: str\n    clarification_count: int\n    audit_log: Annotated[list[dict], operator.add]"
+  }
+}
