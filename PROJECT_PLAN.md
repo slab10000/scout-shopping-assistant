@@ -74,10 +74,30 @@ Both the store and the checkpointer are in memory. Cross-thread reuse works with
 
 Use fixed sample data for reproducible expected results. Stub LLM outputs only in clearly labeled local checks; the submitted main demonstrations must use a working Gemini model. Capture actual states and results rather than printing expected outcomes as evidence.
 
+## Team 1 work split
+
+The work is divided into three equal parts. Each member owns, tests, documents, and demonstrates one part.
+
+| Member | Part | Plan sections owned | Rubric areas led |
+| --- | --- | --- | --- |
+| Blas Moreno Laguna | Agent workflow and Gemini integration | Libraries and code structure; shopping workflow steps 1, 3, 4, 7, and 8; thread state | LLM integration; state, routing, and human approval |
+| Yasaa Usman Ahmad Khan | Reusable memory | Shopping workflow step 2; state and reusable memory; memory scenarios (form, later request, correction, rejected memory, temporary exception) | Cross-thread memory, retrieval, and correction |
+| Mohammad Noman Hussain | Catalog tool, web app, and documentation | Catalog design; shopping workflow steps 5 and 6; web frontend; deliverables (README, diagram, notebook, report, evidence) | Tool integration; documentation and code quality |
+
+All three members share the problem definition, workflow design review, scenario tests, and the live demonstration.
+
 ## Deliverables and implementation order
 
 Keep the submission similar to Labs 2 and 3: `shopping_assistant.py` with `# %%` sections, a matching notebook, `headphones.csv`, `project_tests.py`, `requirements.txt`, `README.md`, an architecture diagram, an evidence folder, and a 1 to 2 page report covering results, limitations, and individual contributions.
 
-Implement the catalog and deterministic comparison functions first, then the Gemini request and planning nodes, then checkpointed clarification and action approval, then memory formation, retrieval, and correction. Finish by running and capturing the required scenarios, preparing the notebook and report, and checking setup instructions from a clean environment.
+Implementation order, with the owner of each step:
+
+1. Catalog and deterministic comparison functions (Mohammad Noman Hussain).
+2. Gemini request and planning nodes (Blas Moreno Laguna).
+3. Checkpointed clarification and action approval (Blas Moreno Laguna).
+4. Memory formation, retrieval, and correction (Yasaa Usman Ahmad Khan).
+5. Web frontend and Architecture tab (Mohammad Noman Hussain).
+6. Run and capture the required scenarios: shopping and approval cases (Blas Moreno Laguna), memory cases (Yasaa Usman Ahmad Khan), catalog and no-match cases (Mohammad Noman Hussain).
+7. Prepare the notebook, report, and diagram, and check setup instructions from a clean environment (Mohammad Noman Hussain, reviewed by all).
 
 The assignment source is `ITS 58100 - Project requirement documentation-- Agentic AI.docx`. Reference implementations are the Lab 1 Gemini integration, Lab 2 execution controls, Lab 3 memory policy and correction logic, and Week 5 structured outputs and Store API.

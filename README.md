@@ -142,7 +142,17 @@ This is a local, single-process educational prototype. Run it on loopback. Simul
 
 Sample specifications are not independent product measurements. Gemini prose is constrained to supplied evidence but is not a general factual guarantee. The supported memory vocabulary and ranking policy are intentionally small. Price comparison excludes tax and live retailer verification. No shared memory, multi-agent coordination, database persistence, or real purchasing is implemented.
 
-Before submission, identify the actual team members and their contributions. The supplied report includes an honest assistance statement; the student or team must confirm authorship details rather than submitting invented contributions.
+### Team 1 work split
+
+The work is divided into three equal parts. Each member owns, tests, documents, and demonstrates one part.
+
+| Member | Part | Main responsibilities | Main files |
+| --- | --- | --- | --- |
+| Blas Moreno Laguna | Agent workflow and Gemini integration | LangGraph state, nodes, and conditional routing; Gemini request understanding, search planning, and recommendation with Pydantic schemas; budget clarification; purchase approval, confirmation, and cancellation | `shopping_assistant.py` (state, graph, LLM nodes, approval nodes) |
+| Yasaa Usman Ahmad Khan | Reusable memory | Memory formation policy (`STORE`, `TEMPORARY`, `HUMAN_REVIEW`); memory approval; `InMemoryStore` user namespaces; ranking and retrieval; corrections, superseded records, and history; memory tests and scenarios | `shopping_assistant.py` (memory nodes and ranking), memory cases in `project_tests.py` and `run_demo.py` |
+| Mohammad Noman Hussain | Catalog tool, web app, and documentation | `headphones.csv`; CSV search tool and offer comparison with decimal totals; FastAPI backend and frontend; architecture diagram, notebook, report, and README; evidence capture | `headphones.csv`, `search_catalog` and comparison in `shopping_assistant.py`, `webapp.py`, `static/`, `architecture.*`, `Project_1_Report.pdf`, notebook |
+
+Shared by all three: problem definition, workflow design review, scenario testing, and the live demonstration. Implementation and documentation were prepared with Codex assistance.
 
 ## Files
 

@@ -134,10 +134,10 @@ else:
     story.append(P('Live Gemini request extraction, planning, recommendation, and memory proposals were verified, but provider quota and high-demand responses interrupted the full live scenario run. Partial states are in evidence/gemini. The sample engine’s complete results do not claim live LLM execution.','SmallScout'))
 story.extend([P('Limitations and contributions','HeadScout'),
  P('The app is a local educational prototype. Simulated user IDs and ownership checks are not production authentication. Memory is not durable, catalog data is fictional, prices exclude tax, and Gemini prose may require review. No multiple-agent coordination, shared memory, real shopping API, or checkout is included.','SmallScout'),
- P('The student supplied the shopping domain, CSV scope, web frontend, and architecture requirements. Implementation and documentation were prepared with Codex assistance. Confirm actual team names and individual contributions before submission.','SmallScout')])
+ P('Team 1, three equal parts. <b>Blas Moreno Laguna:</b> LangGraph workflow, Gemini nodes, routing, and approval. <b>Yasaa Usman Ahmad Khan:</b> memory policy, approval, retrieval, correction, and memory tests. <b>Mohammad Noman Hussain:</b> CSV tool, comparison, web app, diagram, and report. All shared testing and the demo. Prepared with Codex assistance.','SmallScout')])
 
 def footer(canvas,doc):
     canvas.setFont(FONT,8);canvas.setFillColor(MUTED);canvas.drawString(42,23,'Scout | Agentic AI Project 1');canvas.drawRightString(570,23,str(doc.page))
-doc=SimpleDocTemplate(str(ROOT/'Project_1_Report.pdf'),pagesize=letter,rightMargin=42,leftMargin=42,topMargin=35,bottomMargin=36,title='Scout Shopping Assistant Project 1',author='Project 1 team')
+doc=SimpleDocTemplate(str(ROOT/'Project_1_Report.pdf'),pagesize=letter,rightMargin=42,leftMargin=42,topMargin=35,bottomMargin=36,title='Scout Shopping Assistant Project 1',author='Team 1: Blas Moreno Laguna, Yasaa Usman Ahmad Khan, Mohammad Noman Hussain')
 doc.build(story,onFirstPage=footer,onLaterPages=footer)
 print('Built Project_1_Report.pdf, architecture.svg, architecture.mmd; live complete:',live_complete)
