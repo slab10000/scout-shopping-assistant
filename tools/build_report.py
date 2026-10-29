@@ -4,6 +4,7 @@ from html import escape
 import json
 from pathlib import Path
 import re
+import struct
 from urllib.request import urlopen
 
 from reportlab.lib import colors
@@ -12,7 +13,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle, Flowable
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle, Flowable, Image
 
 ROOT=Path(__file__).resolve().parents[1]
 FONT_ROOT=Path.home()/'.cache/codex-runtimes/codex-primary-runtime/dependencies/native/libreoffice-headless/libreoffice/LibreOfficeDev.app/Contents/Resources/fonts/truetype'
@@ -67,10 +68,10 @@ svg.append('<text x="36" y="718" font-family="Arial,sans-serif" font-size="11" f
 
 INK=colors.HexColor('#292638');PURPLE=colors.HexColor('#6960cc');MUTED=colors.HexColor('#71687c');LINE=colors.HexColor('#e3ddeb')
 styles=getSampleStyleSheet()
-styles.add(ParagraphStyle(name='BodyScout',fontName=FONT,fontSize=10.5,leading=15,textColor=INK,spaceAfter=9))
-styles.add(ParagraphStyle(name='SmallScout',fontName=FONT,fontSize=8.4,leading=12,textColor=MUTED,spaceAfter=7))
-styles.add(ParagraphStyle(name='TitleScout',fontName=BOLD,fontSize=23,leading=29,textColor=INK,spaceAfter=8))
-styles.add(ParagraphStyle(name='HeadScout',fontName=BOLD,fontSize=12.5,leading=17,textColor=INK,spaceBefore=10,spaceAfter=7))
+styles.add(ParagraphStyle(name='BodyScout',fontName=FONT,fontSize=9.6,leading=13.2,textColor=INK,spaceAfter=6))
+styles.add(ParagraphStyle(name='SmallScout',fontName=FONT,fontSize=8.4,leading=11.4,textColor=MUTED,spaceAfter=5))
+styles.add(ParagraphStyle(name='TitleScout',fontName=BOLD,fontSize=21,leading=26,textColor=INK,spaceAfter=4))
+styles.add(ParagraphStyle(name='HeadScout',fontName=BOLD,fontSize=11.5,leading=15,textColor=INK,spaceBefore=7,spaceAfter=4))
 styles.add(ParagraphStyle(name='TableScout',fontName=FONT,fontSize=8.5,leading=12,textColor=INK))
 def P(text,style='BodyScout'):return Paragraph(text,styles[style])
 
@@ -98,19 +99,22 @@ sample=json.loads((sample_dir/'scenarios.json').read_text())
 live_path=ROOT/'evidence'/'gemini'/'scenarios.json'
 live=json.loads(live_path.read_text()) if live_path.exists() else {}
 live_complete=all(live.get(k,{}).get('status')==v for k,v in {'normal_approved':'SIMULATED_CONFIRMED','memory_fit_saved':'MEMORY_SAVED','memory_condition_saved':'MEMORY_SAVED','later_using_two_memories':'WAITING_APPROVAL','purchase_rejected':'CANCELLED','correction_saved':'MEMORY_SAVED','later_after_correction':'WAITING_APPROVAL','temporary_not_saved':'NOT_STORED','memory_rejected':'MEMORY_REJECTED','no_matching_offer':'NO_MATCHES'}.items())
-tests=(ROOT/'evidence'/'catalog-expansion'/'test_output.txt').read_text()
+tests=(ROOT/'evidence'/'llm-comparison'/'test_output.txt').read_text()
 count=re.search(r'Ran (\d+) tests',tests).group(1)
-story=[P('Scout Shopping Assistant','TitleScout'),P('ITS 58100 | Project 1 | One memory enabled agent','SmallScout'),
- P('Scout helps a user choose wireless headphones by turning a natural-language request into a constrained search and a justified comparison. One Gemini-powered LangGraph workflow uses a CSV information source and approved preferences across separate interactions. The local webapp adds Shopping, Catalog, Memory, and Architecture tabs.'),
- P('Problem and input','HeadScout'),
+REPO='https://github.com/slab10000/scout-shopping-assistant'
+styles.add(ParagraphStyle(name='BulletScout',parent=styles['SmallScout'],leftIndent=11,bulletIndent=0,spaceAfter=2.5))
+def B(text):return Paragraph(text,styles['BulletScout'],bulletText='•')
+story=[P('Scout Shopping Assistant','TitleScout'),P('ITS 58100 | Project 1 | Team 1: Blas Moreno Laguna, Yasaa Usman Ahmad Khan, Mohammad Noman Hussain','SmallScout'),
+ P(f'Code repository: <a href="{REPO}" color="#6960cc">{REPO.removeprefix("https://")}</a>','SmallScout'),
+ P('Scout helps a user choose wireless headphones by turning a natural-language request into a constrained search, a reasoned comparison, and a recommendation that waits for human approval. One Gemini-powered LangGraph workflow uses a CSV information source and approved preferences across separate interactions. The local web app has Shopping, Catalog, Memory, and Architecture tabs.'),
  P('Example: “Find wireless headphones under $150 for studying; prioritize noise cancellation.” The sample catalog contains 110 fictional offers across 36 models and three simulated retailers. Output includes a shortlist, known item-and-shipping totals before tax, exclusions, uncertainty, and a proposed simulated purchase.'),
- P('Workflow and execution control','HeadScout'),Diagram(),Spacer(1,10),
- P('The implementation retains the labs’ TypedDict state, small node functions, partial updates, conditional edges, and audit log. Gemini extracts requirements and writes search steps, recommendations, and memory proposals. Python binds the exact validated filters to the plan and enforces schemas, decimal arithmetic, and approved offer IDs. The executable plan drives the CSV tool and comparison policy.'),
- P('The graph pauses with interrupt() before a simulated purchase or memory write. A strict boolean passed through Command(resume=...) selects approval or rejection in the same thread. The side effect runs in a later node and checks approval again. Rejection cancels; no real order, payment, or retailer action exists.'),
+ P('Workflow and execution control','HeadScout'),Diagram(),Spacer(1,6),
+ P('The implementation follows the labs: TypedDict state, small node functions, partial updates, conditional edges, and an audit log. Gemini extracts requirements, writes the search strategy, compares the shortlist, recommends one offer, and proposes memories. Python binds the validated filters to the plan and enforces schemas, decimal arithmetic, and allowed offer IDs.'),
+ P('Comparison and recommendation are two separate Gemini calls. compare_offers sends the request, applied preferences, all CSV search results, and the validated shortlist; Gemini returns two to four bullets per offer plus overall takeaways. recommend receives that comparison and writes one paragraph on why the chosen offer beats the alternatives. Python rejects invented, missing, or duplicate offer IDs.'),
+ P('The graph pauses with interrupt() before a simulated purchase or memory write. A strict boolean passed through Command(resume=...) selects approval or rejection in the same thread, and the side effect runs in a later node that checks approval again. No real order or payment exists.'),
  P('Design decisions','HeadScout'),
- P('Current explicit constraints override remembered defaults. Unknown shipping cannot win a delivered-cost comparison. Only equivalent model, variant, and condition offers are interchangeable. Hard constraints precede ranking, and no-match requests stop without relaxing the budget. Gemini errors stay visible and never silently enable the explicitly labeled sample engine.'),
- PageBreak(),P('Memory and verification','TitleScout'),
- P('Thread state and reusable preferences','HeadScout'),
+ P('Current constraints override remembered defaults. Unknown shipping cannot win a delivered-cost comparison, and only identical model, variant, and condition offers are interchangeable. No-match requests stop without relaxing the budget, and Gemini errors never silently switch to the sample engine.'),
+ P('Thread state and reusable memory','HeadScout'),
  P('InMemorySaver checkpoints each thread_id: request, constraints, plan, offers, approval, status, and events. InMemoryStore holds approved records under the user’s shopping namespace. A new thread retrieves relevant active records without inheriting the old approval or execution state. Both backends clear on process restart.'),
  P('Memory formation separates STORE candidates, TEMPORARY context, and HUMAN_REVIEW. Only supported, canonical fit, condition, feature, and ranking preferences can be saved after approval. Ranking uses relevance, importance, and deterministic timestamp-based recency. A correction supersedes the old active record while preserving its source, approval time, and replacement link.'),
  P('Recorded scenarios','HeadScout')]
@@ -123,21 +127,42 @@ rows=[['Scenario','Expected behavior','Observed sample result'],
  ['Rejected memory','Keep store unchanged',sample['memory_rejected']['status']],
  ['No suitable offer','Stop without action',sample['no_matching_offer']['status']]]
 table=Table([[P(escape(str(cell)),'TableScout') for cell in row] for row in rows],colWidths=[128,220,180],repeatRows=1)
-table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#efebfa')),('BOX',(0,0),(-1,-1),.6,LINE),('INNERGRID',(0,0),(-1,-1),.4,LINE),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7),('VALIGN',(0,0),(-1,-1),'MIDDLE')]))
+table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#efebfa')),('BOX',(0,0),(-1,-1),.6,LINE),('INNERGRID',(0,0),(-1,-1),.4,LINE),('TOPPADDING',(0,0),(-1,-1),3.5),('BOTTOMPADDING',(0,0),(-1,-1),3.5),('VALIGN',(0,0),(-1,-1),'MIDDLE')]))
 story.append(table)
-story.extend([Spacer(1,10),P(f'{count} local regression checks passed using the labeled sample engine and invalid-output stubs. They cover real graph pauses, strict consent, repeat-resume prevention, totals, unknown shipping, memory correction and history, temporary exceptions, duplicate handling, and scoped access. The executed notebook has seven code cells. Demo decisions are scripted mock-human inputs through actual interrupts.','SmallScout')])
+story.extend([Spacer(1,6),P(f'{count} local regression checks pass with the labeled sample engine, covering graph pauses, strict consent, money totals, unknown shipping, memory correction, temporary exceptions, scoped access, the comparison handoff, and invented offer IDs. Demo decisions are scripted mock-human inputs through real interrupts.','SmallScout')])
 if live_complete:
     metadata_path=ROOT/'evidence'/'gemini'/'run_metadata.json'
     live_model=json.loads(metadata_path.read_text()).get('model','Gemini Flash') if metadata_path.exists() else 'configured Gemini Flash model'
-    story.append(P(f'Earlier live Gemini scenarios passed on the original six-model catalog: normal confirmation, two approved records, retrieval, rejection, correction, and no matches. Preserved evidence/gemini identifies those original live states; the expanded catalog was verified with the sample engine. Model: {escape(live_model)}. Captured reruns may vary; earlier tests encountered provider quota and high-demand responses.','SmallScout'))
+    story.append(P(f'Live Gemini runs ({escape(live_model)}) passed the normal, two-memory, retrieval, rejection, correction, and no-match scenarios on the original catalog. A later live run verified the comparison handoff with all 110 search results and two applied preferences (evidence/llm-comparison). Some attempts hit provider quota or high-demand errors.','SmallScout'))
 else:
     story.append(P('Live Gemini request extraction, planning, recommendation, and memory proposals were verified, but provider quota and high-demand responses interrupted the full live scenario run. Partial states are in evidence/gemini. The sample engine’s complete results do not claim live LLM execution.','SmallScout'))
-story.extend([P('Limitations and contributions','HeadScout'),
- P('The app is a local educational prototype. Simulated user IDs and ownership checks are not production authentication. Memory is not durable, catalog data is fictional, prices exclude tax, and Gemini prose may require review. No multiple-agent coordination, shared memory, real shopping API, or checkout is included.','SmallScout'),
- P('Team 1, three equal parts. <b>Blas Moreno Laguna:</b> LangGraph workflow, Gemini nodes, routing, and approval. <b>Yasaa Usman Ahmad Khan:</b> memory policy, approval, retrieval, correction, and memory tests. <b>Mohammad Noman Hussain:</b> CSV tool, comparison, web app, diagram, and report. All shared testing and the demo. Prepared with Codex assistance.','SmallScout')])
+team=Table([[P(escape(c),'TableScout') for c in row] for row in [
+ ['Member','Part','Main responsibilities'],
+ ['Blas Moreno Laguna','Agent workflow and Gemini','LangGraph state and routing; Gemini understanding, planning, comparison, and recommendation; purchase approval'],
+ ['Yasaa Usman Ahmad Khan','Reusable memory','Memory policy and approval; user namespaces; ranking and retrieval; corrections and history; memory tests'],
+ ['Mohammad Noman Hussain','Catalog, web app, documentation','CSV catalog, search tool, and offer totals; web frontend; architecture diagram, notebook, report, and evidence']]],
+ colWidths=[112,108,308],repeatRows=1)
+team.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#efebfa')),('BOX',(0,0),(-1,-1),.6,LINE),('INNERGRID',(0,0),(-1,-1),.4,LINE),('TOPPADDING',(0,0),(-1,-1),4),('BOTTOMPADDING',(0,0),(-1,-1),4),('VALIGN',(0,0),(-1,-1),'MIDDLE')]))
+story.extend([P('Team 1 contributions','HeadScout'),team,Spacer(1,5),
+ P('All three members shared the problem definition, workflow design review, scenario testing, and the live demonstration.','SmallScout'),
+ P('Instructor discussion and next steps','HeadScout'),
+ P('We reviewed Scout with the professor. The discussion focused on three directions for Project 2: replacing the fixed CSV with live product data through real APIs, adding more tools, and supporting multiple users with their own threads. Our plan follows the Week 8 and Week 9 material on role-based agents and shared memory.','SmallScout'),
+ B('<b>Live search APIs.</b> Tavily web search for product pages and reviews, plus Rainforest API (Amazon) and BlueCart API (Walmart) for structured prices, stock, and shipping. Each result keeps its source, retailer, and timestamp so stale prices can be refreshed. The CSV stays as an offline fallback and test fixture.'),
+ B('<b>More tools.</b> A price-history tracker that stores price snapshots to spot real discounts, a zip-code tax and shipping estimator, a review summarizer limited to retrieved review text, a coupon checker, and a simulated price-drop alert. Purchases remain simulated and approval-gated.'),
+ B('<b>Collaborating agents.</b> A Planner that reads private preferences, a Researcher that calls the live APIs but cannot read private memory, and a Reviewer that checks prices and sources but cannot approve a purchase, with read and write permissions defined per role.'),
+ B('<b>Multi-user threads and persistence.</b> At least two simulated shoppers, each with a private memory namespace and several threads, plus a shared deal board that holds only validated, user-approved records. One user cannot read another user’s private data. SQLite-backed memory and checkpoints will survive a restart.'),
+ P('Limitations','HeadScout'),
+ P('Scout is a local prototype: simulated user IDs are not real authentication, memory clears on restart, the catalog is fictional, and prices exclude tax. Live APIs, multiple agents, and shared memory are Project 2 work.','SmallScout')])
+native=ROOT/'static'/'architecture'/'scout-native.png'
+with native.open('rb') as handle:
+    handle.read(16);png_w,png_h=struct.unpack('>II',handle.read(8))
+scale=min(528/png_w,560/png_h)
+story.extend([PageBreak(),P('Appendix: Architecture diagram','HeadScout'),
+ P('The native LangGraph rendering from app.get_graph(), the same image shown in the web app’s Architecture tab. Solid edges are fixed steps; dotted edges are conditional routes. Gemini runs in understand, plan_search, compare_offers, recommend, and form_memory. search_catalog is the CSV tool. retrieve_memory and save_memory read and write the user’s InMemoryStore namespace, while InMemorySaver checkpoints each thread. clarify, approve_purchase, and approve_memory pause for a human decision.','SmallScout'),
+ Spacer(1,6),Image(str(native),width=png_w*scale,height=png_h*scale)])
 
 def footer(canvas,doc):
-    canvas.setFont(FONT,8);canvas.setFillColor(MUTED);canvas.drawString(42,23,'Scout | Agentic AI Project 1');canvas.drawRightString(570,23,str(doc.page))
+    canvas.setFont(FONT,8);canvas.setFillColor(MUTED);canvas.drawString(42,23,'Scout | Agentic AI Project 1 | Team 1');canvas.drawRightString(570,23,str(doc.page))
 doc=SimpleDocTemplate(str(ROOT/'Project_1_Report.pdf'),pagesize=letter,rightMargin=42,leftMargin=42,topMargin=35,bottomMargin=36,title='Scout Shopping Assistant Project 1',author='Team 1: Blas Moreno Laguna, Yasaa Usman Ahmad Khan, Mohammad Noman Hussain')
 doc.build(story,onFirstPage=footer,onLaterPages=footer)
 print('Built Project_1_Report.pdf, architecture.svg, architecture.mmd; live complete:',live_complete)
